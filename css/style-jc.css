@@ -1,0 +1,498 @@
+@charset "UTF-8";
+/* CSS Document */
+/*MODIF: mi idea era poner aqui lo comun*/
+* {
+    -ms-content-zooming: none;
+    touch-action: none;
+}
+#main{
+    height:100vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+}
+.mainBoard{
+    padding: 5vh; 
+    height: 100vh;
+}
+
+.boardPadding{
+    padding: 2vh;
+}
+.colorMargin{
+    padding-left: 1vh;
+}
+
+html *
+{
+    font-size: 2vh;
+    line-height: 2.8vh;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;;
+}
+
+#body{
+    height: 94%;
+}
+
+#menuText{
+    position: relative;
+    color: #fff;
+    height: 75%;
+    top: 50%;
+    transform:translate(0%,-50%);
+}
+
+
+@media (max-width:1000px){
+
+    input[type="radio"]{
+        margin: 0px;
+    }
+    html *{
+        font-size: 1.4vw;
+    }
+}
+
+/*MODIF: esto es no comun, propio de las vistas asi que...*/
+#footer{
+    height:00%;
+}
+
+#userview{
+    height:90vh;
+
+}
+#predView{
+    padding-right: 1vh;
+}
+
+#searchView{
+    height:56.5%;
+    margin-left: 1vh;
+    margin-top: 1vh;
+}
+#searchFolder{
+    margin-top: 1vh;
+    height:20%;
+}
+
+#trashView{
+    height: 42%;
+    margin-left: 1vh;
+}
+.trashPadding
+{
+    padding: 2vh 4vh;
+}
+.searchPadding
+{
+    height: 90%;
+    padding: 2vh 4vh;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.searchTab
+{
+    height: 10%;
+    width: 50%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    cursor: pointer;
+    background-color: #eec558;
+}
+.searchTabDisable
+{
+    height: 90%;
+    width: 100%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    background-color: #858585;
+    border-bottom: 2px solid #f3d67b;
+    border-left: 1px solid #f3d67b;
+}
+.paddingFolder
+{
+    padding: 4vh 2vh;
+}
+.PaddingSent
+{
+    padding-top: 0.5% !important;
+    padding-bottom: 0.5% !important;
+    padding-right: 1.5% !important;
+    cursor: default;
+}
+
+.cellSearch{
+    position: relative;
+    padding: 2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    z-index: 0;
+    background-clip: content-box;
+    background-color: white; 
+}
+
+.emptyImg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.prediction{
+    height: 100%;
+    text-align: center;
+    align-self: center;
+    background-color: white;
+}
+
+.sentencePadding{
+    padding-top: 0.5vh;
+    padding-left: 5.5%; 
+    width: 90%
+}
+
+.sentenceCell{
+    margin-right: 2px;
+    width: 10%;
+    height:80%
+}
+.sentenceCellIndicator{
+    width: 10%;
+    height:100%
+}
+.speakButton{
+    height: 100%;
+    text-align: center;
+    align-self: center;
+    background-color: purple;
+}
+
+.deleteLastButton{
+    height: 100%;
+    text-align: center;
+    align-self: center;
+    background-color: blue;
+}
+
+.deleteAllButton{
+    height: 100%;
+    text-align: center;
+    align-self: center;
+    background-color: orangered;
+}
+.content-prediction{
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    align-items: center;
+}
+
+.ngdialog-content {
+    z-index: 950;
+}
+
+.ngdialog-overlay {
+    z-index: 900;
+}
+
+.ngdialog.dialogEdit .ngdialog-content{
+    width : 80vw;
+    height: 80vh;
+    margin-top: -15vh;
+    background-image: url(/img/srcWeb/Patterns1-08.png);
+    border-radius: 10px;
+    padding: 0em;
+}
+.ngdialog.dialogLogOut .ngdialog-content{
+    width : 45vw;
+    height: 25vh;
+    background-image: url(/img/srcWeb/Patterns1-08.png);
+    border-radius: 10px;
+    padding: 0em;
+}
+.ngdialog.dialogCreateBoard .ngdialog-content{
+    width : 50vw;
+    height: 35vh;
+    background-image: url(/img/srcWeb/Patterns1-08.png);
+    border-radius: 10px;
+    padding: 0em;
+}
+.ngdialog.dialogRemoveBoard .ngdialog-content{
+    width : 45vw;
+    height: 25vh;
+    background-image: url(/img/srcWeb/Patterns1-08.png);
+    border-radius: 10px;
+    padding: 0em;
+}
+.ngdialog.dialogCopyBoard .ngdialog-content{
+    width : 50vw;
+    height: 35vh;
+    background-image: url(/img/srcWeb/Patterns1-08.png);
+    border-radius: 10px;
+    padding: 0em;
+}
+.ngdialog.dialogMoveBoard .ngdialog-content{
+    width : 50vw;
+    height: 35vh;
+    background-image: url(/img/srcWeb/Patterns1-08.png);
+    border-radius: 10px;
+    padding: 0em;
+}
+.ngdialog.dialogResize .ngdialog-content{
+    width : 45vw;
+    height: 25vh;
+    background-image: url(/img/srcWeb/Patterns1-08.png);
+    border-radius: 10px;
+    padding: 0em;
+}
+.ngdialog.dialogImgSelect .ngdialog-content{
+    width : 50vw;
+    height: 40vh;
+    background-image: url(/img/srcWeb/Patterns1-08.png);
+    border-radius: 10px;
+    padding: 0em;
+}
+
+.panellPrincipalText{
+    height:50%;
+    transform: translate(0%, 25%);
+}
+
+.contentCell{
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+}
+.ngdialog-overlay{
+    background: rgba(255,255,255,0.8);
+}
+
+.returnScanContainer{
+    width: 40vh ;
+    height: 30vh;
+    z-index: 24;
+    position: absolute;
+    background: url("/img/srcWeb/Patterns1-08.png");
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 2vh;
+}
+.returnScanContent{
+    width: 100%;
+    height: 100%;
+    z-index: 24;
+    border-radius: 15px;
+    border: 7px solid #ff0000;
+    background: white;
+}
+.returnScanIcon{
+    top: 50%;
+    left: 50%;
+    position:relative;
+    transform: translate(-50%,-50%);
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+}
+.scaneo{
+    width: 100%;
+    height: 100%;
+    border: 7px solid #ff0000;
+    border-radius: 7px;
+    z-index: 24;
+    position: absolute;
+}
+.backgroundCell{
+    padding: 2px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    z-index: 0;
+    position: absolute;
+    background-clip: content-box;
+}
+.function{
+    pointer-events: none;
+    right: 0px;
+    bottom: 0px;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    z-index: 3;
+    position: absolute;
+    padding: 2px;
+}
+
+.shadow{
+    box-shadow: 3px -2px #4a4a4a;
+}
+.contentPredCell{
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: #fff;
+}
+
+.containerPredCell{
+    padding: 1vh 2vh;
+}
+.predPadding{
+    padding: 1vh 0vh;
+    height: 100%;
+    width: 100%;
+}
+
+.textCell{
+    top: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    padding-left: 4px;
+    cursor: default;
+    text-transform: uppercase
+}
+.removePicto{
+    right: 5px;
+    top: 5px;
+    max-width: 10%;
+    height: auto;
+    max-height: 10%;
+    width: auto;
+    z-index: 3;
+    position: absolute;
+    min-height: 10px;
+    min-width: 10px;
+}
+.sfolder{
+    padding:2px;
+    color:red;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+.indicatorNegativeSentence{
+    border-bottom: solid 3px;
+    border-bottom-color: black;
+}
+.indicatorTenseSentence{
+    background: #FEE8B6;
+    height: 50%;
+    border-top-right-radius: 10px;
+}
+.indicatorTipusSentence{
+    background: #FEE8B6;
+    height: 50%;
+    border-bottom-right-radius: 10px;
+}
+.backgroundHome{
+    width: 94%;
+    height: 100%;    
+    position: absolute;
+    background: url('/img/srcWeb/Menu/borrar_ultim_fons.png');
+    background-size: 100% 100%;
+    border-radius: 7px;
+}
+.backgroundLlegir{
+    width: 94%;
+    height: 100%;    
+    position: absolute;
+    background: url('/img/srcWeb/Menu/llegir_fons.png');
+    background-size: 100% 100%;
+    border-radius: 7px;
+}
+.backgroundDelete{
+    width: 94%;
+    left: 6%;
+    height: 100%;    
+    position: absolute;
+    background: url('/img/srcWeb/Menu/borrar_ultim_fons.png');
+    background-size: 100% 100%;
+    border-radius: 7px;
+}
+.backgroundDeleteAll{
+    width: 94%;
+    left: 6%;
+    height: 100%;    
+    position: absolute;
+    background: url('/img/srcWeb/Menu/borrar_fons.png');
+    background-size: 100% 100%;
+    border-radius: 7px;
+}
+.icon{
+    position: absolute;
+    max-height: 80%;
+    max-width: 80%;
+}
+.goodPhrase{
+    border-radius: 15px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: relative;
+    z-index: 2;
+}
+.scoreContainer{
+    max-height: 200px;
+    position: absolute;
+    max-width: 350px;
+    height: 30vh;
+    position: absolute;
+    width: 35vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: url("/img/srcWeb/Patterns1-08.png");
+    z-index: 4;
+    border-radius: 15px;
+    padding: 2vh;
+}
+.scoreContainerLeft{
+    height: 100%;
+    width: 48%;
+    margin-right: 2%;
+    background: white;
+    border-radius: 15px;
+    background-clip: content-box;
+    float: left;
+}
+.scoreContainerRight{
+    height: 100%;
+    width: 48%;
+    margin-left: 2%;
+    background: white;
+    border-radius: 15px;
+    background-clip: content-box;
+    float: left;
+}
+.phraseText{
+    bottom:0; 
+    position:absolute;
+}
+.searchBox{
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 5%;
+    height: 4vh;
+    margin-top: 2%;
+    border: none;
+    padding-left: 5px;
+}

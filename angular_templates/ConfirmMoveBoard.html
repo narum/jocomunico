@@ -1,0 +1,16 @@
+<div class="topBarDialog"><div class="editTitle">Crea Panells</div><div class="cruz"></div></div>
+<div class="dialogContent row" style="height: 25%">
+        <input type="text" class="col-xs-offset-2 col-xs-8 dialogText"  name="MoveBoardName" ng-model="MoveBoardData.CreateBoardName" placeholder="{{content.tipnameboard}}"/>
+</div>
+<div class="row" style="height: 25%">
+    <!--MODIF: Implementar sistema de carpetas-->
+    <select class="col-xs-offset-3 col-xs-2 dropdown-arrow"
+        ng-model="MoveBoardData.idGroupBoard"
+        ng-options="panel.GBname for panel in panels track by panel.ID_GB">
+    </select>
+</div>
+<div class="row" style="height: 25%">
+    <input class="dialogButton col-xs-offset-3 col-xs-2 dialogTitle" type="button" value="{{content.confirm}}" ng-click="confirm();"/>
+    <input class="dialogButton col-xs-offset-2 col-xs-2 dialogTitle" type="button" value="{{content.cancel}}" ng-click="closeThisDialog();"/>
+</div>
+

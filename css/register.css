@@ -1,0 +1,272 @@
+[class*="col-"]{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#header{
+    height:6vh;
+}
+
+/*Per centrar el div del boxRegistreUsuari*/
+.container-table {
+    height: 94vh;
+    display: table;
+    background: none;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/*Form properties*/
+.boxRegistreUsuari{
+    border-radius: 15px;
+    padding: 0px;
+}
+.barraSuperiorRegistre{
+    background: -moz-linear-gradient(top, rgba(46, 46, 46,0) 0%,  rgba(46, 46, 46,0.20) 20%, rgba(46, 46, 46,0.40) 40%, rgba(46, 46, 46,0.60) 60%, rgba(46, 46, 46,00) 80%, rgba(46, 46, 46,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(46, 46, 46,0)), color-stop(20%,rgba(46, 46, 46,0.20)), color-stop(40%,rgba(46, 46, 46,0.40)), color-stop(60%,rgba(46, 46, 46,0.60)), color-stop(80%,rgba(46, 46, 46,0.80)), color-stop(100%,rgba(46, 46, 46,1)));
+    background: -webkit-linear-gradient(top,  rgba(46, 46, 46,0) 0%,rgba(46, 46, 46,0.2) 20%,rgba(46, 46, 46,0.4) 40%,rgba(46, 46, 46,0.6) 60%,rgba(46, 46, 46,0.8) 80%,rgba(46, 46, 46,1) 100%);
+    background: -o-linear-gradient(top,  rgba(46, 46, 46,0) 0%,rgba(46, 46, 46,0.2) 20%,rgba(46, 46, 46,0.4) 40%,rgba(46, 46, 46,0.6) 60%,rgba(46, 46, 46,0.8) 80%,rgba(46, 46, 46,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(46, 46, 46,0) 0%,rgba(46, 46, 46,0.2) 20%,rgba(46, 46, 46,0.4) 40%,rgba(46, 46, 46,0.6) 60%,rgba(46, 46, 46,0.8) 80%,rgba(46, 46, 46,1) 100%);
+    background: linear-gradient(to bottom,  rgba(46, 46, 46,0) 0%,rgba(46, 46, 46,0.2) 20%,rgba(46, 46, 46,0.4) 40%,rgba(46, 46, 46,0.6) 60%,rgba(46, 46, 46,0.8) 80%,rgba(46, 46, 46,1) 100%);
+    background-color: #4c4c4c;
+    height: 6vh;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.nomBarraSuperiorRegistre{
+    color:white;
+    margin-top: 1vh;
+    margin-left: 1vw;
+}
+.btn-idioma {
+    color: white;
+    background-color: #333333;
+    border-color: #333333;
+    
+    height: 5vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin-top: 0.5vh;
+    border-radius: 5px;
+}
+.btn-idioma:hover{
+    background-color: black;
+    border-color: black;
+    margin-left: 1px;
+    margin-top: 0.6vh;
+}
+
+.butoSortirBarraSuperiorRegistre{
+    margin-top: 1.3vh;
+    color: white;
+}
+.butoSortirBarraSuperiorRegistre:hover{
+    text-decoration: none;
+    color:black;
+}
+.boxFormulariRegistreUsuari{
+    margin-bottom: 4vh;
+}
+.inputMarginLeft{
+    margin-left: 0.5vw;
+}
+.inputMarginRigth{
+    margin-right: 0.5vw;
+}
+
+
+/*Languages list*/
+.llistaIdiomesFormulariRegistre{
+    padding: 0px;
+    margin-top: 3vh;
+}
+.llistaIdiomesFormulariRegistre .llenguatge{
+    text-align: center;
+    padding: 0px;
+}
+.llistaIdiomesFormulariRegistre .taula{
+    font-size: 2vh;
+    margin: 0px;
+    background-color: white;
+}
+.table th, .table td { 
+     border-top: none !important;
+ }
+.llistaIdiomesFormulariRegistre .buto{
+    background-color: #444444;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    font-size: 3vh;
+    display:inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+.btn-borrar{
+    color: white;
+    cursor: pointer;
+}
+.btn-borrar:hover{
+    color: black;
+    text-decoration: none;
+}
+
+/*Triangle div and submit button*/
+.boxButo{
+    padding: 0px;
+    height: 80vh;
+    background-color: none;
+}
+.buto{
+    margin-top: 19.5vh;
+}
+.triangle{
+    padding: 0px;
+}
+.imgTriangle{
+    height: 18.9vh;
+    width: auto;
+}
+
+/*Submit button*/
+.img-rounded{
+    height: 18vh;
+    width: auto;
+    border-radius: 10px;
+    border:none;
+    margin-left: 1vh;
+    cursor: pointer;
+}
+.newUser{
+    width: 20vh;
+    font-size: 3vh;
+    text-align: center;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #3b93af;
+}
+.newUserHover{
+    color: #898989;
+}
+
+.img-inputIcon{
+    height: 4vh;
+    width: auto;
+}
+
+.resposta{
+    margin-top: 4vh;
+    border-radius: 10px;
+    
+    background: rgb(255, 255, 255); /* Fall-back for browsers that don't support rgba */
+    background: rgba(255, 255, 255, .5);
+}
+.check{
+    font-size: 8vh;
+    color: #0fb806;/*Green*/
+}
+.cross{
+    font-size: 8vh;
+    color: #ff0000;/*Red*/
+}
+.alert{
+    font-size: 8vh;
+    color: #3d05cb; /*Blue*/
+}
+.textresposta{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    padding-left: 0px;
+    padding-right: 2vw;
+    text-align: justify;
+}
+.textresposta2{
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    padding-left: 0px;
+    padding-right: 2vw;
+    text-align: justify;
+}
+
+.butoLogin{
+    padding: 0px;
+    padding-top: 4vh;
+   
+}
+.btn-login {
+    color: black;
+    background-color: #99ccdd;  /*azul turquesa*/
+    border-color: #333333;
+    
+    padding: 1vh;
+    height: 5.2vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 5px;
+}
+.btn-login:hover{
+    color: black;
+    background-color: #5eacc0; /*azul turquesa Oscuro*/
+    border-color: black;
+    margin-left: 1px;
+    margin-top: 0.6vh;
+    text-decoration:none;
+}
+
+
+#captcha input[disabled]{
+    color:black;
+    background-color: white;
+}
+.noMargin{
+    margin-top:0px !important;
+}
+.marginTopInput{
+    margin-top: 3vh;
+}
+.FonsEquacio{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #99ccdd;
+    height: 5vh;
+    margin: 0px;
+    margin-left:0.5vw;
+    padding: 0px;
+    text-align: center;
+}
+.buttonCaptcha{
+    margin: 0px;
+    height: 5vh !important;
+    font-size: 2vh;
+}
+.noPaddingNoMargin{
+    padding: 0px;
+    margin: 0px;
+}
+.inputCaptcha{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin: 0px;
+    height: 5vh;
+    width: 140%;
+    padding-left: 1.5vh;
+}
+.errorCaptcha{
+    border: 3px solid red;
+    color:red;
+}
+.successCaptcha{
+    border: 3px solid green;
+    color:green;
+}
+.genderTitle{
+    text-align: left;
+}
+.policyText{
+    font-size: 2vh;
+}
+.backgroundSolveText{
+    /*background-color: #99ccdd;*/
+}

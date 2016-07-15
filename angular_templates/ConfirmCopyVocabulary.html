@@ -1,0 +1,75 @@
+<link rel="stylesheet" type="text/css" href="css/responsiveForm.css">
+<div class="modal fade" id="ConfirmCopyVocabulary" role="dialog">
+    <div class="modal-dialog">
+        <div class="row marginModalTopOwl"><img class="img-owl pull-right" src={{img.lowSorpresaFlecha}}/></div>
+        <div class="row" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+            <div id="header" class="row">
+                <div class="col-xs-10 headerTitle">{{content.loginToCopyVocTitle}}</div>
+            </div>
+            <div class="row backgroundUserConfigBox">
+
+
+                <div class="row fonsAlert">
+                    <div class="row" ng-show="isLoged == 'false'">
+                        <div class="col-xs-12">
+                            <div class="col-xs-offset-1 col-xs-1 infoIconBox">
+                                <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.loginToCopyVocInfo);">
+                            </div>
+                            <span class="col-xs-9 text-justify">
+                                {{content.loginToCopyVocText}}
+                            </span>
+                        </div>
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="row margeSuperiorUser">
+                                <div class="form-group {{state}} has-feedback">
+                                    <div class="input-group input-group-auto">
+                                        <span class="input-group-addon"><i class="icon-user"></i></span>
+                                        <input class="form-control" type="text" name="user" placeholder="{{content.copyUserPlaceholder}}" ng-change="changeFormState()" ng-model="$parent.usernameCopyPanel" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group {{state2}} has-feedback">
+                                    <div class="input-group input-group-auto">
+                                        <span class="input-group-addon"><i class="icon-unlock-alt"></i></span>
+                                        <input class="form-control" type="password" name="pass" placeholder="{{content.copyPassPlaceholder}}" ng-model="$parent.passwordCopyPanel" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row comentariError" ng-show="state == 'has-error'">
+                                <span class="errorcoment-logincopy text-justify" ng-show="state == 'has-error'">{{content.loginIncorrect}}</span>
+                            </div>
+                            <div class="row" style="margin-top: 3vh;">
+                                <div class="col-xs-12">
+                                    <button type="reset" class="btn-gray center-block" ng-click="login();">{{content.login}}</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row" ng-show="isLoged == 'loading'">
+                        <div ng-show="!viewActivated" style="text-align: center;"><img class="img-loadingGif" ng-src='/img/srcWeb/Login/loading.gif'/></div>
+                    </div>
+                    <div class="row" ng-show="isLoged == 'true'">
+                        <div class="col-xs-12">
+                            <button type="reset" class="btn-gray center-block" ng-click="changeUser();">{{content.changeUser}}</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row dadesUsuariCentre">
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray-disabled pull-left" disabled ng-if="idUser == null">{{content.confirm}}</button>
+                        <button type="reset" class="btn-gray pull-left" data-dismiss="modal" ng-click="ConfirmCopyVocabulary();" ng-if="idUser != null">{{content.confirm}}</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-right" data-dismiss="modal" ng-click="closeThisDialog();">{{content.cancel}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row verticalMarginTop"></div>
+    </div>
+</div>

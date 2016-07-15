@@ -1,0 +1,74 @@
+<div ng-include="'/angular_templates/infoModal.html'"></div>
+
+<div class="row fullheight imgRounded" style="background-image: url({{baseurl}}img/srcWeb/patterns/pattern6.png)" ng-drop="true" ng-drop-success="onDropRemove($data,$event)">
+
+    <div class='trashPadding boxEditTrash' >       
+        <div class='col-xs-4 text-center editTrash25'>
+            <img class="fullheight" max-width="100%" height="100%" ng-src="{{baseurl}}img/srcWeb/Edit/trashnou.png"/>
+        </div>
+        <div class='col-xs-8 text-center editTrash25'> <!-- MODIF: afegir directiva focus and blur-->
+            <input type="text" class="form-control text-center editTextInput" name="NameBoard" ng-model="$parent.evt.nameboard" ng-blur="changeNameBoard(13,$parent.evt.nameboard, $parent.idboard)" ng-keyup="changeNameBoard($event.keyCode,$parent.evt.nameboard, $parent.idboard)" style="transform: translate(0%,25%);"/>
+        </div>
+        <div class='col-xs-12 editTrash4 text-center '>
+            <div class="col-xs-4 editTrashYellow rowText text-center fullheight">
+                <div style="transform: translate(0%, 25%);">{{content.rows}}</div>
+            </div>
+            <div class="col-xs-2 fullheight">
+                <select class="dropdown-arrow fullheight" style="width: 100%"
+                        ng-model="$parent.evt.altura"
+                        ng-options="h for h in range(10)"
+                        ng-change='changeSize($parent.evt.altura.valueOf(), $parent.evt.amplada.valueOf(), "0");'>
+                </select>
+            </div>
+            <div class="col-xs-4 editTrashYellow columnText text-center fullheight">
+                <div style="transform: translate(0%, 25%);">{{content.columns}}</div>
+            </div>
+            <div class="col-xs-2 fullheight">
+                <select class="dropdown-arrow fullheight" style="width: 100%;"
+                        ng-model="$parent.evt.amplada"
+                        ng-options="w for w in range(10)"
+                        ng-change='changeSize($parent.evt.altura.valueOf(), $parent.evt.amplada.valueOf(), "1");'>
+                </select>
+            </div>
+        </div>
+        <div class='col-xs-12 editTrash4' >
+            <div class='col-xs-6 editTrashYellow text-center fullheight'>
+                <div style="transform: translate(0%, 25%);">{{content.mainpanel}}</div>
+            </div>
+            <div class='col-xs-6 text-center fullheight'>
+                <select class="dropdown-arrow fullheight" style="width: 100%;" 
+                        ng-model="primaryBoard"
+                        ng-options="b.Bname for b in allBoards track by b.ID_Board"
+                        ng-change="changePrimaryBoard(primaryBoard.valueOf())">
+                </select>
+            </div>
+        </div>
+        <div class='col-xs-12'>
+            <!-- cuando pongamos laimagen darle 5px de marging left-->
+            <div class="col-xs-1 infoIconBox">
+                <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.autoReturnInfo);">
+            </div>
+            <div class="col-xs-6 textTrash textNoOverflow">
+                <div class="textNoOverflow" style="transform: translate(0%, 25%);">{{content.automaticreturn}}</div>
+            </div>
+            <div class="col-xs-offset-1 col-xs-1">
+                <input id="switch1" class="switch" type="checkbox" 
+                       ng-model="$parent.evt.autoreturn" ng-show="false" ng-click="changeAutoReturn()">
+                <label for="switch1">&nbsp;</label>
+            </div>
+        </div>
+        <div class='col-xs-12'>
+            <div class="col-xs-1 infoIconBox">
+                <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.readSentenceInfo);" >
+            </div>
+            <div class="col-xs-6 textTrash">
+                <div class="textNoOverflow" style="transform: translate(0%, 25%);">{{content.automaticread}}</div>
+            </div>
+            <div class="col-xs-offset-1 col-xs-1">
+                <input id="switch2" class="switch" type="checkbox"
+                       ng-model="$parent.evt.autoread" ng-show="false" ng-click="changeAutoReadSentence()">
+                <label for="switch2">&nbsp;</label>
+            </div>
+        </div>
+    </div>
+</div>

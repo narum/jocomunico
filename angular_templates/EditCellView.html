@@ -1,0 +1,248 @@
+<div class="topBar">
+    <div class="editTitle">
+        <div class="col-xs-1">
+                <input type="image" class="img-icon" ng-src="img/icons/info-blanc.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.editCellInfo);">
+            </div>
+        <span class="col-xs-11 ellipsis" style="font-size: 2.5vh;"> {{content.editCellTitle}} </span>
+    </div>
+    <div class="cruz" ng-click="closeDialog()">X</div>
+</div>
+<div class="row fullheight dialogContent">
+    <div class="col-xs-6 fullheight">
+        <div class="row">
+            <div class="col-xs-12 title2"> 
+                <div class="col-xs-1 infoIconBox-editcell">
+                    <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.typeEditCellInfo);">
+                </div>
+                <div class="col-xs-10 titleTextTypus"> 
+                    {{content.type}}
+                </div>
+                <div class="col-xs-12 ">  
+                    <form name="cellType">
+                        <div class="col-xs-offset-2 col-xs-5 text-left">
+                            <input type="radio" ng-model="cellType" ng-click="changeCellType()" value="picto"/>
+                            {{content.pictogram}}
+                        </div>
+                        <div class="col-xs-5 text-left">
+                            <input type="radio" ng-model="cellType" ng-click="changeCellType()" value="sentence"/>
+                            {{content.sentence}}
+                        </div>
+                        <div class="col-xs-offset-2 col-xs-5 text-left">
+                            <input type="radio" ng-model="cellType" ng-click="changeCellType()" value="sfolder"/>
+                            {{content.sfolder}}
+                        </div>
+                        <div class="col-xs-5 text-left">
+                            <input type="radio" ng-model="cellType" ng-click="changeCellType()" value="other"/>
+                            {{content.other}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div ng-if="cellType === 'picto'" class="col-xs-12 content3 contentNull"></div>
+            <div ng-if="cellType === 'sentence'" class="col-xs-12 content3">
+                <div class="col-xs-6 fullheight">
+                    <input class="boxEdit" type="text" ng-model="sentenceModel" ng-keyup="searchSentece(sentenceModel);" placeholder="{{content.placeholderSearch}}" /><br>
+                    <div class="col-xs-12 text-center" style="height: 20%">{{sentenceSelectedText.sPreRecText}}</div>
+                    <div class="col-xs-12" style="height: 50%">
+                        <div ng-if="sentenceSelectedText" class="col-xs-12 backgroundFolderBlue imgResponsive" style="padding-left: 5%">
+                            <img class="imgResponsive" width="100%" height="100%" ng-src="{{sentenceSelectedText.sPreRecImg1}}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 fullheight" id="">
+                    <div class="col-xs-5 folderContent" ng-repeat="s in sentenceResult" ng-click="selectSentence(s.ID_SSentence, s)">
+                        <div class="col-xs-12 text-center" style="height: 25%">{{s.sPreRecText}}</div>
+                        <div class="col-xs-12 backgroundFolderWhite">
+                            <img class="imgResponsive" ng-src="{{s.sPreRecImg1}}"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div ng-if="cellType === 'sfolder'" class="col-xs-12 content3">
+                <div class="col-xs-6 fullheight">
+                    <input class="boxEdit" type="text" ng-model="sFolderModel" ng-keyup="searchSFolder(sFolderModel);" placeholder="{{content.placeholderSearch}}" /><br>
+                    <div class="col-xs-12 text-center" style="height: 20%">{{sFolderSelectedText}}</div>
+                    <div class="col-xs-12" style="height: 50%">
+                        <div ng-if="sFolderSelectedImg"  class="col-xs-12 backgroundFolderBlue imgResponsive">
+                            <img  class="imgResponsive" width="100%" height="100%" ng-src="{{sFolderSelectedImg}}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 fullheight">
+                    <div class="col-xs-5 folderContent" ng-repeat="s in sFolderResult| limitTo: 2" ng-click="selectSFolder(s.ID_Folder, s.imgSFolder, s.folderName)">
+                        <div class="col-xs-12 text-center" style="height: 25%">{{s.folderName}}</div>
+                        <div class="col-xs-12 backgroundFolderWhite">
+                            <img class="imgResponsive" ng-src="{{s.imgSFolder}}"/>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div ng-if="cellType === 'other'" class="col-xs-12 content3 contentNull"></div>
+            <div ng-if="cellType === null" class="col-xs-12 content3 contentNull"></div>
+            <div class="col-xs-12 marginTop"></div>
+            <div class="col-xs-12 title1">
+                <div class="col-xs-1 infoIconBox-editcell">
+                    <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.functionEditCellInfo);">
+                </div>
+                <div class="col-xs-6 titleText">
+                    {{content.function}}
+                </div>
+                <div ng-hide="cellType == 'sentence' || cellType == 'sfolder'" class="col-xs-offset-2 col-xs-1 buttonTitle">
+                    <input id="switch5" class="switch" type="checkbox"
+                           ng-model="checkboxFuncType" ng-show="false"/>
+                    <label for="switch5">&nbsp;</label>
+                </div>
+            </div>
+            <div class="col-xs-12 content1">
+                <select class="boxEdit dropdown-arrow"
+                        ng-disabled="!checkboxFuncType"
+                        ng-model="funcType"
+                        ng-options="f.name for f in functions track by f.ID_Function"
+                        ng-value="f.ID_Function">
+                </select>
+            </div>
+            <div class="col-xs-12 marginTop"></div>
+            <div class="col-xs-12 title1">
+                <div class="col-xs-1 infoIconBox-editcell">
+                    <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.linkEditCellInfo);">
+                </div>
+                <div class="col-xs-6 titleText">
+                    {{content.link}}
+                </div>
+                <div ng-hide="cellType == 'sentence' || cellType == 'sfolder'" class="col-xs-offset-2 col-xs-1 buttonTitle">
+                    <input id="switch6" class="switch" type="checkbox"
+                           ng-model="checkboxBoardsGroup"ng-show="false"/>
+                    <label for="switch6">&nbsp;</label>
+                </div>
+            </div>
+            <div class="col-xs-12 content1">
+                <select class="boxEdit dropdown-arrow"
+                        ng-disabled="!checkboxBoardsGroup"
+                        ng-model="boardsGroup"
+                        ng-options="b.Bname for b in boards track by b.ID_Board"
+                        ng-value="b.ID_Boardb">
+                </select>
+            </div>
+            <div class="col-xs-12 marginTop"></div>
+            <div class="col-xs-12 title1">
+                <div class="col-xs-1 infoIconBox-editcell">
+                    <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.textEditCellInfo);">
+                </div>
+                <div class="col-xs-6 titleText">
+                    {{content.text}}
+                </div>
+                <div class="col-xs-offset-2 col-xs-1 buttonTitle">
+                    <input id="switch3" class="switch" type="checkbox"
+                           ng-model="checkboxTextInCell" ng-show="false"/>
+                    <label for="switch3">&nbsp;</label>
+                </div>
+            </div>
+            <div class="col-xs-12 content1" ng-click="checkboxTextInCell = true;">
+                <input id="textInCell" class="boxEdit" type="text" ng-model="textInCell"  ng-disabled="!checkboxTextInCell"placeholder="{{textInCell == null ? Editinfo.pictotext : null}}"/>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-6 fullheight paddingEditcell">
+        <div class="col-xs-12 title1">
+            <div class="col-xs-6 titleText">
+                {{content.borderColor}}
+            </div>
+            <div class="col-xs-3 col-xs-offset-3 colorTitle">
+                <select class="boxEdit dropdown-arrow color" style="background-color: #{{colorSelected}};" ng-model="colorSelected">
+                    <option ng-repeat="color in colors"
+                            style="background-color: #{{color.tagString}}"
+                            ng-value="color.tagString">{{color.content}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 marginTop"></div>
+        <div class="col-xs-12 title1">
+            <div class="col-xs-1 infoIconBox-editcell">
+                <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.visibilityEditCellInfo);">
+            </div>
+            <div class="col-xs-6 titleText">
+                {{content.visible}}
+            </div>
+            <div class="col-xs-offset-2 col-xs-1 buttonTitle">
+                <input id="switch4" class="switch" type="checkbox"
+                       ng-model="checkboxVisible"ng-show="false"/>
+                <label for="switch4">&nbsp;</label>
+            </div>
+        </div>
+        <div class="col-xs-12 marginTop"></div>
+        <div class="col-xs-12 title1">
+            <div class="col-xs-1 infoIconBox-editcell">
+                <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.systemScanInfo);">
+            </div>
+            <div class="col-xs-10 titleText">
+                {{content.systemScan}}
+            </div>
+        </div>
+        <div class="col-xs-12 content1-5">
+            <div class="col-xs-offset-1 col-xs-11 scanText">
+                {{content.systemScanLevel1}}
+            </div>  
+            <div class="col-xs-offset-1 col-xs-2 scanCentered">
+                <input id="switch7" class="switch" type="checkbox"
+                       ng-model="checkboxScanBlockText1"ng-show="false"/>
+                <label for="switch7">&nbsp;</label>
+            </div>
+            <div class="col-xs-3 scanCentered">
+                <select class="boxEdit dropdown-arrow"
+                        ng-disabled="!checkboxScanBlockText1"
+                        ng-model="numScanBlockText1"
+                        ng-options="n for n in range(8)"
+                        >
+                </select>
+            </div>
+            <div class="col-xs-6 scanCentered">
+                <input class="boxEdit" type="text" ng-model="textInScanBlockText1" ng-disabled="!checkboxScanBlockText1" placeholder="{{content.systemScanLevel1Placeh}}"/>
+            </div>
+        </div>
+        <div class="col-xs-12 content1-5">
+            <div class="col-xs-offset-1 col-xs-11 scanText2">
+                {{content.systemScanLevel2}}
+            </div>
+            <div class="col-xs-offset-1 col-xs-2 scanCentered">
+                <input id="switch8" class="switch" type="checkbox"
+                       ng-model="checkboxScanBlockText2"ng-show="false"/>
+                <label for="switch8">&nbsp;</label>
+            </div>
+            <div class="col-xs-3 scanCentered">
+                <select class="boxEdit dropdown-arrow"
+                        ng-disabled="!checkboxScanBlockText2"
+                        ng-model="numScanBlockText2"
+                        ng-options="n for n in range(5)"
+                        >
+                </select>
+            </div>
+            <div class="col-xs-6 scanCentered">
+                <input class="boxEdit" type="text" ng-model="textInScanBlockText2" ng-disabled="!checkboxScanBlockText2" placeholder="{{content.systemScanLevel2Placeh}}"/>
+            </div>
+        </div>
+        <div class="col-xs-12 marginTop"></div>
+        <div class="col-xs-12 content4" >
+            <div class="col-xs-9 fullheight" >
+                <div class="backgroundImgEdit"></div>
+                <div class="borderImgEdit"></div>
+                <img ng-if="uploadedFile !== null" class="imgRounded imgEdit" width="100%" height="100%" ng-src="{{baseurl}}{{uploadedFile}}"/>
+                <img ng-if="uploadedFile == null && imgPictoEdit !== null" class="imgRounded imgEdit" width="100%" height="100%" ng-src="{{baseurl}}img/pictos/{{imgPictoEdit}}"/>
+                <img ng-if="uploadedFile === null && imgPictoEdit === null && imgFunct !== null" class="imgRounded imgEdit" width="100%" height="100%" ng-src="{{baseurl}}img{{imgFunct}}"/> 
+                <img class="imgRounded buttonRemovePhoto" width="100%" height="100%" ng-src="{{baseurl}}img/icons/remove_photo.png" ng-click="removeFile()"/>
+                <img class="imgRounded buttonInfoPhoto" width="100%" height="100%" ng-src="/img/icons/info-bg-white.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.eraseImageEditCellInfo);"/>
+
+            </div>
+            <div class="col-xs-3 saveEdit" >
+                <div class="imgRounded btn-save" ng-click="savedata()">
+                    <img src="img/srcWeb/save_as_gris.png" class="img-save" />
+                    <span class="text-save">{{content.save}}</span>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+

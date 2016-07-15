@@ -1,0 +1,270 @@
+<link rel="stylesheet" type="text/css" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="css/responsiveForm.css">
+<style>html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;
+    -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+</style>
+<!--menu superior dropdown-->
+<div ng-include="'/angular_templates/dropdownMenuBar.html'" ng-show="viewActived"></div>
+
+<div class="loadingGif" ng-show="!viewActived"><img class="img-loadingGif" ng-src={{img.loading}}/></div>
+<div class="container container-table" ng-show="viewActived">
+    <div class="row vertical-center-row">
+        <form class="form form-horizontal" name="registerForm">
+            <div class="col-xs-8 col-xs-offset-2 boxRegistreUsuari" style="background-image: url({{img.Patterns1_08}})">
+                <div class="row barraSuperiorRegistre">
+                    <div class="col-xs-6"><p class="nomBarraSuperiorRegistre">{{ content.title }}</p></div>
+                    <div class="col-xs-6">
+                         <a class="icon-remove-sign pull-right butoSortirBarraSuperiorRegistre" ng-href="#/login" ng-click="resetForm()"></a>
+                    </div>
+                </div>
+                <div class="row boxFormulariRegistreUsuari">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group {{state.user}} has-feedback">
+                                    <div class="input-group input-group-auto">
+                                        <span class="input-group-addon"><i class="icon-user"></i></span>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="{{ content.user }}"
+                                            name="user"
+                                            required="string"
+                                            ng-model="formData.SUname"
+                                            ng-change="checkUser(formData)"
+                                            ng-class="{
+                                                    error: state.user =='has-error',
+                                                    warning: state.user =='has-warning',
+                                                    success: state.user =='has-success'}">
+                                    </div>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show=" state.user =='has-error'"></span>
+                                    <span class="glyphicon glyphicon-alert form-control-feedback" ng-show=" state.user =='has-warning'"></span>
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="state.user =='has-success'"></span>
+                                    <span class="errorcoment" ng-show="state.user=='has-error'">{{ content.alreadyNameExist }}</span>
+                                    <span class="warningcoment" ng-show="state.user=='has-warning'">{{ content.minLength }}</span>
+                                    <span class="errorcoment"
+                                          ng-show="registerForm.user.$touched && registerForm.user.$pristine && (state.user == '')">{{ content.required }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group {{state.password}} has-feedback">
+                                    <div class="input-group input-group-auto">
+                                        <span class="input-group-addon"><i class="icon-unlock-alt"></i></span>
+                                        <input
+                                            type="password"
+                                            class="form-control"
+                                            placeholder="{{ content.pass }}"
+                                            name="password"
+                                            required="string"
+                                            ng-model="formData.pswd"
+                                            ng-change="checkPassword(formData)"
+                                            ng-class="{
+                                                    error: state.password =='has-error',
+                                                    warning: state.password =='has-warning',
+                                                    success: state.password =='has-success'}">
+                                    </div>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show=" state.password =='has-error'"></span>
+                                    <span class="glyphicon glyphicon-alert form-control-feedback" ng-show=" state.password =='has-warning'"></span>
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="state.password =='has-success'"></span>
+                                    <span class="warningcoment" ng-show="state.password=='has-warning'">{{ content.minLength }}</span>
+                                    <span class="errorcoment"
+                                          ng-show="registerForm.password.$touched && registerForm.password.$pristine && (state.password == '')">{{ content.required }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group {{state.confirmPassword}} has-feedback">
+                                    <div class="input-group input-group-auto">
+                                        <span class="input-group-addon"><i class="icon-lock"></i></span>
+                                        <input
+                                            type="password"
+                                            class="form-control"
+                                            placeholder="{{ content.pass2 }}"
+                                            name="confirmPassword"
+                                            required="string"
+                                            ng-model="formData.confirmPassword"
+                                            ng-change="checkPassword(formData)"
+                                            ng-disabled="state.password != 'has-success'"
+                                            ng-class="{
+                                                    error: state.confirmPassword =='has-error',
+                                                    warning: state.confirmPassword =='has-warning',
+                                                    success: state.confirmPassword =='has-success'}">
+                                    </div>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show=" state.confirmPassword =='has-error'"></span>
+                                    <span class="glyphicon glyphicon-alert form-control-feedback" ng-show=" state.confirmPassword =='has-warning'"></span>
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="state.confirmPassword =='has-success'"></span>
+                                    <span class="warningcoment" ng-show="state.confirmPassword=='has-warning'">{{ content.passDontMatch }}</span>
+                                    <span class="errorcoment"
+                                          ng-show="registerForm.confirmPassword.$touched && registerForm.confirmPassword.$pristine && (state.confirmPassword == '')">{{ content.required }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group {{state.name}} has-feedback">
+                                    <div class="input-group input-group-auto inputMarginRigth">
+                                        <span class="input-group-addon"><i class="icon-tags"></i></span>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="{{ content.name }}"
+                                            name="name"
+                                            required="string"
+                                            ng-model="formData.realname"
+                                            ng-change="checkName(formData)"
+                                            ng-class="{
+                                                error: state.name =='has-error',
+                                                success: state.name =='has-success'}">
+                                    </div>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show=" state.name =='has-error'"></span>
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="state.name =='has-success'"></span>
+                                    <span class="errorcoment"
+                                          ng-show="registerForm.name.$touched && registerForm.name.$pristine || (state.name=='has-error')">{{ content.required }}</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group {{state.lastname}} has-feedback">
+                                    <div class="input-group input-group-auto inputMarginLeft">
+                                        <span class="input-group-addon"><i class="icon-tags"></i></span>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="{{ content.lastname }}"
+                                            name="lastname"
+                                            required="string"
+                                            ng-model="formData.surnames"
+                                            ng-change="checkLastname(formData)"
+                                            ng-class="{
+                                                error: state.lastname =='has-error',
+                                                success: state.lastname =='has-success'}">
+                                    </div>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show=" state.lastname =='has-error'"></span>
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="state.lastname =='has-success'"></span>
+                                    <span class="errorcoment"
+                                          ng-show="registerForm.lastname.$touched && registerForm.lastname.$pristine || (state.lastname=='has-error')"> &nbsp;&nbsp;{{ content.required }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group {{state.email}} has-feedback">
+                                    <div class="input-group input-group-auto">
+                                        <span class="input-group-addon"><i class="icon-envelope"></i></span>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            placeholder="{{ content.mail }}"
+                                            name="email"
+                                            required="string"
+                                            ng-model="formData.email"
+                                            ng-change="checkEmail(formData)"
+                                            ng-class="{
+                                                error: state.email =='has-error',
+                                                warning: state.email =='has-warning',
+                                                success: state.email =='has-success'}">
+                                    </div>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show=" state.email =='has-error'"></span>
+                                    <span class="glyphicon glyphicon-alert form-control-feedback" ng-show=" state.email =='has-warning'"></span>
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="state.email =='has-success'"></span>
+                                    <span class="errorcoment" ng-show="state.email =='has-error'">{{ content.alreadyMailExist }}</span>
+                                    <span class="warningcoment" ng-show="state.email =='has-warning'">{{ content.incorrectFormat }}</span>
+                                    <span class="errorcoment"
+                                          ng-show="registerForm.email.$touched && registerForm.email.$pristine && (state.email == undefined)">{{ content.required }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group {{state.female}} has-feedback">
+                                    <div class="input-group input-group-auto inputMarginRigth">
+                                        <span class="input-group-addon"><image class="img img-inputIcon" alt="Responsive image" ng-src={{img.yo_3}}></span>
+                                        <input type="button" class="form-control genderTitle" value="{{ content.sexFemale }}" ng-click="gender('female')">
+                                    </div>
+                                    <span class="errorcoment" ng-show="state.female =='has-error'">{{ content.required }}</span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group {{state.male}} has-feedback">
+                                    <div class="input-group input-group-auto inputMarginLeft">
+                                        <span class="input-group-addon"><image class="img img-inputIcon" alt="Responsive image" ng-src={{img.yo_1}}></span>
+                                        <input type="button" class="form-control genderTitle" value="{{ content.sexMale }}" ng-click="gender('male')">
+                                    </div>
+                                    <span class="errorcoment" ng-show="state.male =='has-error'"> &nbsp;&nbsp;{{ content.required }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" ng-init="singleLanguageSelected=false;">
+                            <div class="col-xs-6">
+                                <div class="form-group {{state.languageSelected}} has-feedback">
+                                    <div class="input-group input-group-auto inputMarginRigth">
+                                        <span class="input-group-addon"><i class="icon-comments"></i></span>
+                                        <select
+                                            class="form-control"
+                                            name="languageSelected"
+                                            ng-model="formData.languageSelected"
+                                            ng-change="addLanguage(formData.languageSelected)"
+                                            ng-disabled="singleLanguageSelected"
+                                            >
+                                            <option selected="selected" disabled="disabled" value="">{{ content.language }}</option>
+                                            <option ng-repeat="option in availableLanguageOptions" value="{{option.ID_Language}}">{{option.languageName}}</option>
+                                        </select>
+                                    </div>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show=" state.languageSelected =='has-error'"></span>
+                                    <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="state.languageSelected =='has-success'"></span>
+                                    <span class="errorcoment" ng-show="state.languageSelected =='has-error'">{{ content.required }}</span>
+                                    <span class="errorcoment"
+                                          ng-show="registerForm.languageSelected.$touched && registerForm.languageSelected.$pristine && state.languageSelected ==''">{{ content.required }}</span>  
+                                </div>
+                            </div>
+                            <div class="col-xs-6 llistaIdiomesFormulariRegistre">
+                                <div class="inputMarginLeft">
+                                    <table class="table table-condensed taula">
+                                            <tr ng-repeat="item in languageList">
+                                                <td class="llenguatge" >{{ item.languageName }}</td>
+                                                <td class="buto"><a class="icon-minus btn-borrar" ng-click="removeLanguage($index)"></a></td>
+                                            </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row marginTopInput" id="captcha">
+                            <div class="col-xs-6">
+                                <div class="form-group has-feedback noMargin backgroundSolveText">{{content.solve}}
+<!--                                    <div class="input-group input-group-auto inputMarginRigth">
+                                        <span class="input-group-addon"><i class="icon-question-sign"></i></span>
+                                        <input class="form-control" value="{{content.solve}}" ng-disabled='true'>
+                                    </div>-->
+                                </div>
+                            </div>
+                            
+                            <div class="col-xs-3 FonsEquacio">
+                                <button type="button" ng-disabled="false" ng-click="checkCaptcha()" class="icon-refresh buttonCaptcha pull-right"/>
+                                    <captcha field1="{{field1}}" operator="{{operator}}" field2="{{field2}}"></captcha>
+                            </div>
+                            <div class="col-xs-2 noPaddingNoMargin">
+                                    <input class="inputCaptcha" ng-model="resultado" ng-change="captchaState=''" ng-class="{errorCaptcha: captchaState=='has-error', successCaptcha: captchaState=='has-success'}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2 boxButo">
+                <div class="buto">
+                    <div class="col-xs-2 triangle">
+                        <image class="imgTriangle" alt="Responsive image" ng-src={{img.fletxaLogin2}}/>
+                    </div>
+                    <div class="col-xs-10">
+                        <div id="divID" ng-init="imgsrc=img.BotoCrea" ng-mouseover="imgsrc=img.BotoCrea2" ng-mouseout="imgsrc=img.BotoCrea">
+                            <input type="image" class="img img-rounded" alt="Responsive image" ng-src="{{imgsrc}}" ng-click="submitForm(formData)">
+                            <br/><div class="newUser" ng-class="{newUserHover: imgsrc==img.BotoCrea2}">{{content.registerButton}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="row"><div class="col-xs-8 col-xs-offset-2 policyText" ng-show="viewActived">{{content.privacyPolicyInfo}}</div></div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="modal fade" id="ConfirmRemoveBoard" role="dialog">
+    <div class="modal-dialog">
+        <div class="row marginModalTopOwl"><img class="img-owl pull-right" src={{img.lowSorpresaFlecha}}/></div>
+        <div class="row" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+            <div id="header" class="row">
+                <div class="col-xs-10 headerTitle-confirms">{{content.rmboardtitle}}</div>
+            </div>
+            <div class="row backgroundUserConfigBox">
+                <div class="row fonsAlert-confirms">
+                    <div class="col-xs-offset-2 col-xs-8 text-justify">
+                        <span class="col-xs-6">{{content.rmboardtext}}</span> 
+                        <span class="col-xs-6" style="font-size: 3vh; font-weight: bold;">{{RemoveBoardData.BoardName}}</span> <br />
+                        {{content.rmboardcontinue}} <br /><br />
+                        <span style="font-size: 1.7vh; font-weight: bold;">*{{content.rmprimaryboard}}</span>
+                    </div>
+                </div>
+                <div class="row dadesUsuariCentre">
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-left" data-dismiss="modal" ng-click="ConfirmRemoveBoard();">{{content.confirm}}</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-right" data-dismiss="modal" ng-click="closeThisDialog();">{{content.cancel}}</button>
+                    </div>
+                </div>
+            </div>
+        <div class="row verticalMarginTop"></div>
+        </div>
+    </div>
+</div>

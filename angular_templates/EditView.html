@@ -1,0 +1,122 @@
+<div class="row">
+    <div class="col-xs-12 searchTab" ng-click="changeEditSearch('picto');">
+        <div class="tabstext">
+            <div class="col-xs-4 infoIconBox-small">
+                <input type="image" class="img-icon-small" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.tabPictogramsInfo);">
+            </div>
+            <span class="col-xs-8 ellipsis"> {{content.tabpictograms}} </span>
+        </div>
+        <div class="searchTabDisable" ng-if="typeSearh == 'img'">
+        </div>
+    </div>
+    <div class="col-xs-12 searchTab" ng-click="changeEditSearch('img');">
+        <div class="tabstext">
+            <div class="col-xs-4 infoIconBox-small">
+                <input type="image" class="img-icon-small" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.tabImagesInfo);">
+            </div>
+            <span class="col-xs-8 ellipsis"> {{content.tabimages}} </span>
+        </div>
+        <div class="searchTabDisable" ng-if="typeSearh == 'picto'">
+        </div>
+    </div>
+</div>
+<div class="row searchPadding" style="background-image:url({{baseurl}}img/srcWeb/patterns/pattern4.png);">
+    <div ng-show="typeSearh == 'picto'" ng-init="search('', 'Tots')">
+        <div class="col-xs-12 content1nocolor">
+            <input type="text" class="searchBox" ng-model="pictoEditSearch" ng-keyup="search(pictoEditSearch, SearchType);" placeholder="{{content.tabPictogramsPlaceholder}}"/><br>
+        </div>
+        <div class="text-center col-xs-12" style="height: 20%">
+            <form role="form" class="text-center col-xs-12" name="SearchForm" style="height: 50%">
+                <div class="col-xs-4 text-left">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="SearchType" ng-click="search(pictoEditSearch, SearchType);" value="Tots"/>
+                        {{content.all}}
+                    </label>    
+                </div>
+                <div class="col-xs-4 text-left">
+                    <label class="radio-inline"><input type="radio" ng-model="SearchType" ng-click="search(pictoEditSearch, SearchType);" value="Noms"/>
+                        {{content.names}}
+                    </label>
+                </div>
+                <div class="col-xs-4 text-right">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="SearchType" ng-click="search(pictoEditSearch, SearchType);" value="Adj" />
+                        {{content.adj}}
+                    </label>
+                </div>
+                <div class="col-xs-4 text-left">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="SearchType" ng-click="search(pictoEditSearch, SearchType);" value="Verb"/>
+                        {{content.verbs}}
+                    </label>
+                </div>
+                <div class="col-xs-4 text-left">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="SearchType" ng-click="search(pictoEditSearch, SearchType);" value="Exp"/>
+                        {{content.expressions}}
+                    </label>
+                </div>
+                <div class="col-xs-4 text-right">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="SearchType" ng-click="search(pictoEditSearch, SearchType);" value="Altres"/>
+                        {{content.others}}
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12" style="height: 63%">
+            <div class="row fullheight">
+
+                <div bind-html-compile="dataword" class='col-xs-4' ng-repeat="picto in dataWord| limitTo: 6" style="height: 50%; margin-left: 0 !important">
+                    <div class="cellSearch imgRounded"  ng-if="true" ng-drag="!fv.painting" ng-drag-data="{idpicto:'{{picto.id}}'}" data-allow-transform="true">
+                        <div ng-if="cfgTextInCell && picto.text !== null" class="textCell">{{picto.text}}</div>
+                        <div ng-style="cfgTextInCell ? {'height': '70%'} : {'height': '100%'}">
+                            <img class="imgRounded imgResponsive" ng-src="{{baseurl}}img/pictos/{{picto.imgPicto}}"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="typeSearh == 'img' && !uploading" ng-init="searchImg('', 'Arasaac')">
+        <div class="col-xs-10 content1nocolor">
+            <input type="text" class="searchBox" ng-model="imgEditSearch" ng-keyup="searchImg(imgEditSearch, typeImgEditSearch);" placeholder="{{content.tabImagesPlaceholder1}}"/><br>
+        </div>
+        <div class="col-xs-2 buttonsSearchView">
+            <label for="file-input" class="fullheight fullwidth">
+                <img class="imgRounded buttonAddPhoto" ng-src="{{baseurl}}img/icons/add_photo.png"/>
+            </label>
+            <input type="file" multiple id="file-input" onchange="angular.element(this).scope().uploadFile()"/>
+        </div>
+        <div class="text-center col-xs-12" style="height: 20%">
+            <form role="form" class="text-center col-xs-12" name="SearchImgForm" style="height: 50%">
+                <div class="col-xs-12 text-left">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="typeImgEditSearch" ng-click="searchImg(imgEditSearch, typeImgEditSearch);" value="Arasaac"/>
+                        {{content.Arasaac}}
+                    </label>    
+                </div>
+                <div class="col-xs-12 text-left">
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="typeImgEditSearch" ng-click="searchImg(imgEditSearch, typeImgEditSearch);" value="Uploads"/>
+                        {{content.uploads}}
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-12 imgSearchView">
+            <div class='col-xs-4' ng-repeat="img in imgData| limitTo: 6" style="height: 50%; margin-left: 0 !important">
+                <div class="cellSearch imgRounded" ng-drag="!fv.painting" ng-drag-data="{imgPath:'{{img.imgPath}}'}" data-allow-transform="true">
+                    <div class="textCell">{{img.imgName}}</div>
+                    <div class="imgSearchCell">
+                            <img class="imgRounded imgResponsive" ng-src="{{baseurl}}{{img.imgPath}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div ng-show="typeSearh == 'img' && uploading" class="searchPadding">
+        <img class="searchPadding" src="/img/srcWeb/Login/loading.gif" width="100%" height="100%"/>
+    </div>
+</div>

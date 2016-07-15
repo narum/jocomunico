@@ -1,0 +1,68 @@
+<div ng-if='inScan && isScanning == "sentence" && isScanningCancel === false' class="col-xs-12 scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+<div ng-if="cfgMenuHomeActive == 1" class="col-xs-1 fullheight"  ng-mousedown="isClickEnable() ? goPrimaryBoard() : null" ng-mouseenter="cfgTimeOverOnOff?TimeoutOverClick(2,'home'):null" ng-mouseleave="cfgTimeOverOnOff ? CancelTimeoutOverClick() : null">
+    <div ng-if='inScan && isScanning == "home" && isScanningCancel === false' class="scaneo" style="margin: 0px;" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+    <div class="backgroundHome">
+        <img class="imgResponsive icon " ng-src="{{baseurl}}img/srcWeb/Menu/inici_icon.png"/>
+    </div>
+
+</div>
+<div ng-if="cfgMenuReadActive == 1" class="col-xs-1 fullheight"  ng-mousedown="isClickEnable() ? generate() : null" ng-mouseenter="cfgTimeOverOnOff?TimeoutOverClick(2,'generate'):null" ng-mouseleave="cfgTimeOverOnOff ? CancelTimeoutOverClick() : null">
+    <div ng-if='inScan && isScanning == "read" && isScanningCancel === false' class="scaneo" style="margin: 0px;" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+    <div class="backgroundLlegir">
+        <img class="imgResponsive icon " ng-src="{{baseurl}}img/srcWeb/Menu/llegir_icon.png"/>
+    </div>
+</div>
+<!-- I know there is a lot of condition here. I will try to explain. The picto text have to be displayed only if there is no error or no phrase the sentencecell have to contain the img an the picto text, so we have to expand the it. If there is one of both (error or frase) the sentencecell is shorter (but not the img picto, the picto text is removed) and the error or phrase will be displayed in the same space where the imgpicto was.-->
+<div class="col-xs-{{pictoBarWidth}} prediction imgRounded PaddingSent" style="background-image: url({{baseurl}}img/srcWeb/patterns/pattern0.png)" id="idSentenceBar">
+    <div class="col-xs-12 imgRounded" style="background-image:url({{baseurl}}img/srcWeb/Menu/sentenceFieldLong.png); background-size: 100% 100%;">
+        <div class="sentencePadding col-xs-10 fullheight" >
+            <!--If there is no error or frase to show, under picto will be displayed the picto text so we have to adapt the content height to keep the img with the same height-->
+            <div class="col-xs-1 sentenceCell" ng-repeat="picto in dataTemp | limitTo:9" ng-style="!info.error && !info.frasefinal  ? {'height': '100%'} : {'height': '80%'}">
+                <div class="col-xs-12 fullheight" ng-class="{'col-xs-9' : picto.plural || picto.fem}" ng-style="!info.error && !info.frasefinal  ? {'height': '80%'} : {'height': '100%'}">
+                    <img ng-if="picto.imgtemp != null && picto.imgtemp != ''" ng-src="{{baseurl}}{{picto.imgtemp}}" class="imgResponsiveSentence"/>
+                    <img ng-if="picto.imgtemp == null || picto.imgtemp == ''" ng-src="{{baseurl}}img/pictos/{{picto.img}}" class="imgResponsiveSentence"/>
+                </div>
+                <div ng-if="picto.plural" class="col-xs-3" style="height:50%;">
+                    <img class="iconResponsive" ng-src="{{baseurl}}img/pictos/plural.png"/>
+                </div>
+                <div ng-if="picto.fem" class="col-xs-3" style="height:50%;">
+                    <img class="iconResponsive" ng-src="{{baseurl}}img/pictos/femenino.png"/>
+                </div>
+                <!--Display the picto text-->
+                <div class="col-xs-12 phraseText text-uppercase" ng-if="!info.error && !info.frasefinal">
+                    {{picto.text}}
+                </div>
+            </div>
+            <!--Display the phrase-->
+            <div ng-if="!info.error || info.errorcode == 7" class="col-xs-12 phraseText text-uppercase">
+                {{info.frasefinal}}
+            </div>
+            <!--Display the eror text-->
+            <div ng-if="info.error && info.errorcode != 7" class="col-xs-12 phraseText">
+                {{info.errormessage}}
+            </div>
+        </div>
+        <div class="col-xs-1 sentenceCellIndicator">
+            <div class="col-xs-12  indicatorTenseSentence" ng-class="{'indicatorNegativeSentence':negativa}">
+                <img ng-if='tense != "defecte"' class="imgResponsive" width="100%" height="100%" ng-src="{{baseurl}}img/indicadors/{{tense}}.png"/>
+            </div>
+            <div class="col-xs-12 indicatorTipusSentence">
+                <img ng-if='tipusfrase != "defecte"' class="imgResponsive" width="100%" height="100%" ng-src="{{baseurl}}img/indicadors/{{tipusfrase}}.png"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div ng-if="cfgMenuDeleteLastActive == 1" class="col-xs-1 fullheight"  ng-mousedown="isClickEnable() ? deleteLast() : null" ng-mouseenter="cfgTimeOverOnOff?TimeoutOverClick(2,'deleteLast'):null" ng-mouseleave="cfgTimeOverOnOff ? CancelTimeoutOverClick() : null">
+    <div ng-if='inScan && isScanning == "deletelast" && isScanningCancel === false' class="scaneo" style="margin: 0px;" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+    <div class="backgroundDelete">
+        <img class="imgResponsive icon" ng-src="{{baseurl}}img/srcWeb/Menu/borrar_ultim_icon.png"/>
+    </div>
+</div>
+<div ng-if="cfgMenuDeleteAllActive == 1" class="col-xs-1 fullheight" ng-mousedown="isClickEnable() ? deleteAll() : null" ng-mouseenter="cfgTimeOverOnOff?TimeoutOverClick(2,'deleteAll'):null" ng-mouseleave="cfgTimeOverOnOff ? CancelTimeoutOverClick() : null">
+    <div ng-if='inScan && isScanning == "deleteall" && isScanningCancel === false' class="scaneo" style="margin: 0px;" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+    <div class="backgroundDeleteAll">
+        <img class="imgResponsive icon" ng-src="{{baseurl}}img/srcWeb/Menu/borrar_tot_icon.png"/>
+    </div>
+</div>

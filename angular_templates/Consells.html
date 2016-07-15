@@ -1,0 +1,199 @@
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/generico.css">
+<link rel="stylesheet" type="text/css" href="css/userConfig.css">
+<link rel="stylesheet" type="text/css" href="css/responsiveForm.css">
+
+<style>
+    html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+</style>
+
+<!--menu superior dropdown-->
+<div ng-include="'/angular_templates/dropdownMenuBar.html'" ng-show="viewActived"></div>
+<div ng-include="'/angular_templates/logoutModal.html'"></div>
+<div ng-include="'/angular_templates/infoModal.html'"></div>
+
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3 home-logo" ng-click="linkHome();">
+        <img src="img/srcWeb/home/consells-{{langabbr}}.png" class="section-logo-img" />
+    </div>
+</div>
+
+<div class="loadingGif" ng-show="!viewActived"><img class="img-loadingGif" ng-src={{img.loading}}/></div>
+
+<div class="color-bold">
+
+    <div class="row"><br/><br />
+        <div class="col-xs-8 col-xs-offset-2">        
+            <div class="row col-xs-12" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+                <div id="header" class="row">
+                    <div class="col-xs-10 headerTitle">
+                        {{text.tips1}}
+                    </div>                    
+                </div>
+                <div class="marginBoxCentral">
+                    <div class="row menuBar">
+                        <div class="row col-xs-12 contentLightBar">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips1_Text"></div>
+                        </div>
+                    </div>
+                    <div class="row menuBar">
+                        <div class="row headerBar buttonBar" ng-click="contentBar11=!contentBar11">
+                            <div class="col-xs-11 text-indent-up">
+                                {{text.tips1_1}}
+                            </div>
+                            <div class="col-xs-1">&nbsp;
+                                <img class="arrowMenuBar pull-right" src={{img.orangeArrow}}/>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 contentBar" uib-collapse="!contentBar11">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips1_1Text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row"><br/>
+        <div class="col-xs-8 col-xs-offset-2">        
+            <div class="row col-xs-12" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+                <div id="header" class="row">
+                    <div class="col-xs-10 headerTitle">
+                        {{text.tips2}}
+                    </div>                    
+                </div>
+                <div class="marginBoxCentral">
+                    <div class="row menuBar">
+                        <div class="row col-xs-12 contentLightBar">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips2_Text"></div>
+                        </div>
+                    </div>
+                    <div class="row menuBar">
+                        <div class="row headerBar buttonBar" ng-click="contentBar21=!contentBar21">
+                            <div class="col-xs-11 text-indent-up">
+                                {{text.tips2_1}}
+                            </div>
+                            <div class="col-xs-1">&nbsp;
+                                <img class="arrowMenuBar pull-right" src={{img.orangeArrow}}/>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 contentBar" uib-collapse="!contentBar21">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips2_1Text"></div>
+                        </div>
+                    </div>
+                    <div class="row menuBar">
+                        <div class="row headerBar buttonBar" ng-click="contentBar22=!contentBar22">
+                            <div class="col-xs-11 text-indent-up">
+                                {{text.tips2_2}}
+                            </div>
+                            <div class="col-xs-1">&nbsp;
+                                <img class="arrowMenuBar pull-right" src={{img.orangeArrow}}/>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 contentBar" uib-collapse="!contentBar22">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips2_2Text"></div>
+                        </div>
+                    </div>
+                    <div class="row menuBar">
+                        <div class="row headerBar buttonBar" ng-click="contentBar23=!contentBar23">
+                            <div class="col-xs-11 text-indent-up">
+                                {{text.tips2_3}}
+                            </div>
+                            <div class="col-xs-1">&nbsp;
+                                <img class="arrowMenuBar pull-right" src={{img.orangeArrow}}/>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 contentBar" uib-collapse="!contentBar23">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips2_3Text"></div>
+                        </div>
+                    </div>
+                    <div class="row menuBar">
+                        <div class="row headerBar buttonBar" ng-click="contentBar24=!contentBar24">
+                            <div class="col-xs-11 text-indent-up">
+                                {{text.tips2_4}}
+                            </div>
+                            <div class="col-xs-1">&nbsp;
+                                <img class="arrowMenuBar pull-right" src={{img.orangeArrow}}/>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 contentBar" uib-collapse="!contentBar24">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips2_4Text"></div>
+                        </div>
+                    </div>
+                    <div class="row menuBar">
+                        <div class="row headerBar buttonBar" ng-click="contentBar25=!contentBar25">
+                            <div class="col-xs-11 text-indent-up">
+                                {{text.tips2_5}}
+                            </div>
+                            <div class="col-xs-1">&nbsp;
+                                <img class="arrowMenuBar pull-right" src={{img.orangeArrow}}/>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 contentBar" uib-collapse="!contentBar25">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips2_5Text"></div>
+                        </div>
+                    </div>
+                    <div class="row menuBar">
+                        <div class="row headerBar buttonBar" ng-click="contentBar26=!contentBar26">
+                            <div class="col-xs-11 text-indent-up">
+                                {{text.tips2_6}}
+                            </div>
+                            <div class="col-xs-1">&nbsp;
+                                <img class="arrowMenuBar pull-right" src={{img.orangeArrow}}/>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 contentBar" uib-collapse="!contentBar26">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips2_6Text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row"><br/>
+        <div class="col-xs-8 col-xs-offset-2">        
+            <div class="row col-xs-12" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+                <div id="header" class="row">
+                    <div class="col-xs-10 headerTitle">
+                        {{text.tips3}}
+                    </div>                    
+                </div>
+                <div class="marginBoxCentral">
+                    <div class="row menuBar">
+                        <div class="row headerBar buttonBar" ng-click="contentBar31=!contentBar31">
+                            <div class="col-xs-11 text-indent-up">
+                                {{text.tips3_1}}
+                            </div>
+                            <div class="col-xs-1">&nbsp;
+                                <img class="arrowMenuBar pull-right" src={{img.orangeArrow}}/>
+                            </div>
+                        </div>
+                        <div class="row col-xs-12 contentBar" uib-collapse="!contentBar31">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips3_1Text"></div>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+
+    <div class="row"><br/>
+        <div class="col-xs-8 col-xs-offset-2">        
+            <div class="row col-xs-12" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+                <div id="header" class="row">
+                    <div class="col-xs-10 headerTitle">
+                        {{text.tips4}}
+                    </div>                    
+                </div>
+                <div class="marginBoxCentral">
+                    <div class="row menuBar">
+                        <div class="row col-xs-12 contentLightBar">
+                            <div class="col-xs-12 paddingUp1 paddingDown1 text-justify paddingLeft3 paddingRight3" bind-html-compile="text.tips4_Text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

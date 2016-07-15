@@ -1,0 +1,51 @@
+
+<div class="modal fade" id="ConfirmCreateBoard" role="dialog">
+    <div class="modal-dialog">
+        <div class="row marginModalTopOwl"><img class="img-owl pull-right" src={{img.lowSorpresaFlecha}}/></div>
+        <div class="row" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+            <div id="header" class="row">
+                <div class="col-xs-10 headerTitle-confirms">{{content.nwboardtitle}}</div>
+            </div>
+            <div class="row backgroundUserConfigBox">
+                <div class="row fonsAlert-confirms">
+
+                    <div class=" row">
+                        <span class="col-xs-offset-2 col-xs-8">{{content.nwboardtext}}</span>
+                        <input type="text" class="col-xs-offset-2 col-xs-8 placeholder" ng-class=" {'dialogTextDange' : CreateBoardData.CreateBoardName.length <= 0} "  name="CreateBoardName" ng-model="CreateBoardData.CreateBoardName" placeholder="{{content.nwboardPlaceholder1}}"/>
+                    </div>
+                    <div class="row paddingConfirmButton">
+                        <div class=" col-xs-offset-2 pull-left col-xs-3">
+                            <span style="padding-right: 3px;">{{content.rows}}</span>
+                            <select class=" dropdown-arrow confirm"
+                                    ng-model="CreateBoardData.height"
+                                    ng-options="h for h in range(10)"
+                                    >
+                            </select>
+                        </div>
+                        <div class="col-xs-5"> 
+                        <div class="pull-right">    
+                            <span style="padding-right: 3px;">{{content.columns}}</span>
+                            <select class="dropdown-arrow confirm"
+                                    ng-model="CreateBoardData.width"
+                                    ng-options="w for w in range(10)">
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row dadesUsuariCentre">
+                    <div class="col-xs-6">
+                        <button type="reset" disabled ng-if="CreateBoardData.CreateBoardName.length <= 0" class="btn-gray-disabled pull-left" data-dismiss="modal">{{content.confirm}}</button>
+                        <button type="reset" ng-if="CreateBoardData.CreateBoardName.length > 0" class="btn-gray pull-left" data-dismiss="modal" ng-click="confirmCreateBoard();">{{content.confirm}}</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-right" data-dismiss="modal" ng-click="closeThisDialog();">{{logoutContent.cancel}}</button>
+                    </div>
+                </div>
+            </div>
+        <div class="row verticalMarginTop"></div>
+        </div>
+    </div>
+</div>

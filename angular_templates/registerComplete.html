@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="css/responsiveForm.css">
+<style>html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;
+    -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+</style>
+<!--menu superior dropdown-->
+<div ng-include="'/angular_templates/dropdownMenuBar.html'" ng-show="viewActived2"></div>
+
+<div class="loadingGif" ng-show="!viewActived2"><img class="img-loadingGif" ng-src={{img.loading}}/></div>
+<div class="container container-table" ng-show="viewActived2">
+    <div class="row vertical-center-row">
+        <div class="form form-horizontal">
+            <div class="col-xs-8 col-xs-offset-2 boxRegistreUsuari" style="background-image: url({{img.Patterns1_08}})">
+                <div class="row barraSuperiorRegistre">
+                    <div class="col-xs-6"><p class="nomBarraSuperiorRegistre">{{ content.title }}</p></div>
+                    <div class="col-xs-6">
+                         <a class="icon-remove-sign pull-right butoSortirBarraSuperiorRegistre" ng-href="#/login"></a>
+                    </div>
+                </div>
+                <div class="row boxFormulariRegistreUsuari">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="row resposta">
+                            <div class="col-xs-2 check"><div class="icon-ok"></div></div>
+                            <div class="col-xs-10 textresposta">{{content.registrationOkLocalServer1}}</div>
+                        </div>
+                        <div class="row resposta" ng-show="!localServer">
+                            <div class="col-xs-2 alert"><div class="icon-info-sign"></div></div>
+                            <div class="col-xs-10 textresposta2">{{content.registrationOkServer2}}<br/><br/><div style='font-weight: bold;'>{{content.registrationOkServer3}}</div><br/>{{content.registrationOkLocalServer4}}</div>
+                        </div>
+                        <div class="row resposta" ng-show="localServer">
+                            <div class="col-xs-2 alert"><div class="icon-info-sign"></div></div>
+                            <div class="col-xs-10 textresposta2">{{content.registrationOkLocal}}<br/><br/>{{content.registrationOkLocalServer4}}</div>
+                        </div>
+                        <div class="row" ng-show="!localServer">
+                            <div class="col-xs-2 col-xs-offset-10 butoLogin">
+                                <a class="btn-login" href="/#/login">{{content.registrationOkServer5}}</a>
+                            </div>
+                        </div>
+                        <div class="row" ng-show="localServer">
+                            <div class="col-xs-3 col-xs-offset-9 butoLogin">
+                                <a class="btn-login" href="/#/login">{{content.registrationOkLocal2}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

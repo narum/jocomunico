@@ -1,0 +1,368 @@
+@charset "UTF-8";
+/* CSS Document */
+.marginTop{
+    height:1%;
+}
+.title1{ 
+    background-color: #fff;
+    height: 9%;
+    padding-right: 2%;
+}
+.title2{ 
+    background-color: #fff;
+    height: 16%;
+}
+.content1{ 
+    background-color: #fddfad;
+    height: 9%;
+    padding-left: 25% !important;
+    padding-right: 25% !important;
+}
+.content1nocolor{ 
+    height: 18%;
+}
+.content1-5{ 
+    background-color: #fddfad;
+    height: 17.5%;
+    margin-top: -0.1px;/*to solve a little problem in chrome*/
+}
+.content2{ 
+    background-color: #fddfad;
+    height: 16%;
+}
+.content3{ 
+    background-color: #fddfad;
+    height: 27%;
+}
+.contentNull{ 
+    background: url('/img/srcWeb/patterns/pattern1.png');
+    height: 27%;
+}
+.content4{ 
+    height: 35%;
+
+}
+.backgroundImgEdit{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background: white;
+    position: absolute;
+}
+.backgroundImgPicto{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background: white;
+    position: absolute;
+    padding: 5vh 5vw;
+}
+.ImgEdit{
+    display: block;
+    max-width: 50%;
+    height: auto;
+    max-height: 50%;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    position: absolute;
+}
+.borderImgEdit{
+    border-radius: 10px;
+    border: 5px solid #75ced6;
+    height: 75%;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    z-index: 4;
+}
+.buttonAddPhoto{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 5;
+    cursor: pointer;
+}
+.buttonRemovePhoto{
+    display: block;
+    max-width: 20%;
+    height: auto;
+    max-height: 20%;
+    width: auto;
+    top: 15%;
+    left: 85%;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    position: absolute;
+    z-index: 5;
+    cursor: pointer;
+}
+.buttonInfoPhoto{
+    display: block;
+    max-width: 20%;
+    height: auto;
+    max-height: 20%;
+    width: auto;
+    top: 5%;
+    left: 8%;
+    position: absolute;
+    z-index: 5;
+    cursor: pointer;
+}
+.saveEdit{
+    padding-left: 1vh;
+    border-radius: 150px;
+    height: 100%;
+}
+.saveImg{
+    background-image: url('/img/srcWeb/Edit/guardar.png');
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+}
+.saveImg:active{
+    background-image: url('/img/srcWeb/Edit/guardar_pulsado.png');
+    background-size: 100% 100%;
+    height: 100%;
+    width: 100%;
+}
+.paddingEditcell{
+    padding-left: 2vh;
+}
+
+.titleTextTypus{
+    font-weight: bold;
+    padding-left: 5% !important;
+    margin-top: 3%;
+}
+.titleText{
+    font-weight: bold;
+    padding-left: 5%;
+    /*vertical align*/
+    top: 50%;
+    transform:translate(0%,-50%);
+}
+.numberText{
+    font-weight: bold;
+    padding-left: 0%;
+}
+.scanText{
+    font-weight: bold;
+    padding-left: 0%;
+    padding-top: 4.5%;
+    padding-bottom: 1%;
+}
+.scanText2{
+    font-weight: bold;
+    padding-left: 0%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.buttonTitle{
+    padding-right: 5% !important;
+    top: 50%;
+    transform:translate(0%,-50%);
+}
+.scanCentered{
+    padding-right: 5% !important;
+}
+.colorTitle{
+    padding-right: 0% !important;
+    top: 50%;
+    transform:translate(0%,-50%);
+}
+.typeCellText{
+    text-align: center;
+}
+.boxEdit{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 4vh;
+    margin-top: 2%;
+    border: none;
+    padding-left: 5px;
+}
+.folderBox{
+    width: 100%;
+    height: 3vh;
+    border: none;
+    padding-left: 5px;
+}
+.cellEditSearch{
+    width: 75%;
+    height: 75%;
+    margin: 5% 10% 5% 10%;
+}
+.pictoEditSearch{
+    margin-left: 5%
+}
+.imgResponsiveSentence{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: relative;
+    z-index: 2;
+}
+
+.editTitle{
+    position: relative;
+    color: #fff;
+    height: 75%;
+    float: left;
+    top: 50%;
+    transform: translate(0%,-50%);
+    margin-left: 2em;
+    font-weight: bold;
+    font-size: 2.5vh;
+    padding-top: 5px;
+    width: 57%;
+}
+
+#sentenceSearchContent{
+    position:relative;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+}
+.boxEditTrash{
+    height: 100%;
+}
+.editTrash25{
+    height: 25%;
+    margin-bottom: 1.5vh;
+}
+.editTrash4{
+    height: 4vh;
+    margin-bottom: 1.5vh;
+}
+.dropdown-arrow {
+    background-size: 3vh 4vh;
+    height: 4vh;
+}
+.textTrash{
+    height: 3vh;
+    margin-left: 5%;
+    margin-bottom: 1vh;
+}
+.editTrashYellow{
+    background-color: #fac659;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.rowText{
+    margin-right: -5px;
+}
+.columnText{
+    margin-right: -5px;
+    margin-left: 10px;
+}
+.backgroundFolderWhite{
+    background:  url('/img/folder.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 10%;
+    height: 75%;
+}
+.backgroundFolderBlue{
+    background:  url('/img/folderblue.png') no-repeat;
+    background-size: 100% 100%;
+    padding: 10px;
+    height: 100%;
+    width: 25%;
+}
+.folderContent{
+    margin: 2vh 3%;
+    height: 75%;
+}
+.textBlue{
+    background:  #79d2da;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.textWhite{
+    background:  #ffffff;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-clip: content-box;
+    margin-bottom: 2.5%;
+    margin-top: 2.5%;
+}
+.editTextInput{
+    height: 4vh;
+    border-radius: 7px;
+}
+.imgSearchView{
+    height: 63%;
+}
+.buttonsSearchView{
+    height: 15%;
+}
+.imgSearchCell{
+    height: 70%;
+}
+
+
+#file-input{
+    display: none !important;
+}
+
+.btn-save {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    background: -moz-linear-gradient(top, rgba(46, 46, 46,0) 0%,  rgba(46, 46, 46,0.20) 20%, rgba(46, 46, 46,0.40) 40%, rgba(46, 46, 46,0.60) 60%, rgba(46, 46, 46,00) 80%, rgba(46, 46, 46,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(46, 46, 46,0)), color-stop(20%,rgba(46, 46, 46,0.20)), color-stop(40%,rgba(46, 46, 46,0.40)), color-stop(60%,rgba(46, 46, 46,0.60)), color-stop(80%,rgba(46, 46, 46,0.80)), color-stop(100%,rgba(46, 46, 46,1)));
+    background: -webkit-linear-gradient(top,  rgba(46, 46, 46,0) 0%,rgba(46, 46, 46,0.2) 20%,rgba(46, 46, 46,0.4) 40%,rgba(46, 46, 46,0.6) 60%,rgba(46, 46, 46,0.8) 80%,rgba(46, 46, 46,1) 100%);
+    background: -o-linear-gradient(top,  rgba(46, 46, 46,0) 0%,rgba(46, 46, 46,0.2) 20%,rgba(46, 46, 46,0.4) 40%,rgba(46, 46, 46,0.6) 60%,rgba(46, 46, 46,0.8) 80%,rgba(46, 46, 46,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(46, 46, 46,0) 0%,rgba(46, 46, 46,0.2) 20%,rgba(46, 46, 46,0.4) 40%,rgba(46, 46, 46,0.6) 60%,rgba(46, 46, 46,0.8) 80%,rgba(46, 46, 46,1) 100%);
+    background: linear-gradient(to bottom,  rgba(46, 46, 46,0) 0%,rgba(46, 46, 46,0.2) 20%,rgba(46, 46, 46,0.4) 40%,rgba(46, 46, 46,0.6) 60%,rgba(46, 46, 46,0.8) 80%,rgba(46, 46, 46,1) 100%);
+    background-color: #666666;
+    border: none;
+    cursor: pointer;
+}
+.btn-save:hover{
+    background-color: black;
+}
+
+.img-save {
+    display: block;
+    position: absolute;
+    width: 70%;
+    top: 25%;
+    left: 20%;
+}
+
+.text-save {
+    color: white;
+    display: block;
+    position: absolute;
+    top: 8%;
+    text-align: center;
+    width: 100%;
+    left: 0%;
+}
+
+.infoIconBox-editcell {
+    text-align: center;
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 7%;
+}

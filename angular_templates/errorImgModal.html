@@ -1,0 +1,33 @@
+<div class="modal fade" id="errorImgModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="row marginModalTopOwl"><img class="img-owl pull-right" src={{img.lowSorpresaFlecha}}/></div>
+        <div class="row" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+            <div id="header" class="row">
+                <div class="col-xs-10 headerTitle-confirms">{{content.imgErrorTitle}}</div>
+            </div>
+            <div class="row backgroundUserConfigBox">
+                <div class="row fonsAlert-confirms" ng-click="readmore = !readmore">
+                    <div class="col-xs-offset-1 col-xs-10">
+                        <div class="col-xs-2 text-center"><img class="img-Alert" src="/img/icons/info alert.png"/></div>
+                        <div class="col-xs-8 textImgError">{{content.imgErrorText}}</div>
+                        <div class="col-xs-offset-1 col-xs-1 buttonBar">
+                            <img class="arrowMenuBar pull-right" src='/img/srcWeb/UserConfig/orangeArrow.png'/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row dadesUsuariCentre">
+                    <div class="col-xs-offset-1 col-xs-10 modalScrollbar" ng-scrollbar rebuild-on-resize uib-collapse="readmore">
+                        <div class="col-xs-12" ng-repeat="error in errorText">
+                            {{content[error[0]]}}: {{error[1]}}
+                        </div>
+                    </div>
+
+                    <div class="col-xs-offset-6 col-xs-6">
+                        <button type="reset" class="btn-gray pull-right" data-dismiss="modal">{{content.confirm}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row verticalMarginTop"></div>
+        </div>
+    </div>
+</div>

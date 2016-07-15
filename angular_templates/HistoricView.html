@@ -1,0 +1,195 @@
+<!-- This view is the main board where the picto will be shown. In addition it 
+     includes others view like sentece, edit (board/cell) panel, etc etc
+-->
+<link rel="stylesheet" href="css/historic.css"/>
+<audio id="utterance" src="{{sound}}" type="audio/mp3"></audio>
+<style>html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;
+    -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+</style>
+
+<script>
+    
+    var myVar;
+    var exit = 0;
+    
+    function audiohallelujah() {
+        console.log("audio");
+
+        var aux = document.getElementById('utterance');
+        aux.src="mp3/empty.m4a";
+        var audiotoplayinitial = aux.src;
+        
+        var myVar = setInterval(function(){ waitloop(audiotoplayinitial, myVar) }, 500);
+    }
+    
+    function waitloop(audiotoplayinitial, myVar) {
+        var aux = document.getElementById('utterance');
+        var audiotoplayfinal = aux.src;
+        
+        if (audiotoplayinitial !== audiotoplayfinal) {
+            exit = 0;
+            aux.play();
+            clearInterval(myVar);
+        }
+        
+        exit = exit+1;
+        
+        if (exit > 8) {
+            exit = 0;
+            clearInterval(myVar);
+        }
+    }
+</script>
+<div ng-include="'/angular_templates/dropdownMenuBar.html'"></div>
+    <!--menu superior dropdown-->
+    <div id="main" style="background-image: url('/img/srcWeb/patterns/fons.png');background-size:100% 100%" ng-click="scanLeftClick()" ng-right-click="scanRightClick()" onmousedown="audiohallelujah()">
+    <div class="row historicView">
+        <div class="col-xs-12 containerHistoric">
+            <div ng-if="isScanning == '1row' && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+            <div class="col-xs-1 fullheight">
+                <div ng-if="isScanning == 'back' && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                <div class="backgroundReturn" ng-click="!inScan ? back() : null">
+                    <img class="imgResponsiveBack icon " ng-src="{{baseurl}}img/srcWeb/Menu/enradera_icon.png"/>
+                </div>
+            </div>
+            <div class="col-xs-1 fullheight">
+                <div ng-if="isScanning == 'home' && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                <div class="backgroundHome" ng-click="!inScan ? home() : null">
+                    <img class="imgResponsive icon " ng-src="{{baseurl}}img/srcWeb/Menu/inici_icon.png"/>
+                </div>
+            </div>
+            <div class="col-xs-10 holderButtons" style="background-image: url('/img/srcWeb/patterns/pattern{{cfgBgColorMenu}}.png')">
+                <div class="col-xs-4 buttonPadding" ng-click="!inScan ? getTodayHistoric() : null">
+                    <div ng-if="isScanning == 'today' && !isScanningCancel" class="scaneoButton" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                    <div ng-class="timeHis == 'today' ? 'timeButtonAcitve' : 'timeButton'">
+                        <div class="col-xs-8 fullheight">
+                            <div class="buttonText">{{content.today}}</div>
+                        </div>
+                        <div class="col-xs-4 fullheight">
+                            <img class="imgResponsive icon" ng-src="/img/pictosespeciales/hoy.png"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 buttonPadding" ng-click="!inScan ? getLastWeekHistoric() : null">
+                    <div ng-if="isScanning == 'lastWeek' && !isScanningCancel" class="scaneoButton" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                    <div ng-class="timeHis == 'lastWeek' ? 'timeButtonAcitve' : 'timeButton'">
+                        <div class="col-xs-8 fullheight">
+                            <div class="buttonText">{{content.lastWeek}}</div>
+                        </div>
+                        <div class="col-xs-4 fullheight">
+                            <img class="imgResponsive icon" ng-src="/img/pictosespeciales/semana.png"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4 buttonPadding" ng-click="!inScan ? getLastMonthHistoric() : null">
+                    <div ng-if="isScanning == 'lastMonth' && !isScanningCancel" class="scaneoButton" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                    <div ng-class="timeHis == 'lastMonth' ? 'timeButtonAcitve' : 'timeButton'">
+                        <div class="col-xs-8 fullheight">
+                            <div class="buttonText">{{content.lastMonth}}</div>
+                        </div>
+                        <div class="col-xs-4 fullheight">
+                            <img class="imgResponsive icon" ng-src="/img/pictosespeciales/mes.png"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12" >
+            <div ng-if="isScanning == '2row' && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+            <div class="col-xs-2 containerButtonsHistoric" >
+
+                <div class="col-xs-6 fullheight">
+                    <div ng-if="isScanning == 'backPagHistoric' && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                    <div ng-class="pagBackHistoricEnabled ? 'backgroundHistoricBack' : 'disabledBackgroundHistoricBack'" ng-click="!inScan ? previousPagHistoric() : null">
+                        <img class="imgResponsiveBack icon" ng-src="{{pagBackHistoricEnabled ? 'img/srcWeb/Menu/enradera_icon.png' : 'img/srcWeb/Menu/enradera_icon_gris.png'}}"/>
+                    </div>
+                </div>
+                <div class="col-xs-6 fullheight">
+                    <div ng-if="isScanning == 'nextPagHistoric' && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                    <div ng-class="pagNextHistoricEnabled ? 'backgroundHistoricNext' : 'disabledBackgroundHistoricNext'" ng-click="!inScan ? nextPagHistoric() : null">
+                        <img class="imgResponsiveBack icon " ng-src="{{pagNextHistoricEnabled ? 'img/srcWeb/Menu/endavant_icon.png' : 'img/srcWeb/Menu/endavant_icon_gris.png'}}"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-10 containerHistoric" >
+                <div class="col-xs-1 fullheight">
+                    <div ng-if="isScanning == 'backPagFolder' && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                    <div ng-class="pagBackFolderEnabled ? 'backgroundBack' : 'disabledBackgroundBack'" ng-click="!inScan ? previousPagSFolder() : null" style="right:0px">
+                        <img class="imgResponsiveBack icon " ng-src="{{pagBackFolderEnabled ? 'img/srcWeb/Menu/enradera_icon.png' : 'img/srcWeb/Menu/enradera_icon_gris.png'}}"/>
+                    </div>
+                </div>
+                <div class="col-xs-10 holderButtons" style="background-image: url('/img/srcWeb/patterns/pattern{{cfgBgColorMenu}}.png')">
+                    <div class="col-xs-3 buttonPadding" ng-repeat="sFolder in sFolderResult| limitTo:pagSFolder + 4" ng-if="$index >= pagSFolder" >
+                        <div ng-if="scanningFolder == $index && !isScanningCancel" class="scaneoButton" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                        <div  ng-class="folder == sFolder.ID_Folder ? 'folderHistoricButtonActive' : 'folderHistoricButton'" ng-click="!inScan ? changeFolder(sFolder.ID_Folder) : null" style="background-color: #{{sFolder.folderColor}}">
+                            <div class="col-xs-8 fullheight">
+                                <div class="buttonText">{{sFolder.folderName}}</div>
+                            </div>
+                            <div class="col-xs-4 fullheight">
+                                <img class="imgResponsive icon" ng-src="{{sFolder.imgSFolder}}"/>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-1 fullheight">
+                    <div ng-if="isScanning == 'nextPagFolder' && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                    <div ng-class="pagNextFolderEnabled ? 'backgroundNext' : 'disabledBackgroundNext'" ng-click="!inScan ? nextPagSFolder() : null">
+                        <img class="imgResponsiveBack icon " ng-src="{{pagNextFolderEnabled ? 'img/srcWeb/Menu/endavant_icon.png' : 'img/srcWeb/Menu/endavant_icon_gris.png'}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="isScanningCancel == true" class="imgRounded returnScanContainer" style="position: absolute;">
+            <div class="imgRounded returnScanContent" ng-style="{'border':'7px solid #{{cfgScanColor}}'}">
+                <img class="returnScanIcon" ng-src="/img/srcWeb/falta_picto.png"/>
+            </div>
+        </div>
+        <!--MODIF: otro nombre -->
+        <div class="col-xs-12 historicContainer" style="background-image: url('/img/srcWeb/patterns/pattern{{cfgBgColorPanel}}.png')">
+            <div class="col-xs-12 scrollHistoric" ng-scrollbar rebuild-on-resize rebuild-on="rebuild:me" is-bar-shown="isScroll">
+                <div class="col-xs-6 sentencePadding" ng-repeat="h in historic track by $index">
+
+                    <div class="col-xs-12">
+                        <div ng-if="isScanned($index) && !isScanningCancel" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+                        <div class="col-xs-11 sentenceBackground" ng-click="clickOnSentence(h[0].generatorString || h[0].sPreRecText);">
+                            <div ng-if="h != null && h[0].isPreRec != '1'" class="col-xs-1 sentenceCell" ng-repeat="p in h[1]| limitTo:9">
+                                <div class="col-xs-12 fullheight" ng-class="{'col-xs-9': p.isplural == 1 || p.isfem == 1}">
+                                    <img ng-if="p.imgtemp != null && p.imgtemp != ''" ng-src="{{baseurl}}{{p.imgtemp}}" class="imgResponsiveHistoric"/>
+                                    <img ng-if="p.imgtemp == null || p.imgtemp == ''" ng-src="{{baseurl}}img/pictos/{{p.imgPicto}}" class="imgResponsiveHistoric"/>
+                                </div>
+                                <div ng-if="p.isplural == 1" class="col-xs-3" style="height:50%;">
+                                    <img class="iconResponsive" ng-src="{{baseurl}}img/pictos/plural.png"/>
+                                </div>
+                                <div ng-if="p.isfem == 1" class="col-xs-3" style="height:50%;">
+                                    <img class="iconResponsive" ng-src="{{baseurl}}img/pictos/femenino.png"/>
+                                </div>
+                            </div>
+                            <div ng-if="h != null && h[0].isPreRec == '1'" class="col-xs-1 sentenceCell">
+                                <img ng-if="h[0].sPreRecImg1 != null && h[0].sPreRecImg1 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg1}}" class="imgResponsiveHistoric"/>
+                                <img ng-if="h[0].sPreRecImg2 != null && h[0].sPreRecImg2 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg2}}" class="imgResponsiveHistoric"/>
+                                <img ng-if="h[0].sPreRecImg3 != null && h[0].sPreRecImg3 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg3}}" class="imgResponsiveHistoric"/>
+                            </div>
+                            <!--Display the phrase-->
+                            <div ng-if="h != null && h[0].isPreRec != 1" class="col-xs-12 phraseText text-uppercase">
+                                {{h[0].generatorString}}
+                            </div>
+                            <div ng-if="h != null && h[0].isPreRec == 1"class="col-xs-12 phraseText text-uppercase">
+                                {{h[0].sPreRecText}}
+                            </div>
+                        </div>
+                        <div class="col-xs-1 sentenceCellIndicator">
+                            <div ng-if="h[0].isPreRec != 1" class="col-xs-12  indicatorTenseSentence" ng-class="{'indicatorNegativeSentence':h[0].isNegativa}">
+                                <img ng-if='h[0].sentenceTense != "defecte" && h[1] != null' class="imgResponsive" width="100%" height="100%" ng-src="/img/indicadors/{{h[0].sentenceTense}}.png"/>
+                            </div>
+                            <div ng-if="h[0].isPreRec != 1" class="col-xs-12 indicatorTipusSentence">
+                                <img ng-if='h[0].sentenceType != "defecte" && h[1] != null' class="imgResponsive" width="100%" height="100%" ng-src="/img/indicadors/{{h[0].sentenceType}}.png"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+

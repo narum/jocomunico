@@ -1,0 +1,144 @@
+<link rel="stylesheet" type="text/css" href="{{baseurl}}css/panelGroup.css">
+<link rel="stylesheet" type="text/css" href="{{baseurl}}css/generico.css">
+<link rel="stylesheet" type="text/css" href="{{baseurl}}css/editHistorialFolder.css">
+<link rel="stylesheet" type="text/css" href="{{baseurl}}/libraries/scrollbarPanel.css">
+<div ng-include="'/angular_templates/logoutModal.html'"></div>
+<div ng-include="'/angular_templates/ConfirmCopyGroupBoard.html'"></div>
+<div ng-include="'/angular_templates/ConfirmCopyVocabulary.html'"></div>
+<div ng-include="'/angular_templates/ConfirmEditAddWord.html'"></div>
+<div ng-include="'/angular_templates/editHistoricFolder.html'"></div>
+<div ng-include="'/angular_templates/ConfirmCreateBoard.html'"></div>
+<div ng-include="'/angular_templates/infoModal.html'"></div>
+
+<style>html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+</style>
+<!--menu superior dropdown-->
+<div ng-include="'/angular_templates/dropdownMenuBar.html'" ng-show="viewActived"></div>
+<div ng-include="'/angular_templates/ConfirmCreateGroupBoard.html'"></div>
+
+<div class="loadingGif" ng-show="!viewActived"><img class="img-loadingGif" ng-src={{img.loading}}/></div>
+<div class="row folderContainer" ng-if="viewActived">
+    <div class="row">
+        <!--Panel Groups box-->
+        <div class="col-xs-6 rightPadding">
+            <div class="panelGroupContainer" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+                <div id="header" class="row">
+                    <div class="col-xs-offset-1 col-xs-1 infoIconBox">
+                        <input type="image" class="img-icon" ng-src="/img/icons/info-blanc.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.panelGroupInfo);">
+                    </div>
+                    <div class="col-xs-9 headerTitle-panelgroup">{{content.panelGroupTitle}}</div>
+                </div>
+                <div class="row">
+                    <div ng-if="finished" class="col-xs-offset-1 scrollMenuPanels" ng-style="!isScroll ? {'width': '98%'} : {'width': '84%'}" ng-scrollbar rebuild-on-resize rebuild-on="rebuild:me" is-bar-shown="isScroll">
+                        <div class="scrollWidth">
+                            <div class="col-xs-12 buttonAddFolder" ng-click="newPanellGroup()">+</div>
+                            <div class="col-xs-12 panelContainer" ng-repeat="panel in panels" on-Finish-Loop="scrollbarPanel">
+                                <div class="col-xs-1"></div>
+                                <div class="col-xs-7 fullheight">
+                                    <input type="text" class="form-control panelTitle"  name="NameBoard" ng-model="panel.GBname" ng-value="panel.GBname" ng-change="changeGroupBoardName(panel.GBname, panel.ID_GB)"/>
+                                </div>
+                                <div class="col-xs-4 editaPanel" ng-click="editPanel(panel.ID_GB)">
+                                    {{content.edit}} <div class="icon-pencil"></div>
+                                </div>
+                                <div ng-if="panel.primaryGroupBoard == 0" class="col-xs-4 noPrimaryPanel" ng-click="setPrimary(panel.ID_GB)">
+                                    {{content.makePrimary}} <div class="icon-check"></div>
+                                </div>
+                                <div ng-if="panel.primaryGroupBoard == 1" class="col-xs-4 primaryPanel">
+                                    {{content.primary}} <div class=" icon-check-sign"></div>
+                                </div>
+                                <div class="col-xs-4 nouPanel" ng-click="CreateBoard(panel.ID_GB)">
+                                    {{content.new}} <div class="icon-th"></div>
+                                </div>
+                                <div class="col-xs-4 copyPanel" ng-click="copyGroupBoard(panel.ID_GB)">
+                                    {{content.copy}} <div class="icon-copy"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="!finished"></div>
+                </div>
+            </div>
+        </div>
+        <!--historical box-->
+        <div class="col-xs-6 leftPadding">
+            <div class="historicContainer" id="boxUserConfig" style="background-image: url({{img.Patterns4}})">
+                <div id="header" class="row">
+                    <div class="col-xs-offset-1 col-xs-1 infoIconBox">
+                        <input type="image" class="img-icon" ng-src="/img/icons/info-blanc.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.historyInfo);">
+                    </div>
+                    <div class="col-xs-9 headerTitle-panelgroup">{{content.historyTitle}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-offset-1 scrollMenuPanels" ng-style="!isScrollH ? {'width': '98%'} : {'width': '84%'}" ng-scrollbar rebuild-on-resize rebuild-on="rebuild:meH" is-bar-shown="isScrollH">
+                        <div class="scrollWidth">
+                            <div class="row buttonAddFolder" ng-click="createHistoricFolder()">+</div>
+                            <div class="row histFolder" ng-repeat="folder in historicFolders" on-Finish-Loop="scrollbarHistoric"><div class="row"><div class="col-xs-2 histTabFolder" style="background-color: #{{folder.folderColor}}"></div></div>
+                                <div class="row"><div class="col-xs-12 histContentFolder" style="background-color: #{{folder.folderColor}}">
+                                        <div class="row">
+                                            <div class="col-xs-3"><img class="img-rounded imgHistFolder" ng-src="{{folder.imgSFolder}}"/></div>
+                                            <div class="col-xs-6 folderTitle">{{folder.folderName}}</div>
+                                            <div class="col-xs-3 folderEditBigButton" ng-click="goSentencesFolder(folder.ID_Folder)" ng-show="folder.ID_Folder < 0" >{{content.historyEnter}} <div class="icon-folder-open"></div></div>
+                                            <div class="col-xs-3" ng-show="folder.ID_Folder > 0">
+                                                <img class="loadingGifTransparent" ng-show="!showUpDownButtons" ng-src={{img.whiteLoading}}/>
+                                                <div class="row folderUpButton" ng-class="{transparent: !showUpDownButtons}" ng-click="upFolder(folder.folderOrder, folder.ID_Folder)">{{content.historyMove}} <div class="icon-circle-arrow-up"></div></div>
+                                                <div class="row folderEditButton" ng-class="{transparent: !showUpDownButtons}" ng-click="goSentencesFolder(folder.ID_Folder)">{{content.historyEnter}} <div class="icon-folder-open"></div></div>
+                                                <div class="row folderDownButton" ng-class="{transparent: !showUpDownButtons}" ng-click="downFolder(folder.folderOrder, folder.ID_Folder)">{{content.historyMove}} <div class="icon-circle-arrow-down"></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--Add word box-->
+        <div class="col-xs-12 addWordContainer" id="boxUserConfig" style="background-image: url({{img.Patterns6}})">
+            <div id="header" class="row">
+                <div class="col-xs-6">
+                    <div class="col-xs-offset-1 col-xs-1 infoIconBox">
+                        <input type="image" class="img-icon" ng-src="/img/icons/info-blanc.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.addWordInfo);">
+                    </div>
+                    <div class="col-xs-9 headerTitle-panelgroup">{{content.vocabularyTitle}}</div>
+                </div>
+            </div>
+            <div class="row">
+                <div  class="col-xs-3 ">
+                    <div class="paddingButtonAddWord">
+                        <div class=" imgRounded FolderButtonAddWord" ng-click="addWord(1, 'name')">
+                            {{content.vocabularyAddNameButton}}
+                        </div>
+                    </div>
+                </div>
+                <div  class="col-xs-3">
+                    <div class="paddingButtonAddWord">
+                        <div class=" imgRounded FolderButtonAddWord" ng-click="addWord(1, 'adj')">
+                            {{content.vocabularyAddAdjButton}}
+                        </div>
+                    </div>
+                </div>
+                <div  class="col-xs-3">
+                    <div class="paddingButtonAddWord">
+                        <div class=" imgRounded FolderButtonAddWord" ng-click="addWord(0, 'copy')">
+                            {{content.vocabularyCopyButton}}
+                        </div>
+                    </div>
+                </div>
+                <div  class="col-xs-3">
+                    <div class="paddingButtonAddWord">
+                        <div class=" imgRounded FolderButtonAddWord" ng-click="addWord(0, 'edit')">
+                            {{content.vocabularyEditButton}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

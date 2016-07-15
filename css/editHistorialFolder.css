@@ -1,0 +1,79 @@
+/*Modal Edit Folder*/
+#editHistoricFolderModal{
+    margin-top: 5vh;
+}
+.fonsAlert{
+    font-size: 2.5vh !important;
+    padding-left: 5vh !important;
+    padding-right: 5vh !important;
+}
+.historicInputText{
+    height: 5vh;
+    width: 100%;
+    border: 2px solid #8f8f8f;
+    border-radius: 2px;
+    padding-left: 2vh;
+    font-size: 2.5vh;
+    margin-top: 1.5vh;
+}
+.buttonAddImg{
+    height: 8vh;
+    width: auto;
+    cursor: pointer;
+}
+.radioText{
+    font-size: 2vh;
+}
+.imgCell{
+    height: 12vh;
+    width: 12vh;
+    border: 0.4vh solid #8f8f8f;
+    border-radius: 1vh;
+    cursor: pointer;
+    box-shadow: 0 1vh 1vh rgba(0, 0, 0, 0.7);
+}
+.imgCellLg{
+    height: 22vh;
+    width: 22vh;
+    margin-top: 5vh;
+    border: 0.6vh solid #8bd3e9;
+    border-radius: 2vh;
+    cursor: pointer;
+    box-shadow: 0 1vh 1vh rgba(0, 0, 0, 0.7);
+}
+.imgCell:hover{
+    box-shadow: 0 0 10px #404040;
+}
+.imgCell:active{
+    box-shadow: none;
+}
+.imgAdapted{
+    height: 100%;
+    width: auto;
+}
+input.imageRadio[type=radio]:empty + label{
+    cursor: pointer;
+    box-shadow: 0 1vh 1vh rgba(0, 0, 0, 0.7);
+}
+input.imageRadio[type=radio]:checked + label{
+    border: 0.5vh solid #97dee4;
+    box-shadow: 0 1vh 1vh #6b999d;
+}
+input.imageRadio[type=radio]:empty + label:hover{
+    box-shadow: 0 0 10px #404040;
+}
+.maginColorSelectText{
+    margin-top: 1vh;
+}
+#colorSelect{
+    color:white;
+    font-size: 2.2vh;
+}
+#colorSelect input.imageRadio[type=radio] + label{
+    margin-top: 1vh;
+}
+#colorSelect input.imageRadio[type=radio]:checked + label{
+    border: none;
+    box-shadow: 0 0 10px #404040;
+}
+

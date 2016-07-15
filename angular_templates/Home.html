@@ -1,0 +1,72 @@
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/generico.css">
+<link rel="stylesheet" type="text/css" href="libraries/scrollbarPanel.css">
+
+<style>
+    html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+</style>
+
+<div ng-include="'/angular_templates/logoutModal.html'"></div>
+<!--menu superior dropdown-->
+<div ng-include="'/angular_templates/dropdownMenuBar.html'"></div>
+
+<div id="main-container">
+    
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 home-logo" ng-click="linkHome();">
+            <img src="img/srcWeb/home/jocomunicologo.png" class="home-logo-img" width="300" />
+            <span class='home-subtitle'>{{text.subtitle}}</span>
+        </div>        
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 home-buttons">
+            <div class="row">
+                
+                <div class="col-xs-2 col-xs-offset-2 home-button" ng-mouseenter="linkColor('link-1', '#898989', true)" 
+                     ng-mouseleave="linkColor('link-1', '#f0a22e', false)" ng-click="linkAbout();">
+                    <img ng-src="{{img.button1}}" class="home-button-img" width="120"/>
+                    <span style="color:{{link1color}};" class='home-links'>{{text.about}}</span>
+                </div>
+                
+                <div class="col-xs-2  home-button" ng-mouseenter="linkColor('link-2', '#898989', true)" 
+                     ng-mouseleave="linkColor('link-2', '#3b93af', false)" ng-click="linkLogin();">
+                    <img ng-src="{{img.button2}}" class="home-button-img" width="120"/>
+                    <span style="color:{{link2color}};" class='home-links'>{{text.login}}</span>
+                </div>
+                
+                <div class="col-xs-2  home-button" ng-mouseenter="linkColor('link-3', '#898989', true)" 
+                     ng-mouseleave="linkColor('link-3', '#edb95d', false)" ng-click="linkCollaborators();">
+                    <img ng-src="{{img.button3}}" class="home-button-img" width="120"/>
+                    <span style="color:{{link3color}};" class='home-links'>{{text.sponsors}}</span>
+                </div>
+                
+                <div class="col-xs-2  home-button" ng-mouseenter="linkColor('link-4', '#898989', true)" 
+                     ng-mouseleave="linkColor('link-4', '#3b93af', false)" ng-click="linkCC();">
+                    <img ng-src="{{img.button4}}" class="home-button-img" width="120"/>
+                    <span style="color:{{link4color}};" class='home-links'>{{text.opensource}}</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <img src="img/srcWeb/home/video.png" class="home-video-img" />
+            <div class="home-video-wrapper">
+                <iframe src="https://www.youtube.com/embed/1PvC3CvGFMY" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>        
+    </div>
+    
+    <div class="{{footerclass}}" ng-click="okCookies();">
+        <span bind-html-compile="text.cookiespopup"></span>
+        <span class="closecookiespopup">x</span>
+    </div>
+    
+</div>
+
+
+
+

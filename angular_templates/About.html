@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<link rel="stylesheet" type="text/css" href="css/generico.css">
+<link rel="stylesheet" type="text/css" href="libraries/scrollbarPanel.css">
+
+<style>
+    html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+</style>
+
+<div ng-include="'/angular_templates/logoutModal.html'"></div>
+<!--menu superior dropdown-->
+<div ng-include="'/angular_templates/dropdownMenuBar.html'"></div>
+
+<div id="main-container">
+    
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 home-logo" ng-click="linkHome();">
+            <img src="img/srcWeb/home/sobrejocomunico-{{langabbr}}.png" class="section-logo-img" />
+        </div>        
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <!-- <span class="section-title">{{text.about}}</span> -->
+            <span class="section-content" bind-html-compile="text.contentabout"></span>
+        </div>        
+    </div>
+    
+</div>
+
+
+
+

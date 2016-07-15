@@ -1,0 +1,190 @@
+<!-- This view is the main board where the picto will be shown. In addition it 
+     includes others view like sentece, edit (board/cell) panel, etc etc
+-->
+<link rel="stylesheet" type="text/css" href="css/editCell.css">
+<link rel="stylesheet" href="css/style-jc.css"/>
+<audio id="utterance" src="{{sound}}" type="audio/mp3"></audio>
+<style>html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;
+    -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover; overflow-y:hidden;}
+</style>
+
+<script>
+    
+    var myVar;
+    var exit = 0;
+    
+    function audiohallelujah() {
+        console.log("audio");
+
+        var aux = document.getElementById('utterance');
+        aux.src="mp3/empty.m4a";
+        var audiotoplayinitial = aux.src;
+        
+        var myVar = setInterval(function(){ waitloop(audiotoplayinitial, myVar) }, 500);
+    }
+    
+    function waitloop(audiotoplayinitial, myVar) {
+        var aux = document.getElementById('utterance');
+        var audiotoplayfinal = aux.src;
+        
+        if (audiotoplayinitial !== audiotoplayfinal) {
+            exit = 0;
+            aux.play();
+            clearInterval(myVar);
+        }
+        
+        exit = exit+1;
+        
+        if (exit > 8) {
+            exit = 0;
+            clearInterval(myVar);
+        }
+    }
+</script>
+
+<!--menu superior dropdown-->
+<div ng-include="'/angular_templates/dropdownMenuBar.html'" ng-show="viewActived"></div>
+<div ng-include="'/angular_templates/logoutModal.html'"></div>
+<div ng-include="'/angular_templates/ConfirmCreateBoard.html'"></div>
+<div ng-include="'/angular_templates/ConfirmRemoveBoard.html'"></div>
+<div ng-include="'/angular_templates/ConfirmCopyBoard.html'"></div>
+<div ng-include="'/angular_templates/ConfirmResize.html'"></div>
+<div ng-include="'/angular_templates/errorImgModal.html'"></div>
+<div ng-include="'/angular_templates/errorNoPrimaryBoard.html'"></div>
+<div id="main" style="background-image: url('/img/srcWeb/patterns/fons.png');background-size:100% 100%">
+<div class="loadingGif" ng-show="!viewActived"><img class="img-loadingGif" ng-src={{img.loading}}/></div>
+<div ng-show="viewActived">
+    <div class="row mainBoard" ng-init="config()" ng-click="scanLeftClick()" ng-right-click="scanRightClick()" ng-mousedown="playLongClick()" ng-mouseup="cancelLongClick()" ng-style="!inEdit ? {'padding':'3px'}:{}" onmousedown="audiohallelujah()">
+
+        <div  ng-if="(cfgPredOnOff === '1' && cfgPredBarVertHor === '0')" id="predView" ng-if="inPred" class="col-xs-{{predViewWidth}}">
+            <div  class="row fullheight">
+                <div class="col-xs-12" ng-include="baseurl + '/angular_templates/PredView.html'">
+                </div>
+            </div>
+        </div>
+
+        <div id="userview" class="col-xs-{{userViewWidth}}" style="height:{{userViewHeight}}%" >
+            <div class="col-xs-12" ng-if="cfgSentenceBarUpDown === '0' && !inEdit" style="height:{{sentenceViewHeight}}%;margin-bottom: 1vh">
+                <div class="row fullheight" ng-include="baseurl + '/angular_templates/SentenceView.html'">                     
+                </div>
+            </div>
+
+            <div class="col-xs-12" style="height:{{boardHeight}}%">
+                <div class="row fullheight imgRounded boardPadding" style="background-image: url(img/srcWeb/patterns/pattern{{cfgBgColorPanel}}.png)">
+
+                    <div ng-if="inScan && isScanningCancel == true" class="imgRounded returnScanContainer" style="position: absolute;">
+                        <div class="imgRounded returnScanContent" ng-style="{'border':'7px solid #{{cfgScanColor}}'}">
+                            <img class="returnScanIcon" ng-src="/img/srcWeb/falta_picto.png"/>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 " ng-repeat="picto in data" ng-style="{'width':'{{100 / columns}}%','height':'{{100 / rows}}% '}" ng-mousedown="isClickEnable()?clickOnCell(picto):null" ng-right-click="openEditCellMenu({{picto.posInBoard}});" ng-mouseenter="cfgTimeOverOnOff?TimeoutOverClick(0,picto):null" ng-mouseleave="cfgTimeOverOnOff?CancelTimeoutOverClick():null" ng-drop="inEdit" ng-drop-success="onDropSwap({{picto.posInBoard}},$data,$event)" ng-drag="inEdit && !fv.painting" ng-drag-data="{posInBoardPicto:'{{picto.posInBoard}}'}" data-allow-transform="true" >
+                        <img ng-if="picto.boardLink != null" class="sfolder" ng-src="{{baseurl}}img/srcWeb/Mainboard/folder.png"/>
+                        <img ng-if="inEdit" class="removePicto" ng-src="{{baseurl}}img/srcWeb/Edit/cross.png" ng-click="removePicto(picto)"/>
+                        
+                        <div class="backgroundCell" ng-style="{'background-color':'#{{picto.color}}'}"></div>
+                        <!-- put the scan color over the image.
+                             Only if we are in Scan mode
+                        MODIF: Añadir variable if inScan-->
+
+                        <div ng-if="isScanned(picto);" class="scaneo" ng-style="{'border':'7px solid #{{cfgScanColor}}'}"></div>
+
+                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell !== null" class="textCell">{{picto.textInCell}}</div>
+                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext !== null" class="textCell">{{picto.pictotext}}</div>
+                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName !== null" class="textCell">{{picto.folderName}}</div>
+                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName === null && picto.sPreRecText !== null" class="textCell">{{picto.sPreRecText}}</div>
+                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName === null && picto.Bname !== null" class="textCell">{{picto.Bname}}</div>
+                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName === null && picto.Bname === null && picto.textFunction !== null" class="textCell">{{picto.textFunction}}</div>
+
+
+                        <img ng-if="isPictoActive(picto) && picto.ID_CFunction !== null" ng-src="{{baseurl}}img/srcWeb/Mainboard/functions.png" class="function"/>
+
+                        <div ng-if="isPictoActive(picto)" class="contentCell">
+                            <div ng-style="cfgTextInCell ? {'height':'78%'}:{'height':'100%'}">
+                                <img ng-if="picto.imgCell" class="imgResponsive" ng-src="{{baseurl}}{{picto.imgCell}}"/>   
+                                <img ng-if="picto.imgPicto && !picto.imgCell" ng-src="{{baseurl}}img/pictos/{{picto.imgPicto}}" class="imgResponsive"/>
+                                <img ng-if="picto.imgSFolder && !picto.imgPicto && !picto.imgCell && !picto.imgFunct" ng-src="{{baseurl}}{{picto.imgSFolder}}" class="imgResponsive"/>
+                                <img ng-if="picto.sPreRecImg1 && !picto.imgSFolder && !picto.imgPicto && !picto.imgCell && !picto.imgFunct" ng-src="{{baseurl}}{{picto.sPreRecImg1}}" class="imgResponsive"/>
+                                <img ng-if="picto.imgFunct && !picto.imgPicto && !picto.imgCell" ng-src="{{baseurl}}img{{picto.imgFunct}}" class="imgResponsive"/>
+                            </div>
+                        </div>
+
+                        <!-- Else, puts a "empty image" and mades it dropable
+                             Only if we are in edit mode-->
+                        <div ng-if="!picto.imgPicto && !picto.imgCell && !isPictoActive(picto)" class="contentCell">
+                            <!--There is no text -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="sentenceView" class="col-xs-12" ng-if="cfgSentenceBarUpDown === '1' && !inEdit" style="height:{{sentenceViewHeight}}%;margin-top: 1vh">
+                <div class="row fullheight" ng-include="baseurl + '/angular_templates/SentenceView.html'">                     
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-if="inEdit" class="col-xs-{{editViewWidth}} fullheight" style="height:{{userViewHeight}}%">
+            <div id="trashview" class="row fullheight">
+                <div class="col-xs-12" ng-include="baseurl + '/angular_templates/EditViewTrash.html'">
+
+                </div>
+            </div>
+            <div id="searchView" class="row fullheight">
+                <div class="col-xs-12" ng-include="baseurl + '/angular_templates/EditView.html'">
+
+                </div>
+            </div>
+        </div>
+        <div ng-if="inEdit" class="col-xs-12" id="searchFolder" ng-include="baseurl + '/angular_templates/EditFolder.html'" style="height: {{searchFolderHeight}}%">
+        </div>
+        <!-- MODIF: Poner control si no scan-->
+
+    </div>
+    <!-- MODIF: Poner control si no scan-->
+    <div ng-if="puntuando" class="scoreContainer">
+            <div class="scoreContainerLeft">
+                <img src="/img/srcWeb/feliz_1.png" class="goodPhrase" ng-click="isClickEnable()?feedback(1):null" ng-mouseenter="cfgTimeOverOnOff?TimeoutOverClick(3,'Good'):null" ng-mouseleave="cfgTimeOverOnOff?CancelTimeoutOverClick():null" ng-class="{'scaneo': isScanning == 'goodPhrase'}" ng-style="isScanning == 'goodPhrase' && {'border':'7px solid #{{cfgScanColor}}'}"/>
+            </div>
+
+            <div class="scoreContainerRight">
+                <img src="/img/srcWeb/triste_1.png" class="goodPhrase" ng-click="isClickEnable()?feedback(0):null" ng-mouseenter="cfgTimeOverOnOff?TimeoutOverClick(3,'Bad'):null" ng-mouseleave="cfgTimeOverOnOff?CancelTimeoutOverClick():null" ng-class="{'scaneo': isScanning == 'badPhrase'}" ng-style=" isScanning == 'badPhrase' && {'border':'7px solid #{{cfgScanColor}}'}"/>
+            </div>
+    </div>
+</div>
+</div>
+<!--ErrorVoicesModal-->
+                                            <div class="modal fade" id="errorVoicesModal" role="dialog">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="row marginModalTop"><img class="img-owl pull-right" src='/img/srcWeb/Mus/lowSorpresaFlecha.png'/></div>
+                                                    <div class="row" id="boxUserConfig" style="background-image: url('/img/srcWeb/patterns/pattern3.png')">
+                                                        <div id="header" class="row">
+                                                            <div class="col-xs-10 headerTitle">{{content.errorVoicesTitle}}</div>
+                                                        </div>
+                                                        <div class="row backgroundUserConfigBox">
+                                                            <div class="row fonsAlert">
+                                                                <div class="col-xs-1 text-center"><img class="img-Alert" src='/img/icons/info alert.png'/></div>
+                                                                <div class="col-xs-11">{{content.error}}</div>
+                                                            </div>
+                                                            <div class="row dadesUsuariCentre">
+                                                                <div class="col-xs-1"></div>
+                                                                <div class="col-xs-11">
+                                                                    <div class="row">{{errorMessage}}</div>
+                                                                    <div class="row verticalMarginTop">
+                                                                        <div class="col-xs-6 textError">
+                                                                            Error {{errorCode}}
+                                                                        </div>
+                                                                        <div class="col-xs-6">
+                                                                            <button type="reset" class="btn-gray pull-right" data-dismiss="modal">{{content.ok}}</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <div class="row verticalMarginTop"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+

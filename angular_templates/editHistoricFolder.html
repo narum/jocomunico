@@ -1,0 +1,91 @@
+<!--Edit historic folder-->
+<div class="modal fade" id="editHistoricFolderModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="row" id="boxUserConfig" style="background-image: url({{img.Patterns4}})">
+            <div id="header" class="row">
+                <div class="col-xs-10 headerTitle" ng-show="createFolderContentTitle">{{editHistoricFolderContent.historyCreateFolderTitle}}</div>
+                <div class="col-xs-10 headerTitle" ng-show="!createFolderContentTitle">{{editHistoricFolderContent.historyEditFolderTitle}}</div>
+            </div>
+            <div class="row backgroundUserConfigBox">
+                <div class="row fonsAlert">
+                    <div class="row"><div class="col-xs-12">{{editHistoricFolderContent.historyCreateFolderName}}</div></div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="text" class="historicInputText" ng-model="newFolder.folderName" placeholder="{{editHistoricFolderContent.historyCreateFolderNamePh}}"/>
+                        </div>
+                    </div>
+                    <div class="row"><br/></div>
+                    <div class="row">
+                        <div class="col-xs-7" ng-init="searchImg('', 'Arasaac')">
+                            <div class="row"><div class="col-xs-12">{{editHistoricFolderContent.historyCreateFolderImage}}</div></div>
+                            <div class="row">
+                                <div class="col-xs-10">
+                                    <input type="text" class="historicInputText" ng-model="imgEditSearch" ng-keyup="searchImg(imgEditSearch, typeImgEditSearch);" placeholder="{{editHistoricFolderContent.historyCreateFolderImagePh1}}"/><br>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="buttonsSearchView">
+                                        <label for="file-input" class="fullwidth">
+                                            <div ng-init="imgsrc=img.addPhoto" ng-mouseover="imgsrc=img.addPhotoSelected" ng-mouseout="imgsrc=img.addPhoto">
+                                                <img class="buttonAddImg pull-right" ng-src="{{imgsrc}}"/>
+                                            </div>
+                                        </label>
+                                        <input type="file" multiple id="file-input" onchange="angular.element(this).scope().uploadFile()" ng-show="false"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row radioText">
+                                <form role="form" class="text-center col-xs-12" name="SearchImgForm" ng-init="typeImgEditSearch='Arasaac'">
+                                    <div class="col-xs-6 text-left">
+                                        <label class="radio-inline">
+                                            <input type="radio" ng-model="typeImgEditSearch" ng-click="searchImg(imgEditSearch, typeImgEditSearch);" value="Arasaac"/>
+                                            {{editHistoricFolderContent.historyCreateFolderArasaacImages}}
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-6 text-left">
+                                        <label class="radio-inline">
+                                            <input type="radio" ng-model="typeImgEditSearch" ng-click="searchImg(imgEditSearch, typeImgEditSearch);" value="Uploads"/>
+                                            {{editHistoricFolderContent.historyCreateFolderMyImages}}
+                                        </label>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3"><div class="imgCell" ng-click="newFolder.imgSFolder=imgData[0].imgPath"><img class="img-rounded imgAdapted" ng-src="{{baseurl}}{{imgData[0].imgPath}}" ng-show="imgData[0].imgPath"/></div></div>
+                                <div class="col-xs-3"><div class="imgCell" ng-click="newFolder.imgSFolder=imgData[1].imgPath"><img class="img-rounded imgAdapted" ng-src="{{baseurl}}{{imgData[1].imgPath}}" ng-show="imgData[1].imgPath"/></div></div>
+                                <div class="col-xs-3"><div class="imgCell" ng-click="newFolder.imgSFolder=imgData[2].imgPath"><img class="img-rounded imgAdapted" ng-src="{{baseurl}}{{imgData[2].imgPath}}" ng-show="imgData[2].imgPath"/></div></div>
+                                <div class="col-xs-3"><div class="imgCell" ng-click="newFolder.imgSFolder=imgData[3].imgPath"><img class="img-rounded imgAdapted" ng-src="{{baseurl}}{{imgData[3].imgPath}}" ng-show="imgData[3].imgPath"/></div></div>
+                            </div>
+                            <div class="row"><br/>
+                                <div class="col-xs-6 maginColorSelectText">{{editHistoricFolderContent.historyCreateFolderColor}}</div>
+                                <div class="col-xs-6" id="colorSelect">
+                                    <input type="radio" id="radioColorSelect1" class="imageRadio" ng-model="newFolder.folderColor" value="7EFF54" ng-click="changeRadioState(newFolder.folderColor, 'ScanColor')" ng-show="false">
+                                        <label for="radioColorSelect1" style="background-color:#7EFF54"><div ng-show="!(newFolder.folderColor=='7EFF54')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div ng-show="newFolder.folderColor=='7EFF54'">&nbsp;<div class="icon-ok"></div>&nbsp;</div></label>
+                                    <input type="radio" id="radioColorSelect2" class="imageRadio" ng-model="newFolder.folderColor" value="FF0000" ng-click="changeRadioState(newFolder.folderColor, 'ScanColor')" ng-show="false">
+                                        <label for="radioColorSelect2" style="background-color:#FF0000"><div ng-show="!(newFolder.folderColor=='FF0000')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div ng-show="newFolder.folderColor=='FF0000'">&nbsp;<div class="icon-ok"></div>&nbsp;</div></label>
+                                    <input type="radio" id="radioColorSelect3" class="imageRadio" ng-model="newFolder.folderColor" value="8E0B92" ng-click="changeRadioState(newFolder.folderColor, 'ScanColor')" ng-show="false">
+                                        <label for="radioColorSelect3" style="background-color:#8E0B92"><div ng-show="!(newFolder.folderColor=='8E0B92')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div ng-show="newFolder.folderColor=='8E0B92'">&nbsp;<div class="icon-ok"></div>&nbsp;</div></label>
+                                    <input type="radio" id="radioColorSelect4" class="imageRadio" ng-model="newFolder.folderColor" value="2E758A" ng-click="changeRadioState(newFolder.folderColor, 'ScanColor')" ng-show="false">
+                                        <label for="radioColorSelect4" style="background-color:#2E758A"><div ng-show="!(newFolder.folderColor=='2E758A')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div ng-show="newFolder.folderColor=='2E758A'">&nbsp;<div class="icon-ok"></div>&nbsp;</div></label>
+                                    <input type="radio" id="radioColorSelect5" class="imageRadio" ng-model="newFolder.folderColor" value="000000" ng-click="changeRadioState(newFolder.folderColor, 'ScanColor')" ng-show="false">
+                                        <label for="radioColorSelect5" style="background-color:#000000"><div ng-show="!(newFolder.folderColor=='000000')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div ng-show="newFolder.folderColor=='000000'">&nbsp;<div class="icon-ok"></div>&nbsp;</div></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col-xs-offset-1">
+                            <div class="imgCellLg"><img class="img-rounded imgAdapted" ng-src="{{baseurl}}{{newFolder.imgSFolder}}" ng-show="newFolder.imgSFolder"/></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row dadesUsuariCentre">
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-left" data-dismiss="modal" ng-click="saveFolder();">{{editHistoricFolderContent.historyCreateFolderSaveButton}}</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-right" data-dismiss="modal">{{editHistoricFolderContent.historyCreateFolderCancelButton}}</button>
+                    </div>
+                </div>
+            </div>
+        <div class="row verticalMarginTop"></div>
+        </div>
+    </div>
+</div>

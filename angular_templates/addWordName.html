@@ -1,0 +1,302 @@
+<div ng-include="'/angular_templates/infoModal.html'"></div>
+<div>
+    <div class="form addWordForm40 " >
+        <div class="addWordFromField fullheight row" style="background-color: #fff;" ng-class="{ReqField: errAdd.erradd1 == true }">
+            <div class="row">
+                <div class="col-xs-5 row">
+                    <div class="col-xs-6 row">
+                        <div class="col-xs-3 row ">
+                            <img class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.genderNumberInfo);"/>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        {{content.genderMascName}}
+                    </div>
+                </div>
+                <div class="col-xs-7 row">
+                    <div class="col-xs-4">
+                        <input id="switchNameMf" class="switchclear" type="checkbox" 
+                               ng-model="$parent.objAdd.mf " ng-show="false">
+                        <label for="switchNameMf">&nbsp;</label>
+                    </div>
+                    <div class="col-xs-7">
+                        {{content.genderFemName}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 row">
+                    <div class="col-xs-6">
+
+                    </div>
+                    <div class="col-xs-6">
+                        {{content.numberSingularName}}
+                    </div>
+                </div>
+                <div class="col-xs-7 row">
+                    <div class="col-xs-4">
+                        <input id="switchNameSingpl" class="switchclear" type="checkbox" 
+                               ng-model="$parent.objAdd.singpl" ng-show="false">
+                        <label for="switchNameSingpl">&nbsp;</label>
+                    </div>
+                    <div class="col-xs-7">
+                        {{content.numberPluralName}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 marginLeftAddWord" ng-if=" !$parent.objAdd.singpl">
+                    <b>{{content.numberSingularName}}</b>
+                </div>
+                <div class="col-xs-2 marginLeftAddWord" ng-if=" $parent.objAdd.singpl">
+                    <b>{{content.numberPluralName}}</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-5 row">
+                    <div class="col-xs-6">
+
+                    </div>
+                    <div class="col-xs-6" ng-if="!$parent.objAdd.mf">
+                        {{content.genderMascName}}
+                    </div>
+                    <div class="col-xs-6" ng-if="$parent.objAdd.mf">
+                        {{content.genderFemName}}
+                    </div>
+                </div>
+                <div class="col-xs-7 row">
+                    <div class="col-xs-8">
+                        <input type="text" class="addWordText"  name="addWordText" ng-model="$parent.objAdd.nomtext"
+                               placeholder="{{content.singularMascPlaceholderName}}"/>
+                    </div>
+                    <div class="col-xs-4">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="!$parent.objAdd.mf && !$parent.objAdd.singpl">
+                <div class="col-xs-5 row">
+                    <div class="col-xs-6">
+
+                    </div>
+                    <div class="col-xs-6">
+                        {{content.genderFemName}}
+                    </div>
+                </div>
+                <div class="col-xs-7 row">
+                    <div class="col-xs-8">
+                        <input type="text" ng-if="$parent.switchName.s2" class="addWordText"  name="femeni" ng-model="$parent.objAdd.femeni"
+                               placeholder="{{content.singularFemPlaceholderName}}"/>
+                        <input type="text" disabled ng-if="!$parent.switchName.s2" class="addWordText"  name="femeniDis"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <input id="switchName2" class="switchclear" type="checkbox" 
+                               ng-model="$parent.switchName.s2" ng-show="false">
+                        <label for="switchName2">&nbsp;</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 marginLeftAddWord" ng-if=" !$parent.objAdd.singpl">
+                    <b>{{content.numberPluralName}}</b>
+                </div>
+            </div>
+            <div class="row" ng-if="!$parent.objAdd.singpl">
+                <div class="col-xs-5 row">
+                    <div class="col-xs-6">
+
+                    </div>
+                    <div class="col-xs-6" ng-if="!$parent.objAdd.mf">
+                        {{content.genderMascName}}
+                    </div>
+                    <div class="col-xs-6" ng-if="$parent.objAdd.mf">
+                        {{content.genderFemName}}
+                    </div>
+                </div>
+                <div class="col-xs-7 row">
+                    <div class="col-xs-8">
+                        <input type="text" ng-if="$parent.switchName.s3" class="addWordText"  name="plural" ng-model="$parent.objAdd.plural"
+                               placeholder="{{content.pluralMascPlaceholderName}}"/>
+                        <input type="text" disabled ng-if="!$parent.switchName.s3" class="addWordText"  name="pluralDis"/>
+                    </div>
+                    <div class="col-xs-4">
+                        <input id="switchName3" class="switchclear" type="checkbox" 
+                               ng-model="$parent.switchName.s3" ng-show="false">
+                        <label for="switchName3">&nbsp;</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row" ng-if="!$parent.objAdd.singpl && !$parent.objAdd.mf">
+                <div class="col-xs-5 row">
+                    <div class="col-xs-6">
+
+                    </div>
+                    <div class="col-xs-6">
+                        {{content.genderFemName}}
+                    </div>
+                </div>
+                <div class="col-xs-7 row">
+                    <div class="col-xs-8">
+                        <input type="text" ng-if="$parent.switchName.s4" class="addWordText"  name="fempl" ng-model="$parent.objAdd.fempl"
+                               placeholder="{{content.pluralFemPlaceholderName}}"/>
+                        <input type="text" disabled ng-if="!$parent.switchName.s4" class="addWordText"  name="femplDis" />
+                    </div>
+                    <div class="col-xs-4">
+                        <input id="switchName4" class="switchclear" type="checkbox" 
+                               ng-model="$parent.switchName.s4" ng-show="false">
+                        <label for="switchName4">&nbsp;</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form addWordForm7c5">
+        <div class="addWordFromField fullheight row" style="background-color: #fff;">
+            <div class="col-xs-1 ">
+                    <img class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.properNounInfo);"/>
+            </div>
+            <div class="col-xs-9">
+                {{content.properNounName}}
+            </div>
+            <div class="col-xs-2">
+                <input id="switchNameispropernoun" class="switch" type="checkbox" 
+                       ng-model="$parent.objAdd.ispropernoun " ng-show="false">
+                <label for="switchNameispropernoun">&nbsp;</label>
+            </div>
+        </div>
+    </div>
+    <div class="form addWordForm7c5">
+        <div class="addWordFromField fullheight row" style="background-color: #fff;">
+            <div class="row">
+                <div class="col-xs-1 ">
+                    <img class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.countUncountInfo);"/>
+                </div>
+                <div class=" col-xs-4">
+                    {{content.countableName}}
+                </div>
+                <div class="col-xs-4">
+                    <input id="switchNameContabincontab" class="switchclear" type="checkbox" 
+                           ng-model="$parent.objAdd.contabincontab" ng-show="false">
+                    <label for="switchNameContabincontab">&nbsp;</label>
+                </div>
+                <div class="col-xs-3">
+                    {{content.uncountableName}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form addWordForm15">
+        <div class="addWordFromField fullheight" style="background-color: #fff;">
+            <div class="row" style="height: 50%">
+                <div class="col-xs-1 ">
+                    <img class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.articleNameInfo);"/>
+                </div>
+                <div class=" col-xs-8">
+                        {{content.articleName}}
+                </div>
+            </div>
+            <div class="row" style="height: 50%">
+                <div class="col-xs-12 row text-center">
+                    <form name="determinat">
+                        <div class="col-xs-4">
+                            <input type="radio" ng-model="$parent.objAdd.determinat" value="1"/>
+                            {{content.articleDetName}}
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="radio" ng-model="$parent.objAdd.determinat" value="0"/>
+                            {{content.articleUndetName}}
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="radio" ng-model="$parent.objAdd.determinat" value="sense"/>
+                            {{content.articleWithoutName}}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form addWordForm7c5">
+        <div class="addWordFromField fullheight" style="background-color: #fff;">
+            <div class="row">
+                <div class="col-xs-1 ">
+                    <img class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.defaultVerbInfo);"/>
+                </div>
+                    <div class="col-xs-4">
+                        {{content.defaultVerbname}}
+                    </div>
+                    <div class="col-xs-5">                 
+                        <select class=" dropdown-arrow" 
+                            ng-model="$parent.objAdd.defaultverb"
+                            ng-if="$parent.switchName.s5"
+                            ng-options="verbsList.id as verbsList.text for verbsList in $parent.verbsList">
+
+                        </select>
+                        <select class=" dropdown-arrow" 
+                            ng-model="$parent.objAdd.defaultverb"
+                            disabled
+                            ng-if="!$parent.switchName.s5"
+                            ng-options="verbsList.id as verbsList.text for verbsList in $parent.verbsList">
+                        </select>
+                    </div>
+                    <div class="col-xs-2">
+                        <input id="switchName5" class="switch" type="checkbox" 
+                               ng-model="switchName.s5" ng-show="false">
+                        <label for="switchName5">&nbsp;</label>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+    
+    <div class="form addWordForm7c5">
+        <div class="addWordFromField fullheight row" style="background-color: #fff;">
+            <div class="col-xs-1 ">
+                    <img class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.supportsExpansionInfo);"/>
+            </div>
+            <div class="col-xs-9">
+                {{content.supportsExpansion}}
+            </div>
+            <div class="col-xs-2">
+                <input id="switchNamesupExp" class="switch" type="checkbox" 
+                               ng-model="$parent.objAdd.supExp" ng-show="false">
+                    <label for="switchNamesupExp">&nbsp;</label>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div class="form addWordForm15">
+        <div class="addWordFromField fullheight" style="background-color: #fff;" ng-class="{ReqField: errAdd.erradd2 == true }">
+            <div class="row" style="height: 40%">
+                <div class="col-xs-1">
+                    <img class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.classNameInfo);"/>
+                </div>
+                <div class="col-xs-2">
+                    {{content.classWord}}
+                </div>
+                <div class="col-xs-6 input-group input-group-auto inputMarginRigth ">
+                    <select
+                        class="classBoxAddWord"
+                        name="className"
+                        ng-model="formNounClass"
+                        ng-change="addNClass(formNounClass.valueOf())"
+                        >
+                        <option ng-repeat="x in $parent.classNoun | orderBy:'classType'" value="{{x.classType}}">{{x.nameType}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="inputMarginLeft" style=" height: 60%">
+                <table class="table table-condensed taula">
+                    <div class="col-xs-4 classPaddingAddWord" ng-repeat="item in NClassList">
+                        <div class="row colorBoxClass">
+                            <div class="col-xs-8 llenguatgeAddWord" >{{ item.nameType}}</div>
+                            <div class="col-xs-4 butoAddWord text-right"><div class="icon-minus btn-borrarAddWord" ng-click="removeNounclass($index)"></div></div>
+                        </div>
+                    </div>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

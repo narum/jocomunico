@@ -1,0 +1,42 @@
+<div class="modal fade" id="ConfirmCopyBoard" role="dialog">
+    <div class="modal-dialog">
+        <div class="row marginModalTopOwl"><img class="img-owl pull-right" src={{img.lowSorpresaFlecha}}/></div>
+        <div class="row" id="boxUserConfig" style="background-image: url({{img.Patterns1_08}})">
+            <div id="header" class="row">
+                <div class="col-xs-10 headerTitle-confirms">{{content.cpboardtitle}}</div>
+            </div>
+            <div class="row backgroundUserConfigBox">
+
+
+                <div class="row fonsAlert-confirms">
+                <div class=" row">
+                    <span class="col-xs-offset-2 col-xs-8">{{content.putNameBoard}}</span>
+                    <input type="text" class="col-xs-offset-2 col-xs-8 dialogText"  name="CopyBoardName" ng-model="CopyBoardData.CreateBoardName" placeholder="{{content.copyBoardPlaceholder}}"/>
+                </div>
+                <div class="row marginTopConfirm">
+                    <div class="col-xs-offset-2 col-xs-4">
+                        {{content.selectGroupBoard}}
+                    </div>
+                    <div class="col-xs-offset-1 col-xs-3">
+                        <select class=" dropdown-arrow confirmLong pull-right"
+                                ng-model="CopyBoardData.idGroupBoard"
+                                ng-options="panel.GBname for panel in panels track by panel.ID_GB">
+                        </select>
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="row dadesUsuariCentre">
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-left" data-dismiss="modal" ng-click="ConfirmCopyBoard();">{{content.confirm}}</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-right" data-dismiss="modal" ng-click="closeThisDialog();">{{content.cancel}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row verticalMarginTop"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,242 @@
+@charset "UTF-8";
+/* CSS Document */
+
+a:hover {
+    text-decoration: underline;
+}
+
+#main-container {
+    width: 100%;
+    padding-bottom: 20vh;
+}
+
+.home-logo {
+    text-align: center;
+    margin-top: 10vh;
+}
+
+.home-logo-img {
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.home-subtitle {
+    font-size: 1.6vw;
+    font-weight: 200;
+    color: #f0a22e;
+    display: block;
+    padding-top: 5px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.home-links {
+    font-size: 1.3vw;
+    font-weight: 500;
+    display: block;
+    padding-top: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.home-buttons {
+    text-align: center;
+    display: block;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.home-button {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.home-button-img {
+    max-width: 100%;
+}
+
+.home-video-img {
+    max-width: 100%;
+    position: absolute;
+    z-index: 1;
+    float: left;
+}
+
+.home-video-wrapper {
+    position: relative;
+    padding-bottom: 47.25%; /* 16:9 */
+    padding-top: 0px;
+    height: 0;
+    z-index: 5;
+}
+
+.home-video-wrapper iframe {
+	position: absolute;
+	top: 8%;
+	left: 6%;
+	width: 84%;
+	height: 100%;
+        border: solid 3px black;
+        border-radius: 5px;
+        cursor: pointer;
+}
+
+.footer-cookies {
+    position:fixed;
+    display: block;
+    width: 100%;
+    height: 15vh;
+    bottom: 0;
+    left: 0;
+    background-color: #474747;
+    opacity: 0.95;
+    z-index: 10;
+    cursor: pointer;
+    font-size: 1.3vw;
+    color: white;
+    padding: 3vh;
+    padding-left: 7vh;
+    padding-right: 7vh;
+    text-align: justify;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.footer-cookies a:hover {
+    color: white;
+}
+
+.footer-cookies-fade {
+    -webkit-transition: all linear 0.5s;
+    -moz-transition: all linear 0.5s;
+    -o-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    position:fixed;
+    display: block;
+    width: 100%;
+    height: 15vh;
+    bottom: 0;
+    left: 0;
+    background-color: #474747;
+    opacity: 0;
+    z-index: 10;
+    font-size: 1.3vw;
+    cursor: default;
+    color: white;
+    padding: 3vh;
+    padding-left: 7vh;
+    padding-right: 7vh;
+    text-align: justify;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.footer-cookies-out {
+    display: none;
+}
+
+.closecookiespopup {
+    position: absolute;
+    top: 1vh;
+    right: 2vh;
+    font-size: 15px !important;
+}
+
+.section-logo-img {
+    max-width: 100%;
+    max-height: 87px;
+    cursor: pointer;
+}
+
+.section-title {
+    font-size: 5vh;
+    font-weight: bold;
+    color: #f0a22e;
+    display: block;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.section-content {
+    color: black;
+    font-size: 2.8vh;
+    text-align: justify;
+    display: block;
+    margin-top: 50px;
+}
+
+.section-content-privacy {
+    color: black;
+    font-size: 2vh;
+    text-align: justify;
+    display: block;
+    margin-top: 50px;
+}
+
+.section-content-partners {
+    color: black;
+    font-size: 2.8vh;
+    text-align: justify;
+    display: block;
+    margin-top: 10vh;
+}
+
+.section-content-subtitle {
+    font-size: 5vh;
+}
+
+.section-content-privacy .section-content-subtitle {
+    font-size: 3vh;
+}
+
+.section-content p {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.section-content ul {
+    list-style-type: disc !important;
+}
+
+.content-example {
+    padding-left: 5vw;
+}
+
+.content-red {
+    color: red;
+}
+
+.partners-logo {
+    max-width: 100%;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.textaligncenter {
+    text-align: center;
+}
+
+.popover {
+    max-width: 500px;
+    text-align: justify;
+}
+
+@media (max-width:1000px){
+
+    .home-subtitle {
+        font-size: 2.2vw;
+    }
+    
+    .home-links {
+        font-size: 1.6vw;
+    }
+    
+    .footer-cookies {
+        font-size: 1.6vw;
+    }
+    
+    .footer-cookies-fade {
+        font-size: 1.6vw;
+    }
+}

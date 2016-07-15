@@ -1,0 +1,28 @@
+<div class="topBarDialog"><div class="editTitle">Slect img</div></div>
+
+<div class="col-xs-8" style="height: 60%">
+    <div class="dialogContent row" style="height: 50%">
+        <input type="text" class="boxEdit" ng-model="imgSearch" ng-keyup="searchFoto(imgSearch);" placeholder="{{content.placeholderSearch}}"/><br>
+    </div>
+
+    <div class="row" style="height: 50%;margin-bottom: 5%">
+        <div class="col-xs-1"></div>
+        <div bind-html-compile="allImg" class='col-xs-3' ng-repeat="img in allImg| limitTo: 3" style="height: 100%; margin-left: 0 !important">
+            <img class="imgRounded cellSearch" ng-src="{{baseurl}}img/pictos/{{img.imgPicto}}" ng-click="selectProvisionalPicto(img.imgPicto)"/>
+        </div>
+    </div>
+</div>
+<div class="col-xs-3" style="height: 50%;margin: 3%">
+    <div class="backgroundImgEdit"></div>
+    <div class="borderImgEdit"></div>
+    <img ng-if="previewImgProvisional != null" class="imgRounded imgEdit" width="100%" height="100%" data-ng-src="{{previewImgProvisional}}"/>
+    <img ng-if="previewImgProvisional == null && picImgProvisional !== null" class="imgRounded imgEdit" width="100%" height="100%"  ng-src="{{baseurl}}img/pictos/{{picImgProvisional}}"/>
+    <label for="file-input" class="fullheight fullwidth">
+        <img class="imgRounded buttonAddPhoto" width="100%" height="100%" ng-src="{{baseurl}}img/icons/add_photo.png"/>
+    </label>
+    <input type="file" multiple id="file-input" onchange="angular.element(this).scope().getPreviewImg()"/>
+</div>
+<div class="row" style="height: 20%">
+    <input class="dialogButton col-xs-offset-3 col-xs-2" type="button" value="{{content.confirm}}" ng-click="confirm();"/>
+    <input class="dialogButton col-xs-offset-2 col-xs-2" type="button" value="{{content.cancel}}" ng-click="closeThisDialog();"/>
+</div>

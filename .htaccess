@@ -1,0 +1,55 @@
+Options -MultiViews
+RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteEngine on
+RewriteBase /
+
+<FilesMatch "\.(html|php|js|css)$">
+	Header set Cache-Control "no-transform"
+</FilesMatch>
+
+    # Removes trailing slashes (prevents SEO duplicate content issues)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.+)/$ $1 [L,R=301]
+
+    # Redirect www to non-www
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+    ###
+
+    # Removes access to the system folder by users.
+    # Additionally this will allow you to create a System.php controller,
+    # previously this would not have been possible.
+    # 'system' can be replaced if you have renamed your system folder.
+    RewriteCond %{REQUEST_URI} ^system.*
+    RewriteRule ^(.*)$ /index.php/$1 [L]
+
+# Removes index.php  of the URI string
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+) index.php/$1 [L]
+
+<IfModule mod_setenvif.c>
+  <IfModule mod_headers.c>
+    BrowserMatch MSIE ie
+    Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+  </IfModule>
+</IfModule>
+
+
+# Afegeix al header una data de expiracio per aquests arxius al browser del client de 1 mes
+
+#ExpiresActive On
+#ExpiresByType image/gif A432000
+#ExpiresByType image/png A432000
+#ExpiresByType image/jpg A432000
+#ExpiresByType image/jpeg A432000
+#ExpiresByType text/css A432000
+
+#Create filter to match files you want to cache... 5 dies
+<Files *.js>
+    Header add "Cache-Control" "max-age=432000"
+</Files>
+# <Files *.mp3>
+# Header add "Cache-Control" "max-age=432000"
+# </Files>

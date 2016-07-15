@@ -1,0 +1,70 @@
+<link rel="stylesheet" type="text/css" href="css/responsiveForm.css">
+<div class="modal fade" id="ConfirmEditAddWord" role="dialog">
+    <div class="modal-dialog">
+        <div class="row marginModalTopOwl"><img class="img-owl pull-right" src={{img.lowSorpresaFlecha}}/></div>
+        <div class="row" id="boxUserConfig" style="background-image: url(img/srcWeb/patterns/pattern6.png)">
+            <div id="header" class="row">
+                <div class="col-xs-10 headerTitle">{{content.editVocTitle}}</div>
+            </div>
+            <div class="row backgroundUserConfigBox">
+                <div ng-init="searchAddWord('', 'Tots')" class="fonsAlert row">
+                    <div class="col-xs-6 contentEditWordPadding">
+                        <div class="col-xs-12">
+                            <div class="col-xs-offset-1 col-xs-1 infoIconBox">
+                                <input type="image" class="img-icon" ng-src="/img/icons/info.png" ng-click="toggleInfoModal(content.modalInfoTitle, content.editVocInfo);">
+                            </div>
+                            <span class="col-xs-offset-1 col-xs-11 text-justify" style="margin-top: 4vh; padding-right: 4vw;">
+                                {{content.editVocText}}
+                            </span>
+                            <div class="col-xs-offset-1 col-xs-11 content1EditWord" style="margin-top: 1vh; padding-right: 4vw;">
+                                <input type="text" class="searchBoxEditWord" ng-model="pictoEditSearchAddWord" ng-keyup="searchAddWord(pictoEditSearchAddWord, SearchTypeAddWord);" placeholder="{{content.editVocPlaceholder}}"/><br>
+                            </div>
+                        </div>
+                        <div class="col-xs-12" style="display: block; position: relative; margin-top: 1vh;">
+                            <div class="col-xs-offset-1 col-xs-11 text-left radioEditWord">
+                                <label class="radio-inline">
+                                    <input type="radio" ng-model="SearchTypeAddWord" ng-click="searchAddWord(pictoEditSearchAddWord, SearchTypeAddWord);" value="Tots" />
+                                    {{content.editAll}}
+                                </label>    
+                            </div>
+                            <div class="col-xs-offset-1 col-xs-11 text-left radioEditWord">
+                                <label class="radio-inline">
+                                    <input type="radio" ng-model="SearchTypeAddWord" ng-click="searchAddWord(pictoEditSearchAddWord, SearchTypeAddWord);" value="Noms"/>
+                                    {{content.editName}}
+                                </label>
+                            </div>
+                            <div class="col-xs-offset-1 col-xs-11 text-left radioEditWord">
+                                <label class="radio-inline">
+                                    <input type="radio" ng-model="SearchTypeAddWord" ng-click="searchAddWord(pictoEditSearchAddWord, SearchTypeAddWord);" value="Adj" />
+                                    {{content.editAdj}}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 row">
+
+                        <div bind-html-compile="dataword" class='col-xs-4' ng-repeat="picto in dataWordAddWord| limitTo: 6" style="margin-left: 0 !important">
+                            <div class="imgRounded" style="cursor: pointer">
+                                <div ng-if="cfgTextInCell && picto.text !== null" class="textCellAddWord" >{{picto.text}}</div>
+                                <div ng-style="cfgTextInCell ? {'height': '13vh'} : {'height': '13vh'}" style="border: 1px grey solid; margin: 2px; border-radius: 10px;" data-dismiss="modal" ng-click="selectAddWordEdit(0, picto.id)">
+                                    <div style="height: 80%">
+                                        <img class="imgRounded imgResponsive" ng-src="{{baseurl}}img/pictos/{{picto.imgPicto}}"/>
+                                    </div>
+                                    <div class="text-center" style="height: 20%">
+                                        {{picto.text}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row dadesUsuariCentre">
+                    <div class="col-xs-7">
+                        <button type="reset" class="btn-gray pull-right" data-dismiss="modal" ng-click="closeThisDialog();">{{content.cancel}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row verticalMarginTop"></div>
+    </div>
+</div>

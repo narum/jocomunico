@@ -1,0 +1,156 @@
+/*Force landscape orientation*/
+
+/*Responsive Text*/
+html, body{
+    font-size: 3vh;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+/*Loading gif image*/
+.loadingGif{
+    margin-top: 46vh;
+    text-align: center;
+}
+.img-loadingGif{
+    height: 8vh;
+}
+/* Automatic resize Input Type from viewheight
+       input-group input-group-auto           */
+    
+input[type="date"].input-auto,
+input[type="time"].input-auto,
+input[type="datetime-local"].input-auto,
+input[type="month"].input-auto,
+.input-group-auto input[type="date"],
+.input-group-auto input[type="time"],
+.input-group-auto input[type="datetime-local"],
+.input-group-auto input[type="month"] {
+    line-height: 5vh;
+}
+.input-auto + .form-control-feedback,
+.input-group-auto + .form-control-feedback,
+.form-group-auto .form-control + .form-control-feedback {
+    width: 5vh;
+    height: 5vh;
+    line-height: 5vh;
+}
+.input-group-auto > .form-control,
+.input-group-auto > .input-group-addon,
+.input-group-auto > .input-group-btn > .btn {
+    height: 5vh;
+    padding: 0vh 1vw;
+    font-size: 3vh;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    line-height: 1.3333333;
+    /*border-radius: 6px;*/
+}
+select.input-group-auto > .form-control,
+select.input-group-auto > .input-group-addon,
+select.input-group-auto > .input-group-btn > .btn {
+    height: 5vh;
+    line-height: 5vh;
+}
+textarea.input-group-auto > .form-control,
+textarea.input-group-auto > .input-group-addon,
+textarea.input-group-auto > .input-group-btn > .btn,
+select[multiple].input-group-auto > .form-control,
+select[multiple].input-group-auto > .input-group-addon,
+select[multiple].input-group-auto > .input-group-btn > .btn {
+    height: auto;
+}
+.form-group {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    /*margin-bottom: 1.5vh;*/
+    margin-top: 3vh;
+}
+.form-control-feedback {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 5vh;
+  height: auto;
+  line-height: 5vh;
+  text-align: center;
+  pointer-events: none;
+}
+
+
+
+/*Input box borders and text colors from box state*/
+.errorcoment{/*Comentario de error en una capa superior para no desplazar el contenido*/
+    color:#cc0000; /*dark red*/
+    font-weight: bold;
+    font-size: 2.2vh;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    position: absolute;
+    z-index:1;
+}
+.error,/*color del icono de estado, texto y el borde del input box en error*/
+.has-error .form-control-feedback {
+    color:red;
+}
+.has-error .form-control{
+    color:red;
+    border: 3px solid red;
+    border-left: none;
+}
+.has-error .form-control:focus{/*color del borde cuando esta seleccionado el input box en error*/
+    border-color:#dc143c;
+}
+.has-error .input-group-addon{/*color del borde, fondo e icono del input box en error*/
+    background-color: #99ccdd; /*azul turquesa*/
+    border: 3px solid red;
+    border-right: none;
+    color:#8b0000; /*dark red*/
+}
+.warningcoment{/*Comentario de warning en una capa superior para no desplazar el contenido*/
+    color:#cc0000; /*dark red*/
+    font-weight: bold;
+    font-size: 2.2vh;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    position: absolute;
+    z-index:2;
+}
+.warning,
+.has-warning .form-control-feedback {/*color del icono de estado, texto y el borde del input box en warning*/
+    color:orange;
+}
+.has-warning .form-control{
+    color:orange;
+    border: 3px solid red;
+    border-left: none;
+}
+.has-warning .form-control:focus{/*color del borde cuando esta seleccionado el input box en warning*/
+    border-color:#dc143c;
+}
+.has-warning .input-group-addon {/*color del borde, fondo e icono del input box en warning*/
+    background-color: #99ccdd;/*azul turquesa*/
+    border: 3px solid red;
+    border-right: none;
+    color:#EE7600; /*dark orange*/
+}
+.success,
+.has-success .form-control-feedback {/*color del icono de estado, texto y el borde del input box en warning*/
+    color:green;
+}
+.has-success .form-control{
+    color:green;
+    border: 3px solid green;
+    border-left: none;
+}
+.has-success .input-group-addon{/*color del borde, fondo e icono del input box en success*/
+    background-color: #99ccdd;/*azul turquesa*/
+    border: 3px solid green;
+    border-right: none;
+    color:#006400; /*dark green*/
+}
+.input-group-addon{/*color de fondo de los iconos de los input box en reposo*/
+    background-color: #99ccdd;/*azul turquesa*/
+    height: 5vh;
+/*    width: 9vh;
+    padding: auto;*/
+}

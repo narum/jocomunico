@@ -1,0 +1,100 @@
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/responsiveForm.css">
+<style>html, body, .container-table{height: 100%;height: 100vh;background: url('{{img.fons}}') no-repeat center center fixed;
+    -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+</style>
+<!--menu superior dropdown-->
+<div ng-include="'/angular_templates/dropdownMenuBar.html'" ng-show="viewActivated"></div>
+<div class="loadingGif" ng-show="!viewActivated"><img class="img-loadingGif" ng-src={{img.loading}}/></div>
+
+<div class="container container-table" ng-show="viewActivated">
+    <div class="row vertical-center-row">
+        <form name="loginForm">
+            <div class="col-xs-8 col-xs-offset-2 boxLogin" style="background-image: url({{img.Patterns1_08}})">
+                <div class="row barraBoxLogin">
+                    <div class="col-xs-7">
+                        <div class="textResponsiveBarra" ng-show="!view2">{{content.login}} &nbsp;<image class="imatgeClau" ng-src={{img.clau}}/></div>
+                        <div class="textResponsiveBarra" ng-show="view2">{{content.title}}</div>
+                    </div>
+                    <div class="col-xs-5">
+                         <a class="icon-remove-sign pull-right butoSortirBarraSuperiorRegistre" ng-show="view2" ng-click="view2=false" ></a>
+                    </div>
+                </div>
+            <!--Login view-->
+                <div class="row" ng-show="!view2">
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <div class="row margeSuperiorUser">
+                            <div class="form-group {{state}} has-feedback">
+                                <div class="input-group input-group-auto">
+                                    <span class="input-group-addon"><i class="icon-user"></i></span>
+                                    <input class="form-control" type="text" name="user" placeholder={{content.user}} ng-change="changeFormState()" ng-model="username" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group {{state}} has-feedback">
+                                <div class="input-group input-group-auto">
+                                    <span class="input-group-addon"><i class="icon-unlock-alt"></i></span>
+                                    <input class="form-control" type="password" name="pass" placeholder={{content.pass}} ng-change="changeFormState()" ng-model="password" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row comentariError">
+                            <span class="errorcoment" ng-show="state=='has-error'">{{content.incorrect}}</span>
+                            <span class="errorcoment" ng-show="state=='has-warning'">{{content.userNotValidated}}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-3 butoRegistret">
+                                <a href="/#/register">{{content.register}}</a>
+                            </div>
+                            <div class="col-xs-9 recuperacioContrasenya">
+                                <a ng-click="view2=true" >{{content.forgotPass}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--Password recovery view-->
+                <div class="row" ng-show=view2>
+                    <div class="titol">
+                        {{content.recoveryText}}
+                    </div>
+                    <div class="col-xs-8 col-xs-offset-2">
+                        <div class="row">
+                            <div class="form-group {{state2}} has-feedback">
+                                <div class="input-group input-group-auto">
+                                    <span class="input-group-addon"><i class="icon-user"></i></span>
+                                    <input class="form-control" type="text" name="user" placeholder="{{content.checkboxRecovery}}" ng-change="changeFormState()" ng-model="user" 
+                                           onkeydown = "if (event.keyCode == 13) document.getElementById('btnSearch').click()">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row comentariError">
+                            <span class="errorcoment" ng-show="state2=='has-error'">{{content.incorrectUser}}</span>
+                        </div>
+                        <div class="row rowButons">
+<!--                            <div class="col-xs-2">
+                                <a class="btn-blue" ng-click="view2=false">Tornar</a>
+                            </div>-->
+                            <div class="col-xs-2 col-xs-offset-10">
+                                <a class="btn-blue" id = "btnSearch" ng-click="forgotPass()">Enviar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--Login view-->
+            </div>
+            <div class="col-xs-2 boxButo" ng-show="!view2">
+                <div class="buto">
+                    <div class="col-xs-2 triangle">
+                        <image class="imgTriangle" alt="Responsive image" ng-src={{img.fletxaLogin2}}/>
+                    </div>
+                    <div class="col-xs-10">
+                        <div id="divID" ng-init="imgsrc=img.BotoEntra" ng-mouseover="imgsrc=img.BotoEntra2" ng-mouseout="imgsrc=img.BotoEntra">
+                            <input type="image" class="img img-rounded" alt="Responsive image" ng-src="{{imgsrc}}" ng-click="login()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

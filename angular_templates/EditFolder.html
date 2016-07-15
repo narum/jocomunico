@@ -1,0 +1,54 @@
+
+<div class="col-xs-{{12 - editViewWidth}} fullheight">
+    <div class="fullheight imgRounded paddingFolder" style="background-image: url({{baseurl}}img/srcWeb/patterns/pattern6.png)">
+        <div class="col-xs-7 folderButtons row">
+            <div  class="col-xs-4 paddingFolderButton">
+                <div class=" imgRounded FolderButton" ng-click="copyBoard()">
+                    {{content.cpboard}}
+                </div>
+            </div>
+            <div  class="col-xs-4 paddingFolderButton">
+                <div class=" imgRounded FolderButton" ng-click="CreateBoard()">
+                    {{content.nwboard}}
+                </div>
+            </div>
+            <div  class="col-xs-4 paddingFolderButton">
+                <div class=" imgRounded FolderButton" ng-click="RemoveBoard()">
+                    {{content.rmboard}}
+                </div>
+            </div>
+        </div>
+        <div class=" imgRounded col-xs-5 selectFolder">
+            <div class="col-xs-6 currentGB text-uppercase">
+                 {{nameBoard}}
+            </div>
+             <div class="col-xs-6">
+                <select class="folderBox dropdown-arrow" 
+                        ng-model="$parent.sb.selectBoard"
+                        ng-options="b.Bname for b in allBoards"
+                        ng-change="changeBoard()">
+                </select>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div  class="col-xs-{{editViewWidth}} fullheight colorMargin">
+    <div class="fullheight imgRounded colorFolderPadding" style="background-image: url({{baseurl}}img/srcWeb/patterns/pattern4.png)">
+        <div class="col-xs-7">
+            <select class="folderBox dropdown-arrow color" style="background-color: #{{$parent.fv.colorPaintingSelected}};" ng-model="$parent.fv.colorPaintingSelected" ng-change="$parent.startPainting();">
+                <option ng-repeat="color in $parent.colors"
+                        style="background-color: #{{color.tagString}}"
+                        ng-value="color.tagString">{{color.content}}</option>
+            </select>
+        </div>
+        <div class="col-xs-5">
+            <div class="imgRounded colorFolderButtonDown" ng-click="$parent.startPainting()" ng-if="!$parent.fv.painting">
+                {{content.start}}
+            </div>
+            <div class="imgRounded colorFolderButton" ng-click="$parent.stopPainting()" ng-if="$parent.fv.painting">
+                {{content.stop}}
+            </div>
+        </div>
+    </div>
+</div>

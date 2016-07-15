@@ -1,0 +1,191 @@
+/*Dropdown menu bar*/
+
+.dropdownMenuBar{
+    z-index:40;
+    position: fixed;
+}
+.dropdownMenuBarHide{
+    z-index:40;
+    position: fixed;
+    left: -6vh;
+}
+.menuBarAnimation{
+    position: relative;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    height: 7vh;
+    width: 7.8vh;
+/*    height: 5vh;
+    width: 5.8vh;*/
+    background-color: #adadad;
+    border-radius: 1vh;
+
+    -webkit-transition: background-color 0.5s ease, margin 0.25s ease, height 0.25s ease, width 0.25s ease;
+    -moz-transition: background-color 0.5s ease, margin 0.25s ease, height 0.25s ease, width 0.25s ease;
+    -o-transition: background-color 0.5s ease, margin 0.25s ease, height 0.25s ease, width 0.25s ease;
+    transition: background-color 0.5s ease, margin 0.25s ease, height 0.25s ease, width 0.25s ease;
+}
+.menuBarAnimationHide{
+    position: relative;
+    margin-top: 4vh;
+    /*left: -6vh;*/
+    height: 7vh;
+    width: 7.8vh;
+    background-color: #adadad;
+    border-radius: 1vh;
+
+    -webkit-transition: background-color 0.5s ease, margin 0.25s ease, height 0.25s ease, width 0.25s ease;
+    -moz-transition: background-color 0.5s ease, margin 0.25s ease, height 0.25s ease, width 0.25s ease;
+    -o-transition: background-color 0.5s ease, margin 0.25s ease, height 0.25s ease, width 0.25s ease;
+    transition: background-color 0.5s ease, margin 0.25s ease, height 0.25s ease, width 0.25s ease;
+}
+.menuBarAnimationOpened{
+    background-color: #474747;
+    margin-top: 0px;
+    margin-left: 0px;
+    left: 0px;
+    height: 15vh;
+    width: 100vw;
+    border-radius: 0px;
+    opacity: 0.95;
+}
+.menuBarAnimationOpenedHide{
+    background-color: #474747;
+    margin-top: 0px;
+    margin-left: 0px;
+    left: 6vh;
+    height: 15vh;
+    width: 100vw;
+    border-radius: 0px;
+    opacity: 0.95;
+}
+.imgDropdownMenuButton{
+    z-index:42;
+    position: fixed;
+    margin-top: 4vh;
+    margin-left: 4vh;
+    height: 7vh;
+/*    height: 5vh;
+    width: auto;*/
+}
+.imgDropdownMenuButtonHide{
+    z-index:42;
+    position: fixed;
+    margin-top: 4vh;
+    left: -5.5vh;
+    height: 7vh;
+    -webkit-transition: left 0.25s ease;
+    -moz-transition: left 0.25s ease;
+    -o-transition: left 0.25s ease;
+    transition: left 0.25s ease;
+}
+.imgDropdownMenuButtonHideOpened{
+    left: 4vh;
+    -webkit-transition: left 0.25s ease;
+    -moz-transition: left 0.25s ease;
+    -o-transition: left 0.25s ease;
+    transition: left 0.25s ease;
+}
+.fontSizeForced *{
+    font-size: 1.4vh;
+}
+.buttonsMenuBar{
+    z-index:41;
+    position: fixed;
+    width: 100vw;
+    opacity: 0;
+    top: -12vh;
+    margin-top: 5vh;
+    padding-left: 12vh;
+    /*font-size: 1.2vh;*/
+    text-align: center;
+}
+.buttonsMenuBarOpened{
+    top: 0px;
+    -webkit-transition: opacity 0.5s ease-out;
+    -webkit-transition-delay: 0.25s;
+    -moz-transition: opacity 0.5s ease-out;
+    -moz-transition-delay: 0.25s;
+    -o-transition: opacity 0.5s ease-out;
+    -o-transition-delay: 0.25s;
+    transition: opacity 0.5s ease-out;
+    transition-delay: 0.25s;
+    opacity: 1;
+}
+.icondropdownMenuBar{
+    height: 2vh;
+    width: auto;
+    margin-bottom: 0.6vh;
+}
+.marginButtonMenuBar{
+    width: 12vh;
+}
+.marginButtonMenuBar label{
+    font-weight: normal;
+}
+input.statesButtonMenuBar[type=radio]:empty + label,
+input.statesButtonMenuBar[type=checkbox]:empty + label{
+    cursor: pointer;
+    color: #828282;
+}
+input.statesButtonMenuBar[type=radio]:checked + label,
+input.statesButtonMenuBar[type=checkbox]:checked + label{
+    color: white !important;
+}
+input.statesButtonMenuBar[type=radio]:empty + label:hover,
+input.statesButtonMenuBar[type=checkbox]:empty + label:hover{
+    color: #dddddd;
+}
+.marginLanguagesButtonMenuBar{
+    margin-right:11.5vh;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+    opacity: 0;
+}
+.marginLanguagesButtonMenuBar2{
+    margin-right:4vh;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+    opacity: 0;
+}
+.marginLanguagesButtonMenuBarSelected{
+    opacity: 1;
+}
+.LanguagesButtonMenuBar{
+    margin-right: 2vh;
+}
+textarea:focus, input:focus {
+    box-shadow: none;
+}
+.clickOutside{
+    z-index:40;
+    position: fixed;
+    margin-top: 15vh;
+    height: 85vh;
+    width: 100vw;
+}
+.mailto{
+    color: #828282;
+    display: block;
+    height: 5vh;
+}
+.mailto:hover{
+    color: #dddddd;
+    text-decoration: none;
+}
+.mailto:active,
+.mailto:checked,
+.mailto:focus {
+    color: #828282;
+    text-decoration: none;
+}
+.exitText{
+    color: white;
+}
+
+
+

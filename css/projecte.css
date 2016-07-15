@@ -1,0 +1,842 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+    color: black;
+    padding: 0;
+    background-color:#FDFFE1;
+    margin: 0 auto;
+    width:100%;
+    height:100%;
+    position:relative;
+    display:block;
+}
+
+#cos {
+    position:relative;
+    display:block;
+    width:1200px;
+    height:auto;
+    min-height:850px;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:20px;
+    background-color:white;
+    padding-left:30px;
+    padding-top:30px;
+}
+
+#timer {
+    position:relative;
+    display:inline-block;
+    width: 100px;
+}
+
+#frasegenerada {
+    display: block;
+    position: relative;
+    padding-top: 20px;
+    font-size: 1.2em;
+    float: left;
+}
+
+.link {
+    color:green;
+    text-decoration:none;
+    font-size:1.1em;
+}
+
+.link:hover {
+    text-decoration:underline;
+}
+
+/* Login form */
+
+#coslogin {
+    background-color:white;
+    display:block;
+    height:auto;
+    margin:80px auto;
+    min-height:195px;
+    padding-left:30px;
+    padding-top:30px;
+    position:relative;
+    width:370px;
+}
+
+#login-box {
+    display:block;
+    position:relative;
+    float:left;
+    width:100%;
+    margin-top:10px;
+}
+
+.boto-login {
+    display:block;
+    margin-top:0px;
+}
+
+.tagdades {
+    letter-spacing:1px;
+    color:green;
+    font-size:1.1em;
+}
+
+/* Interfície Insertar Frase */
+
+#form-frase {
+    position:relative;
+    display:block;
+}
+
+.benvingut {
+    position:relative;
+    display:block;
+    float:right;
+    text-align:right;
+    margin-right:20px;
+    letter-spacing:1px;
+}
+
+.logout {
+    position:relative;
+    display:block;
+    float:right;
+    text-align:right;
+    margin-right:30px;
+    letter-spacing:1px;
+}
+
+.frase-entrada {
+    position:relative;
+    display:block;
+    float:left;
+    width:750px;
+    font-style:italic;
+    font-size:1.3em;
+    margin-bottom:10px;
+    overflow:visible
+}
+
+#frase-select-box {
+    display:block;
+    float:left;
+    position:relative;
+    width:100%;
+}
+
+#llistats {
+    display:block;
+    float:left;
+    position:relative;
+    width:100%;
+}
+
+.llistatsclasse {
+    display:block;
+    float:left;
+    position:relative;
+    width:50%;
+    margin-top:15px;
+}
+
+.titolclasse {
+    position:relative;
+    display:block;
+    font-size:1.4em;
+    width:100%;
+    margin-bottom:10px;
+    font-weight:bold;
+    text-align:left;
+}
+
+.nommodif {
+    position:relative;
+    display:inline;
+    font-size:0.7em;
+    margin-left:10px;
+    color:#777777;
+    cursor:pointer;
+    width:50px;
+    padding:5px;
+}
+
+.nommodif:hover {
+    color:white;
+    background-color:#777777;
+}
+
+.llistatssubclasse {
+    position:relative;
+    display:block;
+    float:left;
+    width:45%;
+    padding:5px;
+    margin-right:5px;
+    margin-bottom:5px;
+    border:solid 1px green;
+}
+
+.titolsubclasse {
+    position:relative;
+    display:block;
+    font-size:1.2em;
+    width:100%;
+    margin-bottom:10px;
+    font-weight:bold;
+    color:green;
+}
+
+.grupsubsubclasse {
+    position:relative;
+    display:block;
+    float:left;
+    width:100%;
+    margin-bottom:10px;
+}
+
+.selectbox {
+    position:relative;
+    display:block;
+    float:left;
+    margin-top:5px;
+}
+
+.titolsubsubclasse {
+    position:relative;
+    display:block;
+    float:left;
+    padding-right:5px;
+    padding-top:5px;
+    font-weight:bold;
+}
+
+.botoafegir {
+    position:relative;
+    display:block;
+    float:left;
+    margin-left:5px;
+    padding:5px;
+    color:green;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.botoafegir:hover {
+    color:white;
+    background-color:green;
+}
+
+.radiotop {
+    margin-right:12px;
+}
+
+#tipus-frase {
+    display:block;
+    float:left;
+    height:auto;
+    padding:5px;
+    padding-left:0;
+    position:relative;
+    width:47%;
+    margin-top:10px;
+    top:-93px;
+}
+
+.radiobottom {
+    margin-right:25px;
+}
+
+#contenidor-tipus-frase {
+    position:relative;
+    display:block;
+    float:left;
+    width:90%;
+    padding:5px;
+    margin-right:5px;
+    margin-bottom:25px;
+    border:solid 1px green;
+}
+
+.titolfraseobjectiu {
+    position:relative;
+    display:block;
+    font-size:1.2em;
+    margin-bottom:10px;
+    font-weight:bold;
+    float:left;
+    width:105px;
+}
+
+.barrafraseobj {
+    display:block;
+    position:relative;
+    float:left;
+    margin-left:5px;
+    width:359px;
+}
+
+#frase-building {
+    position:relative;
+    display:block;
+    float:left;
+    width:50%;
+    margin-top:10px;
+    top:0;
+}
+
+#contenidor-frase {
+    display:block;
+    position:relative;
+    float:left;
+    background-color:#f0f0f0;
+    width:448px;
+    height:auto;
+    min-height:54px;
+    padding:5px;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.paraula-building {
+    position:relative;
+    display:block;
+    float:left;
+    margin-top:5px;
+    font-size:1.4em;
+    font-weight:normal;
+}
+
+.botoeliminar {
+    position:relative;
+    margin-right:15px;
+    padding:5px;
+    color:red;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.botoeliminar:hover {
+    color:white;
+    background-color:red;
+}
+
+.boto-enviar-frase {
+    position:relative;
+    display:block;
+    float:left;
+    width:478px;
+    margin-top:12px;
+    top:0;
+    text-align:right;
+}
+
+
+/* Colors */
+
+#llistat-noms-humans {
+    border:1px solid #FFD300 !important;
+}
+
+#llistat-noms-humans .titolsubclasse, #llistat-noms-humans .botoafegir {
+    color:#FFD300 !important;
+}
+
+#llistat-noms-humans .botoafegir:hover {
+    color:white !important;
+    background-color:#FFD300 !important;
+}
+
+
+#llistat-noms-animats {
+    border:1px solid #FFD300 !important;
+}
+
+#llistat-noms-animats .titolsubclasse, #llistat-noms-animats .botoafegir {
+    color:#FFD300 !important;
+}
+
+#llistat-noms-animats .botoafegir:hover {
+    color:white !important;
+    background-color:#FFD300 !important;
+}
+
+
+#llistat-noms-objs-menjar {
+    border:1px solid #FFA100 !important;
+}
+
+#llistat-noms-objs-menjar .titolsubclasse, #llistat-noms-objs-menjar .botoafegir {
+    color:#FFA100 !important;
+}
+
+#llistat-noms-objs-menjar .botoafegir:hover {
+    color:white !important;
+    background-color:#FFA100 !important;
+}
+
+
+#llistat-noms-altres {
+    border:1px solid #FFA100 !important;
+}
+
+#llistat-noms-altres .titolsubclasse, #llistat-noms-altres .botoafegir {
+    color:#FFA100 !important;
+}
+
+#llistat-noms-altres .botoafegir:hover {
+    color:white !important;
+    background-color:#FFA100 !important;
+}
+
+
+#llistat-noms-lloc-hores {
+    border:1px solid #777777 !important;
+}
+
+#llistat-noms-lloc-hores .titolsubclasse, #llistat-noms-lloc-hores .botoafegir {
+    color:#777777 !important;
+}
+
+#llistat-noms-lloc-hores .botoafegir:hover {
+    color:white !important;
+    background-color:#777777 !important;
+}
+
+
+#llistat-noms-temps {
+    border:1px solid #777777 !important;
+}
+
+#llistat-noms-temps .titolsubclasse, #llistat-noms-temps .botoafegir {
+    color:#777777 !important;
+}
+
+#llistat-noms-temps .botoafegir:hover {
+    color:white !important;
+    background-color:#777777 !important;
+}
+
+
+#llistat-adjs {
+    border:1px solid #1047AA !important;
+}
+
+#llistat-adjs .titolsubclasse, #llistat-adjs .botoafegir {
+    color:#1047AA !important;
+}
+
+#llistat-adjs .botoafegir:hover {
+    color:white !important;
+    background-color:#1047AA !important;
+}
+
+
+#llistat-advs {
+    border:1px solid #777777 !important;
+}
+
+#llistat-advs .titolsubclasse, #llistat-advs .botoafegir {
+    color:#777777 !important;
+}
+
+#llistat-advs .botoafegir:hover {
+    color:white !important;
+    background-color:#777777 !important;
+}
+
+
+#llistat-modifs {
+    border:1px solid #777777 !important;
+}
+
+#llistat-modifs .titolsubclasse, #llistat-modifs .botoafegir {
+    color:#777777 !important;
+}
+
+#llistat-modifs .botoafegir:hover {
+    color:white !important;
+    background-color:#777777 !important;
+}
+
+
+#llistat-pregs {
+    border:1px solid #777777 !important;
+}
+
+#llistat-pregs .titolsubclasse, #llistat-pregs .botoafegir {
+    color:#777777 !important;
+}
+
+#llistat-pregs .botoafegir:hover {
+    color:white !important;
+    background-color:#777777 !important;
+}
+
+
+#llistat-exprs {
+    border:1px solid #CB0077 !important;
+}
+
+#llistat-exprs .titolsubclasse, #llistat-exprs .botoafegir {
+    color:#CB0077 !important;
+}
+
+#llistat-exprs .botoafegir:hover {
+    color:white !important;
+    background-color:#CB0077 !important;
+}
+
+/* Interfície de resultats */
+
+#cos-resultats {
+    position:relative;
+    display:block;
+    width:1000px;
+    height:auto;
+    min-height:900px;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:20px;
+    background-color:white;
+    padding-left:30px;
+    padding-top:30px;
+}
+
+#wrapper-left {
+    display: block;
+    float: left;
+    position: relative;
+    width: 425px;
+    margin-top: 20px;
+}
+
+#resultats {
+    display: block;
+    float: left;
+    position: relative;
+    width: 420px;
+    border: 1px solid green;
+}
+
+#parsepattern {
+    display: block;
+    float: left;
+    position: relative;
+    width: 380px;
+    margin-top: 70px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.parseheader {
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding-bottom: 5px;
+    color: green;
+}
+
+.pattern {
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    padding-top: 10px;
+    font-size: 1.1em;
+    padding-bottom: 30px;
+}
+
+.errormessage {
+    display: block;
+    position: relative;
+    float: left;
+    padding-bottom: 35px;
+    font-size: 1em;
+    color: red;
+}
+
+.fraseresultat {
+    display: block;
+    position: relative;
+    width: 400px;
+    font-size: 2.2em;
+    padding-top: 10px;
+}
+
+.introwords {
+    display: block;
+    position: relative;
+    width: 380px;
+    font-size: 1.4em;
+    padding-top: 10px;
+}
+
+#inputwords {
+    display: block;
+    position: relative;
+    float: left;
+    width: 380px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+#frasefinal {
+    display: block;
+    position: relative;
+    float: left;
+    width: 400px;
+    margin-top: 60px;
+    margin-left: 20px;
+}
+
+#puntuacions {
+    display: block;
+    float: left;
+    position: relative;
+    width: 480px;
+    margin-top: 20px;
+    margin-left: 40px;
+    border: 1px solid #1047AA;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    text-align: justify;
+}
+
+#puntuacions .parseheader {
+    color: #1047AA !important;
+}
+
+#scoregenerator {
+    display: block;
+    position: relative;
+    float: left;
+    width: 460px;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+#scoreparser {
+    display: block;
+    position: relative;
+    float: left;
+    width: 460px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#comentaris-box {
+    display: block;
+    float: left;
+    position: relative;
+    width: 420px;
+    margin-top: 20px;
+    border: 1px solid #CB0077;
+}
+
+#comentaris {
+    display: block;
+    position: relative;
+    float: left;
+    width: 420px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#comentaris-box .parseheader {
+    color: #CB0077 !important;
+}
+
+.info {
+    display: block;
+    position: relative;
+    float: left;
+    width: 370px;
+    margin-bottom: 20px;
+    color: grey;
+    text-align: justify;
+}
+
+.radioscore {
+    display: block;
+    position: relative;
+    float: left;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 1.05em;
+}
+
+.textarea {
+    display: block;
+    position: relative;
+    width: 370px;
+    height: 50px;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.boto-enviar-notes {
+    display: block;
+    position: relative;
+    float: left;
+    margin-top: 20px;
+}
+
+.linknovafrase {
+    color:green;
+    text-decoration:none;
+    font-size:1.4em;
+    display: block;
+    position: relative;
+    float: left;
+    margin-top: 20px;
+}
+
+.linknovafrase:hover {
+    text-decoration:underline;
+}
+
+
+/* Prova Hello World */
+
+#text {
+    font-size:2em;
+    color:white;
+    padding-bottom:5px;
+    margin-top:50%;
+    position:relative;
+    display:block;
+    width:100%;
+    height:25px;
+    text-align:center;
+}
+
+.helloworld {
+    color:#ffc040;
+    font-size:1.15em;
+    font-variant:small-caps;
+    position:relative;
+    top:-2px;
+    cursor:pointer;
+}
+
+.hellobutton {
+    font-size:0.95em;
+    cursor:pointer;
+}
+
+.hellobutton:hover {
+    color:#bef73e;
+}
+
+/* Articles Module */
+
+.llistatssubclasseART {
+    position:relative;
+    display:block;
+    float:left;
+    width:240px;
+    padding:5px;
+    margin-right:5px;
+    margin-bottom:5px;
+    border:solid 1px green;
+}
+
+.titolsubclasseART {
+    position:relative;
+    display:block;
+    font-size:1.2em;
+    width:240px;
+    margin-bottom:10px;
+    font-weight:bold;
+    color:green;
+}
+
+.llistatsclasseART {
+    display:block;
+    float:left;
+    position:relative;
+    width:52%;
+    margin-top:15px;
+}
+
+.grupsubsubclasseART {
+    position:relative;
+    display:block;
+    float:left;
+    width:240px;
+    margin-bottom:10px;
+}
+
+#llistat-noms-humansART {
+    height: 94px;
+    border:1px solid #FFD300 !important;
+}
+
+#llistat-noms-humansART .botoafegir:hover {
+    color:white !important;
+    background-color:#FFD300 !important;
+}
+
+#llistat-noms-humansART .titolsubclasseART, #llistat-noms-humansART .botoafegir {
+    color:#FFD300 !important;
+}
+
+#llistat-noms-animats .titolsubclasseART, #llistat-noms-animats .botoafegir {
+    color:#FFD300 !important;
+}
+
+#llistat-noms-objs-menjar .titolsubclasseART, #llistat-noms-objs-menjar .botoafegir {
+    color:#FFA100 !important;
+}
+
+#llistat-noms-altres .titolsubclasseART, #llistat-noms-altres .botoafegir {
+    color:#FFA100 !important;
+}
+
+#llistat-noms-lloc-hores .titolsubclasseART, #llistat-noms-lloc-hores .botoafegir {
+    color:#777777 !important;
+}
+
+#llistat-noms-temps .titolsubclasseART, #llistat-noms-temps .botoafegir {
+    color:#777777 !important;
+}
+
+/* Condition Tree Browser */
+
+#tree-browser {
+    display:block;
+    float:right;
+    height:460px;
+    margin-right:25px;
+    margin-top:15px;
+    position:relative;
+    width:42%;
+}
+
+#conditions-menu {
+    display: block;
+    float: left;
+    width: 100%;
+    position: relative;
+    height:400px;
+}
+
+/* Articles' Module Results */
+
+#paraules-amb-articles {
+    display: block;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+    font-size: 2em;
+}

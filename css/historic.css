@@ -1,0 +1,306 @@
+@charset "UTF-8";
+/* CSS Document */
+#main{
+    height:100vh;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -ms-content-zooming: none;
+    touch-action: none;
+
+}
+.historicView{
+    padding: 3px; 
+    height: 100vh;
+
+}
+.containerHistoric{
+    height: 12.5%;
+    margin-bottom: 1vh
+}
+.containerButtonsHistoric{
+    height: 13.5%;
+}
+.backgroundHome{
+    width: 94%;
+    height: 100%;    
+    position: absolute;
+    background: url('/img/srcWeb/Menu/borrar_ultim_fons.png');
+    background-size: 100% 100%;
+    border-radius: 7px;
+}
+.backgroundReturn{
+    width: 94%;
+    height: 100%;    
+    position: absolute;
+    background: url('/img/srcWeb/Menu/llegir_fons.png');
+    background-size: 100% 100%;
+    border-radius: 7px;
+}
+.backgroundBack{
+    width: 100%;
+    height: 100%;    
+    position: absolute;
+    background-color: #faab68;
+    background-size: 100% 100%;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+.disabledBackgroundBack{
+    width: 100%;
+    height: 100%;    
+    position: absolute;
+    background-color: #bbbbbb;
+    background-size: 100% 100%;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+.backgroundNext{
+    width: 100%;
+    height: 100%;    
+    position: absolute;
+    background-color: #faab68;
+    background-size: 100% 100%;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.disabledBackgroundNext{
+    width: 100%;
+    height: 100%;    
+    position: absolute;
+    background-color: #bbbbbb;
+    background-size: 100% 100%;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.backgroundHistoricBack{
+    width: 100%;
+    height: 100%;    
+    position: absolute;
+    background-color: #f8c659;
+    background-size: 100% 100%;
+    border-top-left-radius: 7px;
+}
+.disabledBackgroundHistoricBack{
+    width: 100%;
+    height: 100%;    
+    position: absolute;
+    background-color: #bbbbbb;
+    background-size: 100% 100%;
+    border-top-left-radius: 7px;
+}
+.backgroundHistoricNext{
+    width: 94%;
+    height: 100%;    
+    position: absolute;
+    background-color: #efa741;
+    background-size: 100% 100%;
+    border-top-right-radius: 7px;
+}
+.disabledBackgroundHistoricNext{
+    width: 94%;
+    height: 100%;    
+    position: absolute;
+    background-color: #bbbbbb;
+    background-size: 100% 100%;
+    border-top-right-radius: 7px;
+}
+.imgResponsiveBack {
+    pointer-events: none;
+    display: block;
+    max-width: 50%;
+    height: auto;
+    max-height: 50%;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: relative;
+    z-index: 2;
+}
+.timeButton{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px -2px 0px 1px #91dce1;
+    border: none;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column; 
+    cursor: pointer;
+}
+.timeButton:active{
+    box-shadow: 0px -0px 0px 1px #91dce1;
+    transform: translate(2px, -2px);
+}
+.timeButtonAcitve{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px -2px 0px 1px #91dce1;
+    border: none;
+    color: #000;
+    background-color: #d4eaed;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column; 
+    cursor: pointer;
+}
+.folderHistoricButton{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px -2px 0px 1px #f6985d;
+    border: none;
+    color: #000;
+    background-color: #fff;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column; 
+    cursor: pointer;
+}
+.folderHistoricButton:active{
+    box-shadow: 0px -0px 0px 1px #f9a777;
+    transform: translate(2px, -2px);
+}
+.folderHistoricButtonActive{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 2px -2px 0px 1px #f6985d;
+    border: none;
+    color: #000;
+    background-color: #f9c659;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column; 
+    cursor: pointer;
+}
+.holderButtons{
+    padding: 2vh 1vh;
+    height:100%; 
+}
+.buttonPadding{
+    padding: 0vh 1vh;
+    height: 100%;
+    color:white;
+}
+.buttonText{
+    transform: translate(0%, -50%);
+    top: 50%;
+    position: relative;
+}
+.historicContainer{
+    height: 73%;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.scrollHistoric{
+    height: 100%;
+    overflow: hidden;
+}
+.sentencePadding{
+    padding: 1vh;
+    height: 20%;
+}
+.sentenceBackground{
+    background-color:white; 
+    border-bottom-left-radius: 7px;
+    border-top-left-radius: 7px;
+    height: 100%;
+    padding: 1vh;
+}
+.sentenceCell{
+    margin-right: 2px;
+    width: 10%;
+    height: 75%;
+}
+.phraseText{
+    height: 20%;
+}
+.imgResponsiveHistoric{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: relative;
+    z-index: 2;
+}
+.indicatorNegativeSentence{
+    border-bottom: solid 3px;
+    border-bottom-color: black;
+}
+.indicatorTenseSentence{
+    background: #FEE8B6;
+    height: 50%;
+    border-top-right-radius: 7px;
+}
+.indicatorTipusSentence{
+    background: #FEE8B6;
+    height: 50%;
+    border-bottom-right-radius: 7px;
+}
+.sentenceCellIndicator{
+    height:100%;
+    background: #FEE8B6;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+.scaneo{
+    width: 100%;
+    height: 100%;
+    border: 7px solid #ff0000;
+    border-radius: 7px;
+    z-index: 24;
+    position: absolute;
+}
+.scaneoButton{
+    margin: 0vh -1vh;
+    width: 100%;
+    height: 110%;
+    border: 7px solid #ff0000;
+    border-radius: 7px;
+    z-index: 24;
+    position: absolute;
+    top: -0.5vh;
+}
+.returnScanContainer{
+    width: 40vh ;
+    height: 30vh;
+    z-index: 24;
+    position: absolute;
+    background: url("/img/srcWeb/Patterns1-08.png");
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 2vh;
+}
+.returnScanContent{
+    width: 100%;
+    height: 100%;
+    z-index: 24;
+    border-radius: 15px;
+    border: 7px solid #ff0000;
+    background: white;
+}
+.returnScanIcon{
+    top: 50%;
+    left: 50%;
+    position:relative;
+    transform: translate(-50%,-50%);
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+}
