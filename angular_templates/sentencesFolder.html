@@ -205,7 +205,7 @@
         <div class="row marginModalTopOwl"><img class="img-owl pull-right" src={{img.lowSorpresaFlecha}}/></div>
         <div class="row" id="boxUserConfig" style="background-image: url({{img.Patterns4}})">
             <div id="header" class="row">
-                <div class="col-xs-10 headerTitle">{{content.editHistoryEraseSentence}} {{content.editHistoryEditFolderButton2}}</div>
+                <div class="col-xs-10 headerTitle">{{content.eraseSentencesFolderTitle}}</div>
             </div>
             <div class="row backgroundUserConfigBox">
                 <div class="row fonsAlert">
@@ -215,6 +215,32 @@
                 <div class="row dadesUsuariCentre">
                     <div class="col-xs-6">
                         <button type="reset" class="btn-gray pull-left" data-dismiss="modal" ng-click="deleteFolder();">{{logoutContent.confirm}}</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-right" data-dismiss="modal">{{logoutContent.cancel}}</button>
+                    </div>
+                </div>
+            </div>
+        <div class="row verticalMarginTop"></div>
+        </div>
+    </div>
+</div>
+
+<!--Delete Sentence Modal-->
+<div class="modal fade" id="deleteSentenceModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="row marginModalTopOwl"><img class="img-owl pull-right" src={{img.lowSorpresaFlecha}}/></div>
+        <div class="row" id="boxUserConfig" style="background-image: url({{img.Patterns4}})">
+            <div id="header" class="row">
+                <div class="col-xs-10 headerTitle">{{content.confirmEraseSentenceTitle}}</div>
+            </div>
+            <div class="row backgroundUserConfigBox">
+                <div class="row fonsAlert">
+                    <div class="col-xs-12 textCenter">{{content.confirmEraseSentenceText}}</div>
+                </div>
+                <div class="row dadesUsuariCentre">
+                    <div class="col-xs-6">
+                        <button type="reset" class="btn-gray pull-left" data-dismiss="modal" ng-click="confirmDeleteSentence();">{{logoutContent.confirm}}</button>
                     </div>
                     <div class="col-xs-6">
                         <button type="reset" class="btn-gray pull-right" data-dismiss="modal">{{logoutContent.cancel}}</button>

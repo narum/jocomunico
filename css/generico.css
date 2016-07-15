@@ -709,9 +709,11 @@ input.switch:checked ~ label:after
 }
 
 .color-bold b {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #d45f01;
 }
 
 .color-bold strong {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #d45f01;
 }

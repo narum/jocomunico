@@ -379,7 +379,8 @@
                         <div class="row headerBar">
                             <div class="col-xs-6">
                                 <div class="col-xs-2 infoIconBox">
-                                    <input type="image" class="img-icon" ng-src={{img.info}} ng-click="toggleInfoModal(content.modalInfoTitle, content.popYourVoiceLocal);">
+                                    <input type="image" class="img-icon" ng-src={{img.info}} ng-click="toggleInfoModal(content.modalInfoTitle, content.popYourVoiceLocal);" ng-show="local">
+                                    <input type="image" class="img-icon" ng-src={{img.info}} ng-click="toggleInfoModal(content.modalInfoTitle, content.popYourVoiceServer);" ng-show="!local">
                                 </div>
                                 <div class="col-xs-10 buttonBar" ng-click="contentBar11=!contentBar11">{{content.yourVoiceTitleBar}}</div>
                             </div>
@@ -445,7 +446,8 @@
                         <div class="row headerBar" ng-class="{disabledBar:!userData.cfgInterfaceVoiceOnOff}">
                             <div class="col-xs-6">
                                 <div class="col-xs-2 infoIconBox">
-                                    <input type="image" class="img-icon" ng-src={{img.info}} ng-click="toggleInfoModal(content.modalInfoTitle, content.popFeedbackVoiceLocal);">
+                                    <input type="image" class="img-icon" ng-src={{img.info}} ng-click="toggleInfoModal(content.modalInfoTitle, content.popFeedbackVoiceLocal);" ng-show="local">
+                                    <input type="image" class="img-icon" ng-src={{img.info}} ng-click="toggleInfoModal(content.modalInfoTitle, content.popFeedbackVoiceServer);" ng-show="!local">
                                 </div>
                                 <div class="col-xs-10 buttonBar" ng-click="contentBar10=!contentBar10">{{content.feedbackVoiceTitleBar}}</div>
                             </div>
@@ -765,15 +767,15 @@
                             <div class="row">
                                 <div class="col-xs-2 paddingLeft">
                                     <input type="radio" id="radioScan2" class="imageRadio" ng-model="userData.cfgScanningCustomRowCol" value="1" ng-click="changeRadioState(userData.cfgScanningCustomRowCol, 'ScanningCustomRowCol')" ng-show="false">
-                                        <label for="radioScan2"><img class="img-configRadio" ng-src={{img.cfgScanningRow}}/></label>
+                                    <label for="radioScan2"><img class="img-configRadio" ng-src={{img.cfgScanningRow}}/></label><br/><div style="margin-right:1.5vw;margin-top:0.5vh;text-align: center;font-size: 2.5vh;">{{content.scanTypeRowsText}}</div>
                                 </div>
                                 <div class="col-xs-2 paddingLeft2">
                                     <input type="radio" id="radioScan3" class="imageRadio" ng-model="userData.cfgScanningCustomRowCol" value="2" ng-click="changeRadioState(userData.cfgScanningCustomRowCol, 'ScanningCustomRowCol')" ng-show="false">
-                                        <label for="radioScan3"><img class="img-configRadio" ng-src={{img.cfgScanningCol}}/></label>
+                                        <label for="radioScan3"><img class="img-configRadio" ng-src={{img.cfgScanningCol}}/></label><br/><div style="margin-right:1.8vw;margin-top:0.5vh;text-align: center;font-size: 2.5vh;">{{content.scanTypeColumnsText}}</div>
                                 </div>
                                 <div class="col-xs-2">
                                     <input type="radio" id="radioScan1" class="imageRadio" ng-model="userData.cfgScanningCustomRowCol" value="0" ng-click="changeRadioState(userData.cfgScanningCustomRowCol, 'ScanningCustomRowCol')" ng-show="false">
-                                        <label for="radioScan1"><img class="img-configRadio" ng-src={{img.cfgScanningCustom}}/></label>
+                                        <label for="radioScan1"><img class="img-configRadio" ng-src={{img.cfgScanningCustom}}/></label><br/><div style="margin-right:2vw;margin-top:0.5vh;text-align: center;font-size: 2.5vh;">{{content.scanTypeCustomText}}</div>
                                 </div>
                                 <div class="col-xs-6">
                                     <div class="row">
@@ -841,7 +843,12 @@
                             </div>
                             <div class="row verticalMarginTop">
                                 <div class="col-xs-5 paddingLeft">
-                                    <div class="row">{{content.scanOrderTitle}}</div>
+                                    <div class="row">
+                                        <div class="col-xs-2 infoIconBox">
+                                            <input type="image" class="img-icon" ng-src={{img.info}} popover-placement="top-left" popover-trigger="focus" uib-popover="{{content.orderScanInfo}}">
+                                        </div>
+                                        {{content.scanOrderTitle}}
+                                    </div>
                                     <div class="row">&nbsp;</div>
                                     <div class="row textPetit">
                                         <div class="col-xs-11 col-xs-offset-1">

@@ -91,6 +91,7 @@
                     <div class="col-xs-10">
                         <div id="divID" ng-init="imgsrc=img.BotoEntra" ng-mouseover="imgsrc=img.BotoEntra2" ng-mouseout="imgsrc=img.BotoEntra">
                             <input type="image" class="img img-rounded" alt="Responsive image" ng-src="{{imgsrc}}" ng-click="login()">
+                            <br/><div class="newUser" ng-class="{newUserHover: imgsrc==img.BotoEntra2}">{{content.loginButton}}</div>
                         </div>
                     </div>
                 </div>

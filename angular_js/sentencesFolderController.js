@@ -166,13 +166,19 @@ angular.module('controllers')
                 getSentences();
             });
         };
+        var idSentenceToDelete = '';
         $scope.deleteSentence = function(ID_SSentence){
-            Resources.main.save({'ID_SSentence':ID_SSentence},{'funct': "deleteSentenceFromFolder"}).$promise
+            $('#deleteSentenceModal').modal('toggle');//Hide modal
+            idSentenceToDelete = ID_SSentence;
+        };
+        $scope.confirmDeleteSentence = function(){
+            $('#deleteSentenceModal').modal('hide'); //Close modal
+            Resources.main.save({'ID_SSentence':idSentenceToDelete},{'funct': "deleteSentenceFromFolder"}).$promise
             .then(function (results) {
                 console.log(results);
                 getSentences();
             });
-        };
+        }
         //edit folder
         $scope.editHistoricFolder = function(){
             $('#editHistoricFolderModal').modal('toggle');//Show modal
