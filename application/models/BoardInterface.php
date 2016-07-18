@@ -477,7 +477,7 @@ class BoardInterface extends CI_Model {
     function getInfoGroupBoard($idgroup) {
 
         $this->db->where('ID_GB', $idgroup);
-        $query = $this->db->get('groupboards');
+        $query = $this->db->get('GroupBoards');
 
         if ($query->num_rows() > 0) {
             $output = $query->result();
@@ -739,8 +739,8 @@ class BoardInterface extends CI_Model {
     function getBoardTables($idSrc) {
 
         $this->db->where('ID_RBoard', $idSrc);
-        $this->db->join('r_boardcell', 'r_boardcell.ID_RCell = cell.ID_Cell', 'left');
-        $query = $this->db->get('cell');
+        $this->db->join('R_BoardCell', 'R_BoardCell.ID_RCell = Cell.ID_Cell', 'left');
+        $query = $this->db->get('Cell');
         if ($query->num_rows() > 0) {
             $output = $query->result();
         } else
@@ -767,7 +767,7 @@ class BoardInterface extends CI_Model {
             'cellType' => $row->cellType,
             'activeCell' => $row->activeCell
         );
-        $this->db->insert('cell', $data);
+        $this->db->insert('Cell', $data);
         $id = $this->db->insert_id();
         $data2 = array(
             'ID_RBoard' => $idDst,
@@ -779,7 +779,7 @@ class BoardInterface extends CI_Model {
             'customScanBlock2' => $row->customScanBlock2,
             'customScanBlockText2' => $row->customScanBlockText2
         );
-        $this->db->insert('r_boardcell', $data2);
+        $this->db->insert('R_BoardCell', $data2);
     }
 
     function removeBoard($IDboard) {
@@ -789,7 +789,7 @@ class BoardInterface extends CI_Model {
 
     function removeGoupBoard($IDGB) {
         $this->db->where('ID_GB', $IDGB);
-        $this->db->delete('groupboards');
+        $this->db->delete('GroupBoards');
     }
 
     function removeBoardLinks($IDboard) {
