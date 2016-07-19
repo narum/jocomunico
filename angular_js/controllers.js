@@ -2460,7 +2460,7 @@ angular.module('controllers', [])
                 });
             };
             /*
-             * If you click in a function (not a pictogram) this controller carry you
+             * If you click in a function (not a pictogram) this controller carries you
              * to the specific function
              */
             $scope.clickOnFunction = function (id, text, readed) {
@@ -3562,7 +3562,7 @@ angular.module('controllers', [])
                 return false;
             };
             $scope.getSenteceToScan = function () {
-                $scope.readText($scope.historic[$scope.scanningSentence][0].generatorString || $scope.historic[$scope.scanningSentence][0].sPreRecText, true);
+                $scope.readText($scope.historic[$scope.scanningSentence][0].generatorString || $scope.historic[$scope.scanningSentence][0].sPreRecText, false);
             };
             // Change the current scan block
             $scope.nextBlockScan = function () {
