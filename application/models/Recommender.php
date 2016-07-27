@@ -962,8 +962,16 @@ class Recommender extends CI_Model {
         
     private function getContextTypeAllDeep($pictoType, $minCount) {                            
         $output = null;
-
-        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPicto.'.($this->getHora()-1).'h+P_StatsUserPicto.'.$this->getHora().'h+P_StatsUserPicto.'.($this->getHora()+1).'h+P_StatsUserPicto.'.$this->getDia().'+P_StatsUserPicto.'.$this->getDia().') as repes');
+        
+        $horaMinus = ($this->getHora()-1);
+        if ($horaMinus < 0) $horaMinus += 24;
+        
+        $horaPlus = ($this->getHora()+1);
+        if ($horaPlus > 23) $horaPlus -= 24;
+        
+        $hora = $this->getHora();
+        
+        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPicto.'.$horaMinus.'h+P_StatsUserPicto.'.$hora.'h+P_StatsUserPicto.'.$horaPlus.'h+P_StatsUserPicto.'.$this->getDia().'+P_StatsUserPicto.'.$this->getDia().') as repes');
         $this->db->from('P_StatsUserPicto');              
         $this->db->join('PictogramsLanguage', 'P_StatsUserPicto.pictoid = PictogramsLanguage.pictoid', 'left'); 
         $this->db->join('Pictograms', 'P_StatsUserPicto.pictoid = Pictograms.pictoid', 'left'); 
@@ -991,7 +999,15 @@ class Recommender extends CI_Model {
         $output = array();
         $output = null;
         
-        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox3.'.($this->getHora()-1).'h+P_StatsUserPictox3.'.$this->getHora().'h+P_StatsUserPictox3.'.($this->getHora()+1).'h+P_StatsUserPictox3.'.$this->getDia().'+P_StatsUserPictox3.'.$this->getDia().') as count');
+        $horaMinus = ($this->getHora()-1);
+        if ($horaMinus < 0) $horaMinus += 24;
+        
+        $horaPlus = ($this->getHora()+1);
+        if ($horaPlus > 23) $horaPlus -= 24;
+        
+        $hora = $this->getHora();
+        
+        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox3.'.$horaMinus.'h+P_StatsUserPictox3.'.$hora.'h+P_StatsUserPictox3.'.$horaPlus.'h+P_StatsUserPictox3.'.$this->getDia().'+P_StatsUserPictox3.'.$this->getDia().') as count');
         $this->db->from('P_StatsUserPictox3');       
         $this->db->join('PictogramsLanguage', 'P_StatsUserPictox3.picto3id = PictogramsLanguage.pictoid', 'left'); 
         $this->db->join('Pictograms', 'P_StatsUserPictox3.picto3id = Pictograms.pictoid', 'left');
@@ -1019,7 +1035,15 @@ class Recommender extends CI_Model {
         $output = array();
         $output = null;
         
-        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox3.'.($this->getHora()-1).'h+P_StatsUserPictox3.'.$this->getHora().'h+P_StatsUserPictox3.'.($this->getHora()+1).'h+P_StatsUserPictox3.'.$this->getDia().'+P_StatsUserPictox3.'.$this->getDia().') as count');
+        $horaMinus = ($this->getHora()-1);
+        if ($horaMinus < 0) $horaMinus += 24;
+        
+        $horaPlus = ($this->getHora()+1);
+        if ($horaPlus > 23) $horaPlus -= 24;
+        
+        $hora = $this->getHora();
+        
+        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox3.'.$horaMinus.'h+P_StatsUserPictox3.'.$hora.'h+P_StatsUserPictox3.'.$horaPlus.'h+P_StatsUserPictox3.'.$this->getDia().'+P_StatsUserPictox3.'.$this->getDia().') as count');
         $this->db->from('P_StatsUserPictox3');       
         $this->db->join('PictogramsLanguage', 'P_StatsUserPictox3.picto3id = PictogramsLanguage.pictoid', 'left'); 
         $this->db->join('Pictograms', 'P_StatsUserPictox3.picto3id = Pictograms.pictoid', 'left');
@@ -1048,7 +1072,15 @@ class Recommender extends CI_Model {
         $output = array();
         $output = null;
         
-        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox2.'.($this->getHora()-1).'h+P_StatsUserPictox2.'.$this->getHora().'h+P_StatsUserPictox2.'.($this->getHora()+1).'h+P_StatsUserPictox2.'.$this->getDia().'+P_StatsUserPictox2.'.$this->getDia().') as count');
+        $horaMinus = ($this->getHora()-1);
+        if ($horaMinus < 0) $horaMinus += 24;
+        
+        $horaPlus = ($this->getHora()+1);
+        if ($horaPlus > 23) $horaPlus -= 24;
+        
+        $hora = $this->getHora();
+        
+        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox2.'.$horaMinus.'h+P_StatsUserPictox2.'.$hora.'h+P_StatsUserPictox2.'.$horaPlus.'h+P_StatsUserPictox2.'.$this->getDia().'+P_StatsUserPictox2.'.$this->getDia().') as count');
         $this->db->from('P_StatsUserPictox2');              
         $this->db->join('PictogramsLanguage', 'P_StatsUserPictox2.picto2id = PictogramsLanguage.pictoid', 'left'); 
         $this->db->join('Pictograms', 'P_StatsUserPictox2.picto2id = Pictograms.pictoid', 'left'); 
@@ -1077,7 +1109,15 @@ class Recommender extends CI_Model {
         $output = array();
         $output = null;
         
-        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox2.'.($this->getHora()-1).'h+P_StatsUserPictox2.'.$this->getHora().'h+P_StatsUserPictox2.'.($this->getHora()+1).'h+P_StatsUserPictox2.'.$this->getDia().'+P_StatsUserPictox2.'.$this->getDia().') as count');
+        $horaMinus = ($this->getHora()-1);
+        if ($horaMinus < 0) $horaMinus += 24;
+        
+        $horaPlus = ($this->getHora()+1);
+        if ($horaPlus > 23) $horaPlus -= 24;
+        
+        $hora = $this->getHora();
+        
+        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox2.'.$horaMinus.'h+P_StatsUserPictox2.'.$hora.'h+P_StatsUserPictox2.'.$horaPlus.'h+P_StatsUserPictox2.'.$this->getDia().'+P_StatsUserPictox2.'.$this->getDia().') as count');
         $this->db->from('P_StatsUserPictox2');              
         $this->db->join('PictogramsLanguage', 'P_StatsUserPictox2.picto2id = PictogramsLanguage.pictoid', 'left'); 
         $this->db->join('Pictograms', 'P_StatsUserPictox2.picto2id = Pictograms.pictoid', 'left'); 
@@ -1105,7 +1145,15 @@ class Recommender extends CI_Model {
         $output = array();
         $output = null;
         
-        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox2.'.($this->getHora()-1).'h+P_StatsUserPictox2.'.$this->getHora().'h+P_StatsUserPictox2.'.($this->getHora()+1).'h+P_StatsUserPictox2.'.$this->getDia().'+P_StatsUserPictox2.'.$this->getDia().') as count');
+        $horaMinus = ($this->getHora()-1);
+        if ($horaMinus < 0) $horaMinus += 24;
+        
+        $horaPlus = ($this->getHora()+1);
+        if ($horaPlus > 23) $horaPlus -= 24;
+        
+        $hora = $this->getHora();
+        
+        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPictox2.'.$horaMinus.'h+P_StatsUserPictox2.'.$hora.'h+P_StatsUserPictox2.'.$horaPlus.'h+P_StatsUserPictox2.'.$this->getDia().'+P_StatsUserPictox2.'.$this->getDia().') as count');
         $this->db->from('P_StatsUserPictox2');              
         $this->db->join('PictogramsLanguage', 'P_StatsUserPictox2.picto2id = PictogramsLanguage.pictoid', 'left'); 
         $this->db->join('Pictograms', 'P_StatsUserPictox2.picto2id = Pictograms.pictoid', 'left'); 
@@ -1132,7 +1180,15 @@ class Recommender extends CI_Model {
         $output = array();
         $output = null;
         
-        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPicto.'.($this->getHora()-1).'h+P_StatsUserPicto.'.$this->getHora().'h+P_StatsUserPicto.'.($this->getHora()+1).'h+P_StatsUserPicto.'.$this->getDia().'+P_StatsUserPicto.'.$this->getDia().') as count');
+        $horaMinus = ($this->getHora()-1);
+        if ($horaMinus < 0) $horaMinus += 24;
+        
+        $horaPlus = ($this->getHora()+1);
+        if ($horaPlus > 23) $horaPlus -= 24;
+        
+        $hora = $this->getHora();
+        
+        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPicto.'.$horaMinus.'h+P_StatsUserPicto.'.$hora.'h+P_StatsUserPicto.'.$horaPlus.'h+P_StatsUserPicto.'.$this->getDia().'+P_StatsUserPicto.'.$this->getDia().') as count');
         $this->db->from('P_StatsUserPicto');
         $this->db->join('PictogramsLanguage', 'P_StatsUserPicto.pictoid = PictogramsLanguage.pictoid', 'left'); 
         $this->db->join('Pictograms', 'P_StatsUserPicto.pictoid = Pictograms.pictoid', 'left');
@@ -1160,7 +1216,15 @@ class Recommender extends CI_Model {
         $output = array();
         $output = null;
         
-        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPicto.'.($this->getHora()-1).'h+P_StatsUserPicto.'.$this->getHora().'h+P_StatsUserPicto.'.($this->getHora()+1).'h+P_StatsUserPicto.'.$this->getDia().'+P_StatsUserPicto.'.$this->getDia().') as count');
+        $horaMinus = ($this->getHora()-1);
+        if ($horaMinus < 0) $horaMinus += 24;
+        
+        $horaPlus = ($this->getHora()+1);
+        if ($horaPlus > 23) $horaPlus -= 24;
+        
+        $hora = $this->getHora();
+        
+        $this->db->select('Pictograms.imgPicto, Pictograms.pictoid, PictogramsLanguage.pictotext, (P_StatsUserPicto.'.$horaMinus.'h+P_StatsUserPicto.'.$hora.'h+P_StatsUserPicto.'.$horaPlus.'h+P_StatsUserPicto.'.$this->getDia().'+P_StatsUserPicto.'.$this->getDia().') as count');
         $this->db->from('P_StatsUserPicto');
         $this->db->join('PictogramsLanguage', 'P_StatsUserPicto.pictoid = PictogramsLanguage.pictoid', 'left'); 
         $this->db->join('Pictograms', 'P_StatsUserPicto.pictoid = Pictograms.pictoid', 'left');

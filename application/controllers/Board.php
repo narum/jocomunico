@@ -391,13 +391,22 @@ class Board extends REST_Controller {
             $expander->expand();
             
             $info = $expander->info;
-            $idErrorcode = $info[errorcode];
-            $errorText = $this->BoardInterface->get_errorText($idErrorcode);
+            $errorText = "";
             
-            $response = [
-                'info' => $info,
-                'errorText' => $errorText[0][content]
-            ];
+            if ($info[error]) {
+                $errorCode = $info[errorcode];
+                $errorText = $this->BoardInterface->get_errorText($errorCode);
+                
+                $response = [
+                    'info' => $info,
+                    'errorText' => $errorText[0][content]
+                ];
+            } else {
+                $response = [
+                    'info' => $info,
+                    'errorText' => ""
+                ];
+            }
 
             $this->response($response, REST_Controller::HTTP_OK);
         }

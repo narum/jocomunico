@@ -195,6 +195,9 @@
     transform: translate(0%, -50%);
     top: 50%;
     position: relative;
+    font-size: 2.5vh;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .historicContainer{
     height: 73%;

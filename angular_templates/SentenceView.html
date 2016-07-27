@@ -34,11 +34,11 @@
                 </div>
             </div>
             <!--Display the phrase-->
-            <div ng-if="!info.error || info.errorcode == 7" class="col-xs-12 phraseText text-uppercase">
+            <div ng-if="!info.error || info.errorcode == 7 || info.errorcode == 6" class="col-xs-12 phraseText text-uppercase">
                 {{info.frasefinal}}
             </div>
             <!--Display the eror text-->
-            <div ng-if="info.error && info.errorcode != 7" class="col-xs-12 phraseText">
+            <div ng-if="info.error && info.errorcode != 7 && info.errorcode != 6" class="col-xs-12 phraseText">
                 {{info.errormessage}}
             </div>
         </div>

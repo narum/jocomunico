@@ -93,7 +93,8 @@
                         <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext !== null" class="textCell">{{picto.pictotext}}</div>
                         <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName !== null" class="textCell">{{picto.folderName}}</div>
                         <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName === null && picto.sPreRecText !== null" class="textCell">{{picto.sPreRecText}}</div>
-                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName === null && picto.Bname !== null" class="textCell">{{picto.Bname}}</div>
+                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName === null && picto.Bname !== null && picto.textFunction !== null && picto.functType === 'link'" class="textCell">{{picto.textFunction}}</div>
+                        <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName === null && picto.Bname !== null && picto.functType !== 'link'" class="textCell">{{picto.Bname}}</div>
                         <div ng-if="isPictoActive(picto) && cfgTextInCell && picto.textInCell === null && picto.pictotext === null && picto.folderName === null && picto.Bname === null && picto.textFunction !== null" class="textCell">{{picto.textFunction}}</div>
 
 

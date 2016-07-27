@@ -55,7 +55,8 @@
         <div class="col-xs-6 col-xs-offset-3">
             <img src="img/srcWeb/home/video.png" class="home-video-img" />
             <div class="home-video-wrapper">
-                <iframe src="https://www.youtube.com/embed/1PvC3CvGFMY" frameborder="0" allowfullscreen></iframe>
+                <iframe ng-if="langabbr === 'CA'" src="https://www.youtube.com/embed/AQ5m0ZZO7no" frameborder="0" allowfullscreen></iframe>
+                <iframe ng-if="langabbr !== 'CA'" src="https://www.youtube.com/embed/iQdy3JVO1J4" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>        
     </div>

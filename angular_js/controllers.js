@@ -1864,6 +1864,7 @@ angular.module('controllers', [])
                 $scope.cfgMenuDeleteAllActive = userConfig.cfgMenuDeleteAllActive;
                 $scope.cfgSentenceBarUpDown = userConfig.cfgSentenceBarUpDown;
                 $scope.pictoBarWidth = 12 - $scope.cfgMenuHomeActive - $scope.cfgMenuReadActive - $scope.cfgMenuDeleteLastActive - $scope.cfgMenuDeleteAllActive;
+                $scope.cfgAutoEraseSentenceBar = userConfig.cfgAutoEraseSentenceBar;
                 $scope.cfgScanningCustomRowCol = userConfig.cfgScanningCustomRowCol;
                 $scope.longclick = userConfig.cfgScanningAutoOnOff == 0 ? true : false;
                 $scope.timerScan = userConfig.cfgScanningAutoOnOff == 1 ? true : false;
@@ -2008,6 +2009,7 @@ angular.module('controllers', [])
             //Load the recommenderArray that will be displayed in the prediction bar.
             $scope.getPred = function ()
             {
+                console.log("What's happening...");
                 var url = $scope.baseurl + "Board/getPrediction";
                 $http.post(url).success(function (response)
                 {
@@ -2308,15 +2310,7 @@ angular.module('controllers', [])
                     var url = $scope.baseurl + "Board/readText";
                     $http.post(url, postdata).success(function (response) {
                         $scope.dataAudio = response.audio;
-                        if ($scope.dataAudio[1]) {
-                            if (false) {
-                                txtContent("errorVoices").then(function (content) {
-                                    $scope.errorMessage = content.data[$scope.dataAudio[3]];
-                                    $scope.errorCode = $scope.dataAudio[3];
-                                    $('#errorVoicesModal').modal({backdrop: 'static'});
-                                });
-                            }
-                        } else {
+                        if (!$scope.dataAudio[1]) {
                             $scope.sound = "mp3/" + $scope.dataAudio[0];
                             var audiotoplay = $('#utterance');
                             audiotoplay.src = "mp3/" + $scope.dataAudio[0];
@@ -3563,6 +3557,7 @@ angular.module('controllers', [])
             };
             $scope.getSenteceToScan = function () {
                 $scope.readText($scope.historic[$scope.scanningSentence][0].generatorString || $scope.historic[$scope.scanningSentence][0].sPreRecText, false);
+                $scope.InitScan();
             };
             // Change the current scan block
             $scope.nextBlockScan = function () {
