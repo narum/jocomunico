@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de dades: `jocomunicoapp-neta`
+-- Base de dades: `jocomunicoapp`
 --
-CREATE DATABASE IF NOT EXISTS `jocomunicoapp-neta` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `jocomunicoapp-neta`;
+CREATE DATABASE IF NOT EXISTS `jocomunicoapp` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `jocomunicoapp`;
 
 -- --------------------------------------------------------
 
