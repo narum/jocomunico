@@ -165,10 +165,10 @@
                                     <img class="iconResponsive" ng-src="{{baseurl}}img/pictos/femenino.png"/>
                                 </div>
                             </div>
-                            <div ng-if="h != null && h[0].isPreRec == '1'" class="col-xs-1 sentenceCell">
-                                <img ng-if="h[0].sPreRecImg1 != null && h[0].sPreRecImg1 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg1}}" class="imgResponsiveHistoric"/>
-                                <img ng-if="h[0].sPreRecImg2 != null && h[0].sPreRecImg2 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg2}}" class="imgResponsiveHistoric"/>
-                                <img ng-if="h[0].sPreRecImg3 != null && h[0].sPreRecImg3 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg3}}" class="imgResponsiveHistoric"/>
+                            <div ng-if="h != null && h[0].isPreRec == '1'" class="col-xs-12 sentenceCellPreRec">
+                                <img ng-if="h[0].sPreRecImg1 != null && h[0].sPreRecImg1 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg1}}" class="imgResponsiveHistoricPreRec"/>
+                                <img ng-if="h[0].sPreRecImg2 != null && h[0].sPreRecImg2 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg2}}" class="imgResponsiveHistoricPreRec"/>
+                                <img ng-if="h[0].sPreRecImg3 != null && h[0].sPreRecImg3 != ''" ng-src="{{baseurl}}{{h[0].sPreRecImg3}}" class="imgResponsiveHistoricPreRec"/>
                             </div>
                             <!--Display the phrase-->
                             <div ng-if="h != null && h[0].isPreRec != 1" class="col-xs-12 phraseText text-uppercase">

@@ -225,6 +225,10 @@
     width: 10%;
     height: 75%;
 }
+.sentenceCellPreRec{
+    margin-right: 2px;
+    height: 75%;
+}
 .phraseText{
     height: 20%;
 }
@@ -239,6 +243,17 @@
     transform: translate(-50%,-50%);
     position: relative;
     z-index: 2;
+}
+.imgResponsiveHistoricPreRec{
+    display: block;
+    height: auto;
+    max-height: 100%;
+    top: 50%;
+    left: 7%;
+    transform: translate(-50%,-50%);
+    position: relative;
+    z-index: 2;
+    float: left;
 }
 .indicatorNegativeSentence{
     border-bottom: solid 3px;

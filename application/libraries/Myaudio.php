@@ -578,6 +578,7 @@ class Myaudio {
     }
     
     /**
+     * THIS FUNCTION WILL NOT WORK WITHOUT A VALID VOCALWARE ACCOUNT
      * Requests and saves audio file from online voice service
      * @param type $vocalwareLID
      * @param type $vocalwareVID
@@ -595,8 +596,10 @@ class Myaudio {
         
         $curl = curl_init();
 
-        $url = "http://www.vocalware.com/tts/gen.php";
-        $secret_phrase = "5a823f715692c02de9e215fef94c5dc2";
+
+		// A Vocalware account is needed
+        $url = "";
+        $secret_phrase = "";
 
         $data = array(
             'EID' => '2',
