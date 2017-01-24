@@ -375,6 +375,18 @@ html *
     min-height: 10px;
     min-width: 10px;
 }
+.editPicto{
+    left: 5px;
+    top: 5px;
+    max-width: 10%;
+    height: auto;
+    max-height: 10%;
+    width: auto;
+    z-index: 3;
+    position: absolute;
+    min-height: 10px;
+    min-width: 10px;
+}
 .sfolder{
     padding:2px;
     color:red;

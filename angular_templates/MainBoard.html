@@ -81,6 +81,7 @@
                     <div class="col-xs-12 " ng-repeat="picto in data" ng-style="{'width':'{{100 / columns}}%','height':'{{100 / rows}}% '}" ng-mousedown="isClickEnable()?clickOnCell(picto):null" ng-right-click="openEditCellMenu({{picto.posInBoard}});" ng-mouseenter="cfgTimeOverOnOff?TimeoutOverClick(0,picto):null" ng-mouseleave="cfgTimeOverOnOff?CancelTimeoutOverClick():null" ng-drop="inEdit" ng-drop-success="onDropSwap({{picto.posInBoard}},$data,$event)" ng-drag="inEdit && !fv.painting" ng-drag-data="{posInBoardPicto:'{{picto.posInBoard}}'}" data-allow-transform="true" >
                         <img ng-if="picto.boardLink != null || picto.folderName !== null || picto.ID_CFunction === '23'" class="sfolder" ng-src="{{baseurl}}img/srcWeb/Mainboard/folder.png"/>
                         <img ng-if="inEdit" class="removePicto" ng-src="{{baseurl}}img/srcWeb/Edit/cross.png" ng-click="removePicto(picto)"/>
+                        <img ng-if="inEdit" class="editPicto" ng-src="{{baseurl}}img/srcWeb/Edit/edit.png" ng-click="openEditCellMenu({{picto.posInBoard}});"/>
                         
                         <div class="backgroundCell" ng-style="{'background-color':'#{{picto.color}}'}"></div>
                         <!-- put the scan color over the image.
