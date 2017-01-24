@@ -2244,7 +2244,7 @@ angular.module('controllers', [])
                         return false;
                     }
                     if (cell.ID_CSentence) {
-                        $scope.readText(cell.sPreRecText, true);
+                        $scope.readText(cell.sPreRecText, false);
                         return false;
                     }
                     var text = "";
