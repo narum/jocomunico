@@ -62,7 +62,7 @@ class ImgUploader extends REST_Controller {
             }
             if ($success) {
                 $idusu = $this->session->userdata('idsu');
-                $this->ImgUploader_model->insertImg($idusu, basename($_FILES['file' . $i]['name']), $md5Name);
+                $this->ImgUploader_model->insertImg($idusu, basename($_FILES['file' . $i]['name']), $md5Name, $target_dir);
             } else {
                 $errorProv = ["errorImg2", $_FILES['file' . $i]['name']];
                 array_push($errorText, $errorProv);

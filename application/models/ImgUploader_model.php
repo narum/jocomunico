@@ -7,11 +7,11 @@ class ImgUploader_model extends CI_Model {
         parent::__construct();
     }
 
-    function insertImg($idusu, $orgiginalName, $md5Name) {
+    function insertImg($idusu, $orgiginalName, $md5Name, $path) {
         $data = array(
             'ID_ISU' => $idusu,
             'imgName' => $orgiginalName,
-            'imgPath' => "img/users/".$md5Name
+            'imgPath' => $path.$md5Name
         );
 
         $this->db->insert('Images', $data);
