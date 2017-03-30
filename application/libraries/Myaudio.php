@@ -601,14 +601,15 @@ class Myaudio {
         $url = "";
         $secret_phrase = "";
 
+        // Vocalware API identification is required
         $data = array(
             'EID' => '2',
             'LID' => $vocalwareLID,
             'VID' => $vocalwareVID,
             'TXT' => $text,
             'EXT' => 'mp3',
-            'ACC' => '5795433',
-            'API' => '2490514'                    
+            'ACC' => '', // required
+            'API' => ''  // required            
         );
 
         $data['CS'] = md5($data['EID'].$data['LID'].$data['VID'].$data['TXT'].$data['EXT'].$data['ACC'].$data['API'].$secret_phrase);
