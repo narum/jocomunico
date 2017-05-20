@@ -84,7 +84,7 @@ class BoardInterface extends CI_Model {
         $lang = $this->session->userdata('ulangabbr');
 
         $this->db->where('R_BoardCell.ID_RBoard', $id);
-        $this->db->group_by('R_BoardCell.posInBoard');
+        // $this->db->group_by('R_BoardCell.posInBoard');
         $this->db->order_by('R_BoardCell.posInBoard', 'asc');
         $this->db->join('Cell', 'R_BoardCell.ID_RCell = Cell.ID_Cell');
         //Este tiene que ser left, si pictograms.picto id = null significa que esta vacia
@@ -100,8 +100,9 @@ class BoardInterface extends CI_Model {
 
         if ($query->num_rows() > 0) {
             $output = $query->result();
-        } else
+        } else {
             $output = null;
+        }
 
         return $output;
     }
