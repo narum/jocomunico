@@ -4522,9 +4522,10 @@ class Mypattern {
                 
                 // si l'idioma d'expansió no podia expandir i s'ha fet servir el castellà per defecte
                 // que no elimini els subjectes perquè així per la posterior traducció hi haurà menys
-                // ambigüitats
+                // ambigüitats (només pel primer nivell i si les frases no són ordres)
                 if ($slotaux->defvalueused) {
-                    if ($CI->session->userdata('explangcannotexpand') == '1') {
+                    if ($CI->session->userdata('explangcannotexpand') == '1' && $slotaux->level != 2
+                            && $tipusfrase != "ordre") {
                         switch ($slotaux->defvalue) {
                             case '1':
                                 $slotaux->slotstring = array();
@@ -4558,9 +4559,10 @@ class Mypattern {
                                 || $slotaux->defvalue == '3' || $slotaux->defvalue == '7') $slotaux->slotstring = array();
                     }
                 }
-                // si no s'ha fet servir el subjecte per defecte
+                // si no s'ha fet servir el subjecte per defecte o era del segon nivell o era una ordre
                 else {
-                    if ($CI->session->userdata('explangcannotexpand') != '1') {
+                    if ($CI->session->userdata('explangcannotexpand') != '1' || $slotaux->level == 2
+                            || $tipusfrase == "ordre") {
                         // esborrem el tú o el yo, si no tenen elements coordinats
                         if (($slotaux->paraulafinal->text == "yo" || $slotaux->paraulafinal->text == "tú")
                                 && !$slotaux->paraulafinal->coord) {

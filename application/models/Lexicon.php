@@ -580,6 +580,7 @@ class Lexicon extends CI_Model {
     {
         $paraula = array();
         $pictoid = -1;
+        $coord = '0';
         
         // gets the last inserted pictogram
         $this->db->where('ID_RSTPUser', $idusu);
@@ -589,10 +590,11 @@ class Lexicon extends CI_Model {
         if ($query->num_rows() > 0) {
             $paraula = $query->result();
             $pictoid = $paraula[0]->pictoid;
+            $coord = $paraula[0]->coordinated;
         }
         
         // if it's not equal to the last inserted pictogram
-        if ($idparaula != $pictoid) {
+        if (($idparaula != $pictoid) || $coord != '0') {
             $data = array(
                 'pictoid' => $idparaula,
                 'ID_RSTPUser' => $idusu,
