@@ -1216,6 +1216,17 @@ angular.module('controllers', [])
         })
         .controller('myCtrl', function (Resources, $location, $scope, $http, ngDialog, txtContent, $rootScope, $interval, $timeout, dropdownMenuBarInit, AuthService) {
 
+            $scope.isAndroid = false;
+
+            $(function() { // Wait for page to finish loading.
+                if(navigator != undefined && navigator.userAgent != undefined) {
+                    user_agent = navigator.userAgent.toLowerCase();
+                    if(user_agent.indexOf('android') > -1) { // Is Android.
+                        $scope.isAndroid = true;
+                    }
+                }
+            });
+            
             $scope.viewActived = false;
             $timeout(function () {
                 $scope.viewActived = true;

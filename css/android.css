@@ -1,0 +1,4 @@
+* {
+    -ms-content-zooming: none;
+    touch-action: auto !important;
+}

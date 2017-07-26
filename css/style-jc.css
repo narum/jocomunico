@@ -5,6 +5,7 @@
     -ms-content-zooming: none;
     touch-action: none;
 }
+
 #main{
     height:100vh;
     -webkit-user-select: none;
